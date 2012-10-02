@@ -137,10 +137,10 @@ class CPM {
 	//---------- OPTIONS FOR CODEPEOPLE POST MAP ----------
 	
 	/**
-	 * Set default system and maps configuration
+	 * Get default configuration options
 	 */
-	function set_default_configuration($default = false){
-		$cpm_default = array(
+	function _default_configuration(){
+		return array(
 							'zoom' => '10',
 							'width' => '450',
 							'height' => '450',
@@ -167,6 +167,13 @@ class CPM {
 												<div class='thumbnail'><a title='%link%' href='%link%'>%thumbnail%</a></div>
 											</div>"
 							);
+	} // End _default_configuration
+	
+	/**
+	 * Set default system and maps configuration
+	 */
+	function set_default_configuration($default = false){
+		$cpm_default = $this->_default_configuration();
 							
     	$options = get_option('cpm_config');
 		if ($default || !isset($options)) {
@@ -180,17 +187,20 @@ class CPM {
 	 * Get a part of option variable or the complete array
 	 */
 	function get_configuration_option($option = null){
+	
 		$options = get_option('cpm_config');
-		if(isset($options)){
-			if(isset($option)){
-				return (isset($options[$option])) ? $options[$option] : null;
-			}else{
-				return $options;
-			}	
-				
+		$default = $this->_default_configuration();
+		
+		if(!isset($options)){
+			$options = $default;
 		}
 		
-		return null;
+		if(isset($option)){
+			return (isset($options[$option])) ? $options[$option] : null;
+		}else{
+			return $options;
+		}	
+		
 	} // End get_configuration_option
 	
 	//---------- METADATA FORM METHODS ----------
