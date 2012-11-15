@@ -40,7 +40,7 @@ If you want more information about this plugin or another one don't doubt to vis
 
 == Installation ==
 
-**To install Photoshow, follow these steps:**
+**To install CodePeople Post Map, follow these steps:**
 
 1.	Download and unzip the plugin
 2.	Upload the entire codepeople-post-map/ directory to the /wp-content/plugins/ directory
