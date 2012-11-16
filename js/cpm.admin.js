@@ -70,7 +70,7 @@
 		// Action for insert shortcode 
 		$('#cpm_map_shortcode').click(function(){
 			if(send_to_editor){
-				send_to_editor('[codepepople-post-map]');
+				send_to_editor('[codepeople-post-map]');
 			}
 		});
 	});
