@@ -448,6 +448,15 @@ class CPM {
 					<?php $this->_deploy_icons($options); ?>
 				</td>	
 			</tr>
+			<tr>
+				<td colspan="2">
+					<p style="border:1px solid #CCC; padding:10px;">
+						<?php
+						_e( 'To insert this map in a post/page, press the <strong>"insert the map tag"</strong> button and save the post/page modifications.' );
+						?>
+					</p>
+				</td>
+			</tr>
 			<tr valign="top">
                 <th scope="row">
 					<label for="cpm_point_bubble"><?php _e('If you want to display the map in page / post:', 'codepeople-post-map')?></label>
