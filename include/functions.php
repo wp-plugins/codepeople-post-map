@@ -340,7 +340,7 @@ class CPM {
 				<td><input type="text" name="cpm_map[points]" id="cpm_map_points" value="<?php echo ((isset($options['points'])) ? $options['points'] : '');?>" /></td>
 			</tr>
 		</table>
-		<?
+	<?php
 	} // End _deploy_map_form
 	
 	/**
@@ -487,7 +487,7 @@ class CPM {
 		$cpm_point = get_post_meta($post->ID, 'cpm_point', TRUE);
 		$cpm_map = get_post_meta($post->ID, 'cpm_map', TRUE);
 		$general_options = $this->get_configuration_option();
-		$options = array_merge($general_options, (array)$cpm_point, (array)$cpm_map);
+		$options = array_merge((array)$general_options, (array)$cpm_point, (array)$cpm_map);
 		$options['post_id'] = $post->ID;
 		$this->_print_form($options);
 	} // End insert_form
