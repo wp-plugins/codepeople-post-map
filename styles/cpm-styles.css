@@ -7,7 +7,7 @@
 
 .cpm-map img { max-width: none; height: auto }
 .cpm-mapicon { width:20px; height:34px; cursor:pointer;background:url(../images/icons/marker.png) no-repeat 0 0; }
-.cpm-infowindow {margin:0; padding:0px; height:125px; width:%width%; overflow:hidden; font-size:11px; clear:both; line-height:13px;}
+.cpm-infowindow {margin:0; padding:0px; height:80px; width:%width%; overflow:hidden; font-size:11px; clear:both; line-height:13px; overflow-y:auto;}
 .cpm-infowindow .content {float:left; width:200px;}
 .cpm-infowindow .content .title {clear:both; display:block; font-size:12px; line-height: 18px; font-weight:bold;}
 .cpm-infowindow .content .address {font-weight:bold; font-size:9px;}
