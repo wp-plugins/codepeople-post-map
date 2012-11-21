@@ -369,100 +369,124 @@ class CPM {
 	 * Private method to print Maps form
 	 */
 	function _print_form($options){
+		global $post;
 	?>
 		<p  style="font-weight:bold;"><?php _e('For more information go to the <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map" target="_blank">CodePeople Post Map</a> plugin page'); ?></p>
-		<table class="form-table">
-            <tr valign="top">
-                <th scope="row"><label for="cpm_name"><?php _e('Location name:', 'codepeople-post-map')?></label></th>
-                <td>
-                    <input type="text" size="40" style="width:95%;" name="cpm_point[name]" id="cpm_point_name" value="<?php echo ((isset($options['name'])) ? $options['name'] : '');?>" />
-                </td>
-            </tr>
-            <tr valign="top">
-                <th scope="row"><label for="cpm_point_description"><?php _e('Location description:', 'codepeople-post-map')?></label></th>
-                <td>
-                    <input type="text" size="40" style="width:95%;" name="cpm_point[description]" id="cpm_point_description" value="<?php echo ((isset($options['description'])) ? $options['description'] : '');?>" />
-                </td>
-            </tr>
-			<tr valign="top">
-				<td valign="top" colspan="2">
-				<?php 
-				$attch_list = $this->_all_post_thumb($post_id);
-				if (count($attch_list) > 0) { 
-				?>
-					<div>
-						<?php _e("Select the thumbnail by clicking on the images","codepeople-post-map"); ?>
-					</div>
-					<div id="cpm_thumbnail_container">
-						<input type="hidden" name="cpm_point[thumbnail]" value="<?php if($options["thumbnail"]){ echo $options["thumbnail"];} ?>" id="cpm_point_thumbnail" />
-						<?php 
-						foreach ($attch_list as $attch) { 
-						   $thumbnail = wp_get_attachment_image_src($attch, 'thumbnail');
-						?>
-						<div class="cpm_thumb <?php if($options["thumbnail"] && $options["thumbnail"] == $thumbnail[0]){ echo 'cpm_thumb_selected';}?>">
-							<img attch="<?php echo $attch ?>" src="<?php echo $thumbnail[0] ?>" width="40" height="40" />
+		<div style="border:1px solid #CCC;margin-bottom:10px;min-height:60px;">
+			<h3><?php _e('Map points'); ?></h3>
+			<div id="points_container" style="padding:10px;">
+			<?php _e('Multiple points in the same Post/Page are available only in the <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map" target="_blank">advanced version</a>.'); ?>
+			</div>
+		</div>
+		<div class="point_form" style="border:1px solid #CCC;">
+			<h3><?php _e('Map point description'); ?></h3>
+			<table class="form-table">
+				<tr valign="top">
+					<th scope="row"><label for="cpm_name"><?php _e('Location name:', 'codepeople-post-map')?></label></th>
+					<td>
+						<input type="text" size="40" style="width:95%;" name="cpm_point[name]" id="cpm_point_name" value="<?php echo ((isset($options['name'])) ? $options['name'] : '');?>" />
+					</td>
+				</tr>
+				<tr valign="top">
+					<th scope="row"><label for="cpm_point_description"><?php _e('Location description:', 'codepeople-post-map')?></label></th>
+					<td>
+						<input type="text" size="40" style="width:95%;" name="cpm_point[description]" id="cpm_point_description" value="<?php echo ((isset($options['description'])) ? $options['description'] : '');?>" />
+					</td>
+				</tr>
+				<tr valign="top">
+					<td valign="top" colspan="2">
+					<?php 
+					$attch_list = $this->_all_post_thumb($post->ID);
+					if (count($attch_list) > 0) { 
+					?>
+						<div>
+							<?php _e("Select the thumbnail by clicking on the images","codepeople-post-map"); ?>
 						</div>
-						<?php  } ?>
-					</div>
-				<?php } else { ?>
-					<div>
-						<strong><?php _e("Thumbnail: ","codepeople-post-map"); ?></strong><?php _e("If you want to attach an image to the point you need to upload it first to the post gallery","codepeople-post-map"); ?>
-					</div> 
-				<?php  } ?> 
-				</td>	
-			</tr>
-			<tr valign="top">
-				<th></th>
-				<td>
-					<p align="right">
-						<a class="button" href = "?post_id=<?php echo $post_id ?>&type=image" title="Upload Images"><?php _e("Upload Images","codepeople-post-map") ?></a>
-					</p>                     
-				</td>
-			</tr>	
-			<tr valign="top">
-                <th scope="row"><label for="cpm_point_address"><?php _e('Address:', 'codepeople-post-map')?></label></th>
-                <td>
-                    <input type="text" size="40" style="width:95%;" name="cpm_point[address]" id="cpm_point_address" value="<?php echo ((isset($options['address'])) ? $options['address'] : '');?>" />
-                </td>
-            </tr>
-			<tr valign="top">
-                <th scope="row"><label for="cpm_point_latitude"><?php _e('Latitude:', 'codepeople-post-map')?></label></th>
-                <td>
-                    <input type="text" size="40" style="width:95%;" name="cpm_point[latitude]" id="cpm_point_latitude" value="<?php echo ((isset($options['latitude'])) ? $options['latitude'] : '');?>" />
-                </td>
-            </tr>
-			<tr valign="top">
-                <th scope="row"><label for="cpm_point_longitude"><?php _e('Longitude:', 'codepeople-post-map')?></label></th>
-                <td>
-                    <input type="text" size="40" style="width:95%;" name="cpm_point[longitude]" id="cpm_point_longitude" value="<?php echo ((isset($options['longitude'])) ? $options['longitude'] : '');?>" />
-                </td>
-            </tr>
-			<tr valign="top">
-                <th scope="row" style="text-align:right;"><p class="submit"><input type="button" name="cpm_point_verify" id="cpm_point_verify" value="<?php _e('Verify', 'codepeople-post-map'); ?>" onclick="checking_point();" /></p></th>
-                <td>
-                    <label for="cpm_point_verify"><?php _e('Verify this latitude and longitude using Geocoding. This could overwrite the point address.', 'codepeople-post-map')?></label>
-                </td>
-            </tr>
-			<tr valign="top">
-				<td colspan="2">
-					<?php $this->_deploy_icons($options); ?>
-				</td>	
-			</tr>
-			<tr>
-				<td colspan="2">
-					<p style="border:1px solid #CCC; padding:10px;">
-						<?php
-						_e( 'To insert this map in a post/page, press the <strong>"insert the map tag"</strong> button and save the post/page modifications.' );
-						?>
-					</p>
-				</td>
-			</tr>
+						<div id="cpm_thumbnail_container">
+							<input type="hidden" name="cpm_point[thumbnail]" value="<?php if($options["thumbnail"]){ echo $options["thumbnail"];} ?>" id="cpm_point_thumbnail" />
+							<?php 
+							foreach ($attch_list as $attch) { 
+							   $thumbnail = wp_get_attachment_image_src($attch, 'thumbnail');
+							?>
+							<div class="cpm_thumb <?php if($options["thumbnail"] && $options["thumbnail"] == $thumbnail[0]){ echo 'cpm_thumb_selected';}?>">
+								<img attch="<?php echo $attch ?>" src="<?php echo $thumbnail[0] ?>" width="40" height="40" />
+							</div>
+							<?php  } ?>
+						</div>
+					<?php } else { ?>
+						<div>
+							<strong><?php _e("Thumbnail: ","codepeople-post-map"); ?></strong><?php _e("If you want to attach an image to the point you need to upload it first to the post gallery","codepeople-post-map"); ?>
+						</div> 
+					<?php  } ?> 
+					</td>	
+				</tr>
+				<tr valign="top">
+					<td><a class="button" href="upload.php" title="Upload Images"><?php _e("Upload Images","codepeople-post-map") ?></a></td>
+					<td>
+					</td>
+				</tr>	
+				<tr valign="top">
+					<td colspan="2">
+						<table>
+							<tr valign="top">
+								<td>
+									<table>
+										<tr valign="top">
+											<th scope="row"><label for="cpm_point_address"><?php _e('Address:', 'codepeople-post-map')?></label></th>
+											<td  width="100%">
+												<input type="text" style="width:100%;" name="cpm_point[address]" id="cpm_point_address" value="<?php echo ((isset($options['address'])) ? $options['address'] : '');?>" />
+											</td>
+										</tr>	
+										<tr valign="top">
+											<th scope="row"><label for="cpm_point_latitude"><?php _e('Latitude:', 'codepeople-post-map')?></label></th>
+											<td>
+												<input type="text" style="width:100%;" name="cpm_point[latitude]" id="cpm_point_latitude" value="<?php echo ((isset($options['latitude'])) ? $options['latitude'] : '');?>" />
+											</td>
+										</tr>
+										<tr valign="top">
+											<th scope="row"><label for="cpm_point_longitude"><?php _e('Longitude:', 'codepeople-post-map')?></label></th>
+											<td>
+												<input type="text" style="width:100%;" name="cpm_point[longitude]" id="cpm_point_longitude" value="<?php echo ((isset($options['longitude'])) ? $options['longitude'] : '');?>" />
+											</td>
+										</tr>
+										<tr valign="top">
+											<th scope="row" style="text-align:right;"><p class="submit"><input type="button" name="cpm_point_verify" id="cpm_point_verify" value="<?php _e('Verify', 'codepeople-post-map'); ?>" onclick="checking_point();" /></p></th>
+											<td>
+												<label for="cpm_point_verify"><?php _e('Verify this latitude and longitude using Geocoding. This could overwrite the point address.', 'codepeople-post-map')?></label>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td width="50%">
+									<div id="cpm_map_container" class="cpm_map_container" style="width:400px; height:250px; border:1px dotted #CCC;">
+										<div style="margin:20px;">
+										<?php _e('To correct the latitude and longitud directly on MAP, type the address and press the Verify button, available only in the <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map" target="_blank">advanced version</a>.'); ?>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</table>	
+					</td>
+				</tr>
+				<tr valign="top">
+					<td colspan="2">
+						<?php $this->_deploy_icons($options); ?>
+					</td>	
+				</tr>
+			</table>
+		</div>
+		<p style="border:1px solid #CCC; padding:10px;">
+			<?php
+			_e( 'To insert this map in a post/page, press the <strong>"insert the map tag"</strong> button and save the post/page modifications.' );
+			?>
+		</p>	
+		<table class="form-table">
 			<tr valign="top">
                 <th scope="row">
 					<label for="cpm_point_bubble"><?php _e('If you want to display the map in page / post:', 'codepeople-post-map')?></label>
 				</th>
                 <td> 
-					<p class="submit" style="float:left;"><input type="button" name="cpm_map_shortcode" id="cpm_map_shortcode" value="<?php _e('insert the map tag', 'codepeople-post-map'); ?>" /></p>
+					<p style="float:left;"><input type="button" class="button-primary" name="cpm_map_shortcode" id="cpm_map_shortcode" value="<?php _e('insert the map tag', 'codepeople-post-map'); ?>" /></p>
 				</td>
             </tr>
 		</table>	

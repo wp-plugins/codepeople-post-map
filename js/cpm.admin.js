@@ -71,6 +71,12 @@
 		$('#cpm_map_shortcode').click(function(){
 			if(send_to_editor){
 				send_to_editor('[codepeople-post-map]');
+				var t = $('#content');
+				if(t.length){
+					var v= t.val()
+					if(v.indexOf('codepeople-post-map') == -1)
+						t.val(v+'[codepeople-post-map]');
+				}
 			}
 		});
 	});
