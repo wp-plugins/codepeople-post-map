@@ -108,7 +108,14 @@ jQuery(function(){
 						}
 					}	
 					
-					map.fitBounds(bounds);
+					if (h > 1) {
+					  map.fitBounds(bounds);
+					}
+					else if (h == 1) {
+					  map.setCenter(bounds.getCenter());
+					  map.setZoom(me.data.zoom);
+					}
+					
 					if(open_by_default)
 						me.open_infowindow(me.markers[open_by_default - 1]);
 				}
