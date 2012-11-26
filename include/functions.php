@@ -135,6 +135,21 @@ class CPM {
 	} // End save_map
 	
 	//---------- OPTIONS FOR CODEPEOPLE POST MAP ----------
+	/**
+	 * Get default windowhtml
+	 */
+	function _get_default_windowhtml(){
+		return "<div class='cpm-infowindow'>
+					<div class='cpm-content'>
+						<a title='%link%' href='%link%'>%thumbnail%</a>
+						<a class='title' href='%link%'>%title%</a>
+						<div class='address'>%address%</div>
+						<div class='description'>%description%</div>
+						<a href='%link%' class='more'>more &raquo;</a>
+					</div>
+					<div style='clear:both;'></div>
+				</div>";
+	}
 	
 	/**
 	 * Get default configuration options
@@ -157,15 +172,7 @@ class CPM {
 							'typecontrol' => true,
 							'highlight'	=> true,
 							'highlight_class' => 'cpm_highlight',
-							'windowhtml' => "<div class='cpm-infowindow'>
-												<div class='content'>
-													<a class='title' href='%link%'>%title%</a>
-													<div class='address'>%address%</div>
-													<div class='description'>%description%</div>
-													<a href='%link%' class='more'>more &raquo;</a>
-												</div>\
-												<div class='thumbnail'><a title='%link%' href='%link%'>%thumbnail%</a></div>
-											</div>"
+							'windowhtml' => $this->_get_default_windowhtml()
 							);
 	} // End _default_configuration
 	
@@ -765,6 +772,10 @@ class CPM {
     
 		$windowhtml = "";
 		$windowhtml_frame = $this->get_configuration_option('windowhtml');	
+		if(!isset($windowhtml_frame)){
+			$windowhtml_frame = $this->_get_default_windowhtml();
+		}
+		
 		$point_title = (!empty($point['title'])) ? $point['title'] : get_the_title($point['post_id']);
 		$point_link = (!empty($point['post_id'])) ? get_permalink($point['post_id']) : '';
 		
