@@ -87,7 +87,7 @@ A: Only one, because only one point location can be associated with a single pos
 = Q: How to insert a map into a template? =
 
 A: Load the template in which you want to place the map in the text editor of your choice and place the following code in the position where you want to display the map:
-<? Php echo do_shortcode ('[post-map CodePeople]');?>
+<?php echo do_shortcode ('[codepeople-post-map]'); ?>
 
 = Q: If I link geolocation information to a post but do not insert a map in it, will the geolocation information be available? =
 
