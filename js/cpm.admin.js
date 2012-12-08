@@ -6,8 +6,15 @@
 */
 
 (function ($) {
-	window['_get_latlng'] = function (){
-		var g  			= new google.maps.Geocoder(),
+	var _latlng_btn;
+	
+	function _get_latlng(request, callback){
+		var g = new google.maps.Geocoder();
+		g.geocode(request, callback);
+	};
+	
+	window['cpm_get_latlng'] = function (){
+		var f 			= _latlng_btn.parents('.point_form'),
 			a 			= $('#cpm_point_address').val(),
 			longitude 	= $('#cpm_point_longitude').val(),
 			latitude 	= $('#cpm_point_latitude').val(),
@@ -27,7 +34,7 @@
 			return false;
 		}	
 		
-		g.geocode(request, function(result, status){
+		_get_latlng(request, function(result, status){
 			if(status && status == "OK"){
 				// Update fields
 				var address   = result[0]['formatted_address'],
@@ -38,6 +45,9 @@
 					$('#cpm_point_address').val(address);
 					$('#cpm_point_longitude').val(longitude);
 					$('#cpm_point_latitude').val(latitude);
+					
+					// Load Map
+					cpm_load_map(f.find('.cpm_map_container'),latitude, longitude);
 				}
 			}else{
 				alert('The point is not located');
@@ -45,6 +55,75 @@
 			
 		});
 	};		
+	
+	// Show/Hide the information related to the map 
+	window['display_map_form'] = function (){
+		$('#map_data').slideToggle();
+	};
+	
+	// Check the point or address existence
+	window['cpm_checking_point'] = function (e){
+		var language = 'en';
+		_latlng_btn = $(e);
+		
+		if(typeof google != 'undefined' && google.maps){
+			cpm_get_latlng();
+		}else{
+			$('<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false'+((language) ? '&language='+language: '')+'&callback=cpm_get_latlng"></script>').appendTo('body');
+		}
+	};
+	
+	window['cpm_load_map'] = function(container, latitude, longitude){
+		var c = container,
+			f = c.parents('.point_form'),
+			p = new google.maps.LatLng(latitude, longitude),
+			m = new google.maps.Map(c[0], {
+								zoom: 5,
+								center: p,
+								mapTypeId: google.maps.MapTypeId['ROADMAP'],
+								
+								// Show / Hide controls
+								panControl: true,
+								scaleControl: true,
+								zoomControl: true,
+								mapTypeControl: true,
+								scrollWheel: true
+						}),
+			mk = new google.maps.Marker({
+							  position: p,
+							  map: m,
+							  icon: new google.maps.MarkerImage(cpm_default_marker),
+							  draggable: true
+						 });
+			
+			google.maps.event.addListener(mk, 'position_changed', function(){
+				f.find('#cpm_point_latitude').val(mk.getPosition().lat());
+				f.find('#cpm_point_longitude').val(mk.getPosition().lng());
+			});				
+	};
+	
+	window['cpm_set_map_flag'] = function(){
+		var request = {};
+		if(cpm_point['longitude'] && cpm_point['latitude']){
+			request['location'] = new google.maps.LatLng(cpm_point['latitude'], cpm_point['longitude']);
+		}else if(cpm_point['address']){
+			request['address'] = cpm_point['address'].replace(/[\n\r]/g, '');
+		}
+		
+		_get_latlng(request, function(result, status){
+			if(status && status == "OK"){
+				// Update fields
+				var address   = result[0]['formatted_address'],
+					latitude  = result[0]['geometry']['location'].lat(),
+					longitude = result[0]['geometry']['location'].lng();
+				
+				if(address && latitude && longitude){
+					// Load Map
+					cpm_load_map($('.cpm_map_container'),latitude, longitude);
+				}
+			}
+		});
+	};
 	
 	$(function(){
 		// Actions for icons
@@ -79,21 +158,10 @@
 				}
 			}
 		});
-	});
-	
-	// Show/Hide the information related to the map 
-	window['display_map_form'] = function (){
-		$('#map_data').slideToggle();
-	};
-	
-	// Check the point or address existence
-	window['checking_point'] = function (){
-		var language = 'en';
 		
-		if(typeof google != 'undefined' && google.maps){
-			_get_latlng();
-		}else{
-			$('<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false'+((language) ? '&language='+language: '')+'&callback=_get_latlng"></script>').appendTo('body');
+		// Create the script tag and load the maps api
+		if($('.cpm_map_container').length){
+			$('<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&callback=cpm_set_map_flag"></script>').appendTo('body');
 		}
-	};
+	});
 })(jQuery);

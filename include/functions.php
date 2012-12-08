@@ -377,7 +377,28 @@ class CPM {
 	 */
 	function _print_form($options){
 		global $post;
+		$default_configuration = $this->_default_configuration();
 	?>
+		<script>
+			var cpm_default_marker = "<?php echo $default_configuration['default_icon']; ?>";
+			var cpm_point = {};
+			
+			<?php 
+			if(!empty($options['address']) || (!empty($options['latitude']) && !empty($options['longitude']))){ 
+				if(!empty($options['address'])) echo 'cpm_point["address"]="'.$options['address'].'";';
+				if(!empty($options['latitude']) && !empty($options['longitude'])){
+					echo 'cpm_point["latitude"]="'.$options['latitude'].'";';
+					echo 'cpm_point["longitude"]="'.$options['longitude'].'";';
+				}
+				
+			} else {
+				echo 'cpm_point["address"]="Statue of Liberty, Statue of Liberty National Monument, Statue Of Liberty, New York, NY 10004, USA";'; 
+				echo 'cpm_point["latitude"]="40.689848";';
+				echo 'cpm_point["longitude"]="-74.044869";';
+			} 
+			?>
+			
+		</script>
 		<p  style="font-weight:bold;"><?php _e('For more information go to the <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map" target="_blank">CodePeople Post Map</a> plugin page'); ?></p>
 		<div style="border:1px solid #CCC;margin-bottom:10px;min-height:60px;">
 			<h3><?php _e('Map points'); ?></h3>
@@ -457,7 +478,7 @@ class CPM {
 											</td>
 										</tr>
 										<tr valign="top">
-											<th scope="row" style="text-align:right;"><p class="submit"><input type="button" name="cpm_point_verify" id="cpm_point_verify" value="<?php _e('Verify', 'codepeople-post-map'); ?>" onclick="checking_point();" /></p></th>
+											<th scope="row" style="text-align:right;"><p class="submit"><input type="button" name="cpm_point_verify" id="cpm_point_verify" value="<?php _e('Verify', 'codepeople-post-map'); ?>" onclick="cpm_checking_point(this);" /></p></th>
 											<td>
 												<label for="cpm_point_verify"><?php _e('Verify this latitude and longitude using Geocoding. This could overwrite the point address.', 'codepeople-post-map')?></label>
 											</td>
@@ -466,9 +487,6 @@ class CPM {
 								</td>
 								<td width="50%">
 									<div id="cpm_map_container" class="cpm_map_container" style="width:400px; height:250px; border:1px dotted #CCC;">
-										<div style="margin:20px;">
-										<?php _e('To correct the latitude and longitud directly on MAP, type the address and press the Verify button, available only in the <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map" target="_blank">advanced version</a>.'); ?>
-										</div>
 									</div>
 								</td>
 							</tr>
@@ -693,7 +711,11 @@ class CPM {
 				$output .= $this->_set_map_point($point, $i, (($point['post_id'] == $post->ID) ? "true" : "false"));
 				$i ++;
 			}	  
-			$output .= "</script>\n";	
+			$output .= "</script>\n
+			<noscript>
+				codepeople-post-map require JavaScript
+			</noscript>
+			";	
 			return $output;
 		}else{ 
 			return '';

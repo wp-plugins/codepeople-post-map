@@ -1,6 +1,6 @@
 === Google Post Map ===
 Contributors: codepeople
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GZX2Y9BBJKWN2
+Donate link: http://wordpress.dwbooster.com/content-tools/codepeople-post-map
 Tags: google maps, shortcode, map, maps, categories, post map, point, marker, list, location, address, images, geocoder, google maps	
 Requires at least: 3.0.5
 Tested up to: 3.3.4
