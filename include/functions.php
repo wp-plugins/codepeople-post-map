@@ -183,7 +183,7 @@ class CPM {
 		$cpm_default = $this->_default_configuration();
 							
     	$options = get_option('cpm_config');
-		if ($default || !isset($options)) {
+		if ($default || $options === false) {
 			update_option('cpm_config', $cpm_default);
 			$options = $cpm_default;
 		}
