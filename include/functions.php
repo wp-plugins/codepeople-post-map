@@ -271,7 +271,7 @@ class CPM {
 	function _deploy_map_form($options = NULL){
 		?>
 		<h2><?php _e('Maps Configuration', 'codepeople-post-map'); ?></h2>
-			
+		<p  style="border:1px solid #E6DB55;margin-bottom:10px;padding:5px;background-color: #FFFFE0;"><?php _e('For any issues with the map, go to our <a href="http://wordpress.dwbooster.com/contact-us" target="_blank">contact page</a> and leave us a message.'); ?></p>
 		<table class="form-table">
 			<tr valign="top">
 				<th scope="row"><label for="cpm_map_zoom"><?php _e('Map zoom:', 'codepeople-post-map')?></label></th>
@@ -400,6 +400,7 @@ class CPM {
 			
 		</script>
 		<p  style="font-weight:bold;"><?php _e('For more information go to the <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map" target="_blank">CodePeople Post Map</a> plugin page'); ?></p>
+		<p  style="border:1px solid #E6DB55;margin-bottom:10px;padding:5px;background-color: #FFFFE0;"><?php _e('For any issues with the map, go to our <a href="http://wordpress.dwbooster.com/contact-us" target="_blank">contact page</a> and leave us a message.'); ?></p>
 		<div style="border:1px solid #CCC;margin-bottom:10px;min-height:60px;">
 			<h3><?php _e('Map points'); ?></h3>
 			<div id="points_container" style="padding:10px;">
