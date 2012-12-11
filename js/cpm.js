@@ -152,7 +152,7 @@ jQuery(function(){
 			
 			// Open the marker bubble
 			open_infowindow : function(m){
-				this.infowindow.content = this.data.markers[m.id].info;
+				this.infowindow.setContent(this.data.markers[m.id].info);
 				this.infowindow.open(this.map, m);
 			},	
 			
