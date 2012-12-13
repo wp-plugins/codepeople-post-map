@@ -675,7 +675,7 @@ class CPM {
 		
 		$this->flush_map = true;
 		
-		if(is_single()){ // For maps in a post or page
+		if(is_singular()){ // For maps in a post or page
 			$cpm_map = get_post_meta($post->ID, 'cpm_map', TRUE);
 			$number = (!empty($cpm_map['points'])) ? 'numberposts='.$cpm_map['points'].'&' : '';
 			
@@ -762,7 +762,7 @@ class CPM {
 		$output .= "cpm_global['$this->map_id']['highlight_class'] = '".$this->get_configuration_option('highlight_class')."';\n"; 
 		  
 		$highlight = $this->get_configuration_option('highlight');
-		$output .= "cpm_global['$this->map_id']['highlight'] = ".(($highlight && !is_single()) ? 'true' : 'false').";\n"; 
+		$output .= "cpm_global['$this->map_id']['highlight'] = ".(($highlight && !is_singular()) ? 'true' : 'false').";\n"; 
 		$output .= "cpm_global['$this->map_id']['type'] = '$type';\n";	
 		  
 		// Define controls
