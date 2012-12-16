@@ -658,8 +658,6 @@ class CPM {
 			$point['post_id'] = $post->ID;
 			$this->points[] = $point;
 			$index = count($this->points);
-			$this->points_str .=  $this->_set_map_point($this->points[$index-1], $index-1);
-				
 		}	
 	} // End populate_points
 	
@@ -692,13 +690,13 @@ class CPM {
 			$posts = array_filter($posts, array('CPM', '_unique_element'));
 			
 			// The first post is the actual post, I remove it before sorting the rest of posts in list
-			array_shift($posts);
+			$actual = array_shift($posts);
 			usort($posts, array('CPM', '_ordering_array'));
+			array_unshift($posts, $actual);
 			
-			// Obtain only the number-1 of posts configured in the plugin settings
-			// The actual post is entered to the object attribute points from the populate_points method through the_post action
+			// Obtain only the number of posts configured in the plugin settings
 			if(!empty($cpm_map['points']) && $cpm_map['points'] > 0)
-				$posts = array_slice($posts, 0, $cpm_map['points']-1);
+				$posts = array_slice($posts, 0, $cpm_map['points']);
 			
 			foreach($posts as $_post){
 				$this->populate_points($_post);
