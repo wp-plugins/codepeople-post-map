@@ -26,8 +26,8 @@ function cpm_admin_init(){
 	
 	// Insert the map's insertion form below the posts and pages editor
 	$form_title = __('Associate an address to the post for Google Maps association', 'codepeople-post-map');
-	add_meta_box('codepeople_post_map_form', $form_title, array(&$cpm_obj, 'insert_form'), 'post', 'normal');
-    add_meta_box('codepeople_post_map_form', $form_title, array(&$cpm_obj, 'insert_form'), 'page', 'normal');
+	add_meta_box('codepeople_post_map_form', $form_title, array($cpm_obj, 'insert_form'), 'post', 'normal');
+    add_meta_box('codepeople_post_map_form', $form_title, array($cpm_obj, 'insert_form'), 'page', 'normal');
 	
 	add_action('save_post', array(&$cpm_obj, 'save_map'));
 	
@@ -39,9 +39,7 @@ function cpm_admin_init(){
 function cpm_init(){
 	global $cpm_obj;
 	$cpm_obj = new CPM;
-	
 	add_shortcode('codepeople-post-map', array(&$cpm_obj, 'replace_shortcode'));
-	add_action('the_post', array(&$cpm_obj, 'populate_points'));
 }
 
 
