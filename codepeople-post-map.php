@@ -59,6 +59,7 @@ if (!function_exists("cpm_settings")) {
 	
 add_action('admin_enqueue_scripts', array(&$cpm_obj, 'load_admin_resources'), 1);
 add_action('wp_enqueue_scripts', array(&$cpm_obj, 'load_resources'), 1);
+add_action('wp_footer', array(&$cpm_obj, 'load_footer_resources'), 1);
 add_action('admin_menu', 'cpm_settings');
 
 ?>

@@ -571,6 +571,10 @@ class CPM {
 			wp_localize_script('cpm_script', 'language', $language);
 	} // End load_resources
 	
+	function load_footer_resources(){
+		echo '<style>.cpm-map img{ max-width: none;box-shadow:none;}</style>';
+	} // End load_footer_resources
+	
 	/**
 	 * Print the settings page for entering the general setting's data of maps
 	 */
