@@ -9,14 +9,14 @@ jQuery(function(){
 	(function($){
 		// Create a class with CodePeople Post Map functionalities and attributes
 		$.CPM = function(id, config){
-			this.data = $.extend(true, {}, this.default, config);
+			this.data = $.extend(true, {}, this.defaults, config);
 			this.id = id;
 		}; 
 		
 		$.CPM.prototype = {
 			markers : [],
 			windows : [],
-			default : {
+			defaults : {
 				markers 		: [],
 				zoom			: 10,
 				type			: 'ROADMAP',
