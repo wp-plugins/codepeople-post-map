@@ -85,6 +85,13 @@ jQuery(function(){
 						bounds = new google.maps.LatLngBounds (),
 						open_by_default;
 					
+					google.maps.event.addListenerOnce(map, 'idle', function(){
+						setTimeout(function(){
+							if(open_by_default)
+										google.maps.event.trigger(me.markers[open_by_default - 1], 'click');
+						}, 1000);				
+					});
+					
 					me.infowindow = new google.maps.InfoWindow({maxWidth:340});
 					for (var i = c; i < h; i++){		
 						if(!m[i]['invalid']){
@@ -115,9 +122,6 @@ jQuery(function(){
 					  map.setCenter(bounds.getCenter());
 					  map.setZoom(me.data.zoom);
 					}
-					
-					if(open_by_default)
-						me.open_infowindow(me.markers[open_by_default - 1]);
 				}
 			},
 			
@@ -207,7 +211,7 @@ jQuery(function(){
 		var map = $('.cpm-map');
 		if(map.length){
 			// Create the script tag and load the maps api
-			$('<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false'+((language) ? '&language='+language: '')+'&callback=cpm_init"></script>').appendTo('body');	
+			$('<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false'+((typeof cpm_language != 'undefined' && cpm_language.lng) ? '&language='+cpm_language.lng: '')+'&callback=cpm_init"></script>').appendTo('body');	
 		}	
 		
 	})(jQuery);

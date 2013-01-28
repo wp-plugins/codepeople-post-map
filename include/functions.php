@@ -568,7 +568,7 @@ class CPM {
 		wp_enqueue_script( 'cpm_script', CPM_PLUGIN_URL.'/js/cpm.js', array('jquery'));
 		$language = $this->get_configuration_option('language');
 		if(isset($language)) 
-			wp_localize_script('cpm_script', 'language', $language);
+			wp_localize_script('cpm_script', 'cpm_language', array('lng' => $language));
 	} // End load_resources
 	
 	function load_footer_resources(){
