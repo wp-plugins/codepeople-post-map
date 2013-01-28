@@ -786,7 +786,7 @@ class CPM {
 							 "lng":"'.$point['longitude'].'",
 							 "info":"'.$this->_get_windowhtml($point).'",
 							 "open":"'.$default.'",
-							 "icon":"'.$point['icon'].'",
+							 "icon":"'.((!empty($point['icon'])) ? $point['icon'] : $this->get_configuration_option('default_icon')).'",
 							 "post":"'.$point['post_id'].'"};';
 	} // End _set_map_point
 	
