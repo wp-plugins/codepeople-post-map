@@ -801,7 +801,7 @@ class CPM {
 			$windowhtml_frame = $this->_get_default_windowhtml();
 		}
 		
-		$point_title = (!empty($point['title'])) ? $point['title'] : get_the_title($point['post_id']);
+		$point_title = (!empty($point['name'])) ? $point['name'] : get_the_title($point['post_id']);
 		$point_link = (!empty($point['post_id'])) ? get_permalink($point['post_id']) : '';
 		
 		$point_thumbnail = "";
