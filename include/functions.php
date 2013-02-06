@@ -110,6 +110,10 @@ class CPM {
 		
 		// The address is required, if address is empty the couple: latitude, longitude must be defined
 		if(!empty($new_cpm_point['address']) || (!empty($new_cpm_point['latitude']) && !empty($new_cpm_point['longitude']))){
+			$new_cpm_point['address'] = esc_attr($new_cpm_point['address']);
+			$new_cpm_point['name'] = esc_attr($new_cpm_point['name']);
+			$new_cpm_point['description'] = esc_attr($new_cpm_point['description']);
+			
 			
 			$new_cpm_map['zoompancontrol'] 	= ($new_cpm_map['zoompancontrol'] == true);
 			$new_cpm_map['mousewheel'] 		= ($new_cpm_map['mousewheel'] == true);
@@ -781,10 +785,10 @@ class CPM {
 	 */
 	function _set_map_point($point, $index, $default = "false"){
 		return 'cpm_global["'.$this->map_id.'"]["markers"]['.$index.'] = 
-							{"address":"'.$point['address'].'",
+							{"address":"'.str_replace(array('&quot;', '&lt;', '&gt;', '&#039;', '&amp;'), array('\"', '<', '>', "'", '&'), $point['address']).'",
 							 "lat":"'.$point['latitude'].'",
 							 "lng":"'.$point['longitude'].'",
-							 "info":"'.$this->_get_windowhtml($point).'",
+							 "info":"'.str_replace(array('&quot;', '&lt;', '&gt;', '&#039;', '&amp;'), array('\"', '<', '>', "'", '&'), $this->_get_windowhtml($point)).'",
 							 "open":"'.$default.'",
 							 "icon":"'.((!empty($point['icon'])) ? $point['icon'] : $this->get_configuration_option('default_icon')).'",
 							 "post":"'.$point['post_id'].'"};';
