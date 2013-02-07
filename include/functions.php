@@ -664,10 +664,21 @@ class CPM {
 		$point = get_post_meta($post->ID, 'cpm_point', TRUE);
 		if(!empty($point)){
 			$point['post_id'] = $post->ID;
-			$this->points[] = $point;
-			$index = count($this->points);
+			if(!in_array($point, $this->points)){
+				$this->points[] = $point;
+				$index = count($this->points);
+				$this->points_str .=  $this->_set_map_point($point, $index-1);
+			}	
 		}	
 	} // End populate_points
+	
+	/*
+	 * Generates the javascript code of map points, only called from webpage of multiples posts
+	 */
+	function print_points(){
+		if(!is_single() && $this->flush_map)
+			print "<script>".$this->points_str."</script>";
+	} // End print_points
 	
 	/**
 	 * Replace each [codepeople-post-map] shortcode by the map
@@ -725,7 +736,10 @@ class CPM {
 			";	
 			return $output;
 		}else{ 
-			return '';
+			$cpm_map = $this->get_configuration_option();
+			$output  = $this->_set_map_tag($cpm_map);
+			$output .= $this->_set_map_config($cpm_map);
+			return $output;
 		}	
 	} // End replace_shortcode
 	
