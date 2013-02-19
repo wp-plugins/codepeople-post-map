@@ -570,9 +570,6 @@ class CPM {
 	function load_resources() {
 		wp_enqueue_style( 'cpm_style', CPM_PLUGIN_URL.'/styles/cpm-styles.css');
 		wp_enqueue_script( 'cpm_script', CPM_PLUGIN_URL.'/js/cpm.js', array('jquery'));
-		$language = $this->get_configuration_option('language');
-		if(isset($language)) 
-			wp_localize_script('cpm_script', 'cpm_language', array('lng' => $language));
 	} // End load_resources
 	
 	function load_footer_resources(){
@@ -773,7 +770,14 @@ class CPM {
 	 */
 	function _set_map_config($atts){
 		extract($atts);
+		$default_language = $this->get_configuration_option('language');
 		$output  = "<script type=\"text/javascript\">\n";
+	
+		if(isset($language)) 
+			$output  .= 'var cpm_language = {"lng":"'.$language.'"};';
+		elseif(isset($default_language))	
+			$output  .= 'var cpm_language = {"lng":"'.$default_language.'"};';
+	
 		$output .= "var cpm_global = cpm_global || {};\n";
 		$output .= "cpm_global['$this->map_id'] = {}; \n";
 		$output .= "cpm_global['$this->map_id']['zoom'] = $zoom;\n";
