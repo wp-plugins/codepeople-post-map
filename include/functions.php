@@ -14,6 +14,7 @@ class CPM {
 	var $points_str = ''; // List of points as javascript code
 	var $flush_map = false; // Determine if the map's code was generated to limit only one map for page
 	var $map_id; // ID of map
+    var $limit=0; // The number of pins allowed in map zero = unlimited
 	
 	//---------- CONSTRUCTOR ----------
 	
@@ -140,22 +141,6 @@ class CPM {
 	
 	//---------- OPTIONS FOR CODEPEOPLE POST MAP ----------
 	/**
-	 * Get default windowhtml
-	 */
-	function _get_default_windowhtml(){
-		return "<div class='cpm-infowindow'>
-					<div class='cpm-content'>
-						<a title='%link%' href='%link%'>%thumbnail%</a>
-						<a class='title' href='%link%'>%title%</a>
-						<div class='address'>%address%</div>
-						<div class='description'>%description%</div>
-						<a href='%link%' class='more'>more &raquo;</a>
-					</div>
-					<div style='clear:both;'></div>
-				</div>";
-	}
-	
-	/**
 	 * Get default configuration options
 	 */
 	function _default_configuration(){
@@ -176,7 +161,16 @@ class CPM {
 							'typecontrol' => true,
 							'highlight'	=> true,
 							'highlight_class' => 'cpm_highlight',
-							'windowhtml' => $this->_get_default_windowhtml()
+							'windowhtml' => "<div class='cpm-infowindow'>
+                                                <div class='cpm-content'>
+                                                    <a title='%link%' href='%link%'>%thumbnail%</a>
+                                                    <a class='title' href='%link%'>%title%</a>
+                                                    <div class='address'>%address%</div>
+                                                    <div class='description'>%description%</div>
+                                                    <a href='%link%' class='more'>more &raquo;</a>
+                                                </div>
+                                                <div style='clear:both;'></div>
+                                            </div>"
 							);
 	} // End _default_configuration
 	
@@ -207,7 +201,7 @@ class CPM {
 		}
 		
 		if(isset($option)){
-			return (isset($options[$option])) ? $options[$option] : null;
+            return (isset($options[$option])) ? $options[$option] : ((isset($default[$option])) ? $default[$option] : null);
 		}else{
 			return $options;
 		}	
@@ -335,6 +329,25 @@ class CPM {
 					</select>
 				</td>
 			</tr>
+            
+            <tr valign="top">
+				<th scope="row"><label for="cpm_map_route" style="color:#CCCCCC;"><?php _e('Display route:', 'codepeople-post-map');?></th>
+				<td>
+                    <input type="checkbox" DISABLED><span> Draws the route between the points in the same post</span><br />
+                    <span style="color:#FF0000;">The route between points is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a></span>
+                </td>
+			</tr>
+            
+            <tr valign="top">
+				<th scope="row"><label for="cpm_travel_mode" style="color:#CCCCCC;"><?php _e('Travel mode:', 'codepeople-post-map');?></th>
+				<td>
+                    <select disabled>
+                        <option value="DRIVING">Driving</option>
+                    </select>
+                </td>
+            </tr>
+			
+            
 			<tr valign="top">
 				<th scope="row"><label for="wpGoogleMaps_description"><?php _e('Options:')?></label></th>
 				<td>
@@ -347,7 +360,7 @@ class CPM {
 				</td>
 			</tr>
 			<tr valign="top">
-				<th scope="row"><label for="cpm_map_points"><?php _e('Enter the number of points on the post/page map:'); ?></th>
+				<th scope="row"><label for="cpm_map_points"><?php _e('Enter the number of posts to display on the post/page map:'); ?></th>
 				<td><input type="text" name="cpm_map[points]" id="cpm_map_points" value="<?php echo ((isset($options['points'])) ? $options['points'] : '');?>" /></td>
 			</tr>
 		</table>
@@ -583,9 +596,7 @@ class CPM {
 		// Check if post exists and save the configuraton options
 		if (wp_verify_nonce($_POST['cpm_map_noncename'],__FILE__)){
 			$options = $_POST['cpm_map'];
-			if(!isset($options['windowhtml'])){
-				$options['windowhtml'] = $this->get_configuration_option('windowhtml');
-			}
+            $options['windowhtml'] = $this->get_configuration_option('windowhtml');
 			update_option('cpm_config', $options);
 			echo '<div class="updated"><p><strong>'.__("Settings Updated").'</strong></div>';
 		}else{
@@ -602,19 +613,19 @@ class CPM {
 			<tr valign="top">
 				<th scope="row"><label for="cpm_map_search"  style="color:#CCCCCC;"><?php _e('Use points information in search results:', 'codepeople-post-map')?></label></th>
 				<td>
-					<input type="checkbox" name="cpm_map[search]" id="cpm_map_search" value="true" disabled /> The use of points metadata in search result is enabled only in advanced version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a>
+					<input type="checkbox" name="cpm_map[search]" id="cpm_map_search" value="true" disabled /> <span style="color:#FF0000;">The search in the maps data is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a></span>
 				</td>
 			</tr>
 			<tr valign="top">
 				<th scope="row"><label for="cpm_map_highlight" style="color:#CCCCCC;"><?php _e('Highlight post when mouse move over related point on map:', 'codepeople-post-map')?></label></th>
 				<td>
-					<input type="checkbox" name="cpm_map[highlight]" id="cpm_map_highlight" value="true" disabled /> The use of post highlight is enabled only in advanced version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a>
+					<input type="checkbox" name="cpm_map[highlight]" id="cpm_map_highlight" value="true" disabled /> <span style="color:#FF0000;">The post highlight is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a></span>
 				</td>
 			</tr>
 			<tr valign="top">
 				<th scope="row"><label for="cpm_map_highlight_class" style="color:#CCCCCC;"><?php _e('Highlight class:', 'codepeople-post-map')?></label></th>
 				<td>
-					<input type="input" name="cpm_map[highlight_class]" id="cpm_map_highlight_class" disabled />The use of post highlight class is possible only in advanced version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a>
+					<input type="input" name="cpm_map[highlight_class]" id="cpm_map_highlight_class" disabled /><span style="color:#FF0000;">The highlight class is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a></span>
 				</td>
 			</tr>
 		</table>
@@ -657,14 +668,16 @@ class CPM {
 	/*
 	 * Populate the attribute points
 	 */
-	function populate_points($post){
+	function populate_points($post, $force = false){
 		$point = get_post_meta($post->ID, 'cpm_point', TRUE);
 		if(!empty($point)){
 			$point['post_id'] = $post->ID;
 			if(!in_array($point, $this->points)){
-				$this->points[] = $point;
-				$index = count($this->points);
-				$this->points_str .=  $this->_set_map_point($point, $index-1);
+                if($force){
+                    array_unshift($this->points, $point);
+                }else{
+                    $this->points[] = $point;
+                }
 			}	
 		}	
 	} // End populate_points
@@ -673,15 +686,29 @@ class CPM {
 	 * Generates the javascript code of map points, only called from webpage of multiples posts
 	 */
 	function print_points(){
-		if(!is_single() && $this->flush_map)
-			print "<script>".$this->points_str."</script>";
+        $limit = abs($this->limit);
+        $str = '';
+        $current = '';
+        $count = 0;
+        foreach($this->points as $k => $point){
+            if(!empty($limit)){
+                if($current != $point['post_id']){
+                    $current = $point['post_id'];
+                    $count++;
+                    if( $count > $limit) break;
+                }
+            }    
+            
+            $str .=  $this->_set_map_point($this->points[$k], $k);
+        }
+        if(strlen($str)) print "<script>".$str."</script>";
 	} // End print_points
 	
 	/**
 	 * Replace each [codepeople-post-map] shortcode by the map
 	 */
 	function replace_shortcode($atts){
-		global $post;
+		global $post, $id;
 		
 		// Limit the publication of map to only one
 		if($this->flush_map)
@@ -689,9 +716,20 @@ class CPM {
 		
 		$this->flush_map = true;
 		
+        if($id){
+            $cpm_map = get_post_meta($post->ID, 'cpm_map', TRUE);
+        }
+        
+        if(empty($cpm_map)){
+            $cpm_map = $this->get_configuration_option();
+        }
+		
+        if(!empty($cpm_map['points'])){
+            $this->limit = $cpm_map['points'];
+        }
+        
 		if(is_singular()){ // For maps in a post or page
-			$cpm_map = get_post_meta($post->ID, 'cpm_map', TRUE);
-			$number = (!empty($cpm_map['points'])) ? 'numberposts='.$cpm_map['points'].'&' : '';
+			$number = (!empty($this->limit)) ? 'numberposts='.$this->limit.'&' : '';
 			
 			// Set the actual post only to avoid duplicates
 			$posts = array($post);
@@ -715,24 +753,22 @@ class CPM {
 				$posts = array_slice($posts, 0, $cpm_map['points']);
 			
 			foreach($posts as $_post){
-				$this->populate_points($_post);
+				$this->populate_points($_post, true);
 			}	
 			
 			$output  = $this->_set_map_tag($cpm_map);
 			$output .= $this->_set_map_config($cpm_map);
-			$output .= "<script>\n";
-			$i = 0;
-			foreach ($this->points as $point){	  	 
-				$output .= $this->_set_map_point($point, $i, (($point['post_id'] == $post->ID) ? "true" : "false"));
-				$i ++;
-			}	  
-			$output .= "</script>\n
-			<noscript>
+			
+            $output .= "<noscript>
 				codepeople-post-map require JavaScript
 			</noscript>
 			";	
 			return $output;
 		}else{ 
+			global $id;
+            if($id){
+                $this->populate_points(get_post($id), true);
+            }
 			$cpm_map = $this->get_configuration_option();
 			$output  = $this->_set_map_tag($cpm_map);
 			$output .= $this->_set_map_config($cpm_map);
@@ -799,7 +835,7 @@ class CPM {
 	} // End _set_map_config
 	
 	/*
-	 * Generates the javascript code of map points, only called from single post page
+	 * Generates the javascript code of map points
 	 */
 	function _set_map_point($point, $index, $default = "false"){
 		return 'cpm_global["'.$this->map_id.'"]["markers"]['.$index.'] = 
@@ -819,9 +855,6 @@ class CPM {
     
 		$windowhtml = "";
 		$windowhtml_frame = $this->get_configuration_option('windowhtml');	
-		if(!isset($windowhtml_frame)){
-			$windowhtml_frame = $this->_get_default_windowhtml();
-		}
 		
 		$point_title = (!empty($point['name'])) ? $point['name'] : get_the_title($point['post_id']);
 		$point_link = (!empty($point['post_id'])) ? get_permalink($point['post_id']) : '';

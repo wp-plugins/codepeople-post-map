@@ -44,8 +44,7 @@ jQuery(function(){
 				g.geocode({address:a}, function(result, status){
 					me.counter--;
 					if(status && status == "OK"){
-						m[i]['lat'] = result[0]['geometry']['location'].lat();
-						m[i]['lng'] = result[0]['geometry']['location'].lng();
+                        m[i]['latlng'] = new google.mapsLatLng(result[0]['geometry']['location'].lat(), result[0]['geometry']['location'].lng())
 					}else{
 						m[i]['invalid'] = true;
 					}
@@ -53,11 +52,11 @@ jQuery(function(){
 					// All points have been checked now is possible to load the map
 					if(me.counter == 0){
 						me._load_map();
-					}
+                    }
 				});
 			},
 			
-			_load_map : function(){
+            _load_map : function(){
 			
 				var me = this,
 					m  = me.data.markers,
@@ -70,7 +69,7 @@ jQuery(function(){
 				if(c < h){
 					me.map = new google.maps.Map($('#'+me.id)[0], {
 							zoom: me.data.zoom,
-							center: new google.maps.LatLng(m[c].lat, m[c].lng),
+							center: m[c].latlng,
 							mapTypeId: google.maps.MapTypeId[me.data.type],
 							
 							// Show / Hide controls
@@ -95,9 +94,9 @@ jQuery(function(){
 					me.infowindow = new google.maps.InfoWindow({maxWidth:340});
 					for (var i = c; i < h; i++){		
 						if(!m[i]['invalid']){
-							bounds.extend(new google.maps.LatLng (m[i].lat, m[i].lng));
+							bounds.extend(m[i].latlng);
 							var marker = new google.maps.Marker({
-														  position: new google.maps.LatLng(m[i].lat, m[i].lng),
+														  position: m[i].latlng,
 														  map: map,
 														  icon: new google.maps.MarkerImage(m[i].icon),
 														  title:((m[i].address) ? m[i].address : '')
@@ -142,6 +141,7 @@ jQuery(function(){
 							m[i]['invalid'] = true;
 							this.counter--;
 						}else{
+                            m[i]['latlng'] = new google.maps.LatLng(m[i].lat, m[i].lng);
 							this.counter--;
 						}
 						
