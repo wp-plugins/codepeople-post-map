@@ -41,8 +41,7 @@ function cpm_init(){
 	$cpm_obj = new CPM;
 	add_shortcode('codepeople-post-map', array(&$cpm_obj, 'replace_shortcode'));
 	add_action('the_post', array(&$cpm_obj, 'populate_points'));
-	add_action( 'wp_footer', array( &$cpm_obj, 'print_points'));
-	
+	add_action( 'wp_footer', array( &$cpm_obj, 'print_points'));	
 }
 
 
