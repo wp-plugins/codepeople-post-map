@@ -686,6 +686,7 @@ class CPM {
 	 * Generates the javascript code of map points, only called from webpage of multiples posts
 	 */
 	function print_points(){
+        global $id;
         $limit = abs($this->limit);
         $str = '';
         $current = '';
@@ -698,10 +699,10 @@ class CPM {
                     if( $count > $limit) break;
                 }
             }    
-            
-            $str .=  $this->_set_map_point($this->points[$k], $k);
+            $default = ($id && $id == $current) ? "true" : "false";
+            $str .=  $this->_set_map_point($this->points[$k], $k, $default);
         }
-        if(strlen($str)) print "<script>".$str."</script>";
+        if(strlen($str)) print "<script>if(typeof cpm_global != 'undefined'){".$str."}</script>";
 	} // End print_points
 	
 	/**
