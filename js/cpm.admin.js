@@ -125,6 +125,13 @@
 		});
 	};
 	
+    function enable_disable_fields(f, v){
+        var p = f.parents('#map_data');
+        p.find('input[type="text"]').attr({'DISABLED':v,'READONLY':v});
+        p.find('select').attr({'DISABLED':v,'READONLY':v});
+        p.find('input[type="checkbox"]').filter('[id!="cpm_map_single"]').attr({'DISABLED':v,'READONLY':v});
+    };
+        
 	$(function(){
 		// Actions for icons
 		$(".cpm_icon").click(function(){
@@ -163,5 +170,13 @@
 		if($('.cpm_map_container').length){
 			$('<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&callback=cpm_set_map_flag"></script>').appendTo('body');
 		}
+        
+        $('#cpm_map_single').each(function(){
+            var f = $(this);
+            enable_disable_fields(f, !f[0].checked);
+            f.click(function(){
+                enable_disable_fields(f,!f[0].checked);
+            });
+        });
 	});
 })(jQuery);

@@ -90,10 +90,10 @@ class CPM {
 		// authentication checks
 
 		// make sure data came from our meta box
-		if (!wp_verify_nonce($_POST['cpm_map_noncename'],__FILE__)) return $post_id;
+		if (!isset($_POST['cpm_map_noncename']) || !wp_verify_nonce($_POST['cpm_map_noncename'],__FILE__)) return $post_id;
 
 		// check user permissions
-		if ($_POST['post_type'] == 'page'){
+		if (isset($_POST['post_type'] ) && $_POST['post_type'] == 'page'){
 			if (!current_user_can('edit_page', $post_id)) return $post_id;
 		}
 		else{
@@ -119,15 +119,27 @@ class CPM {
 			$new_cpm_map['zoompancontrol'] 	= ($new_cpm_map['zoompancontrol'] == true);
 			$new_cpm_map['mousewheel'] 		= ($new_cpm_map['mousewheel'] == true);
 			$new_cpm_map['typecontrol'] 	= ($new_cpm_map['typecontrol'] == true);
+            $new_cpm_map['single'] 	        = (isset($new_cpm_map['single'])) ? true : false;
+			
+            if($new_cpm_map['single']){
+                if($cpm_point){
+                    // Update metadata
+                    update_post_meta($post_id,'cpm_map',$new_cpm_map);
+                }else{
+                    // Create metadata
+                    add_post_meta($post_id,'cpm_map',$new_cpm_map,TRUE);
+                }
+            }else{
+                delete_post_meta($post_id,'cpm_map');
+            }
+            
 			
 			if($cpm_point){
 				// Update metadata
 				update_post_meta($post_id,'cpm_point',$new_cpm_point);
-				update_post_meta($post_id,'cpm_map',$new_cpm_map);
 			}else{
 				// Create metadata
 				add_post_meta($post_id,'cpm_point',$new_cpm_point,TRUE);
-				add_post_meta($post_id,'cpm_map',$new_cpm_map,TRUE);
 			}
 		}else{
 			// Remove metadata
@@ -266,11 +278,23 @@ class CPM {
 	/**
 	 * Private method to insert the map form
 	 */
-	function _deploy_map_form($options = NULL){
+	function _deploy_map_form($options = NULL, $single = false){
 		?>
 		<h2><?php _e('Maps Configuration', 'codepeople-post-map'); ?></h2>
 		<p  style="border:1px solid #E6DB55;margin-bottom:10px;padding:5px;background-color: #FFFFE0;"><?php _e('For any issues with the map, go to our <a href="http://wordpress.dwbooster.com/contact-us" target="_blank">contact page</a> and leave us a message.'); ?></p>
 		<table class="form-table">
+			<?php
+                if($single){
+            ?>    
+                    <tr valign="top">
+                        <th scope="row"><label for="cpm_map_single"><?php _e('Use particular settings for this map:', 'codepeople-post-map')?></label></th>
+                        <td>
+                            <input type="checkbox" name="cpm_map[single]" id="cpm_map_single" <?php echo ((isset($options['single'])) ? 'CHECKED' : '');?> />
+                        </td>
+                    </tr>
+            <?php        
+                }
+            ?>
 			<tr valign="top">
 				<th scope="row"><label for="cpm_map_zoom"><?php _e('Map zoom:', 'codepeople-post-map')?></label></th>
 				<td>
@@ -298,7 +322,7 @@ class CPM {
 			<tr valign="top">
 				<th scope="row"><label for="cpm_map_align"><?php _e('Map align:', 'codepeople-post-map')?></label></th>
 				<td>
-					<select id="cpm_map_align" name="cpm_map['align']">
+					<select id="cpm_map_align" name="cpm_map[align]">
 						<option value="left" <?php echo((isset($options['align']) && $options['align'] == 'left') ? 'selected': ''); ?>><?php _e('left'); ?></option>
 						<option value="center" <?php echo((isset($options['align']) && $options['align'] == 'center') ? 'selected': ''); ?>><?php _e('center'); ?></option>
 						<option value="right" <?php echo((isset($options['align']) && $options['align'] == 'right') ? 'selected': ''); ?>><?php _e('right'); ?></option>
@@ -534,7 +558,7 @@ class CPM {
             </tr>
 		</table>	
 		<div id="map_data">
-			<?php $this->_deploy_map_form($options); ?>
+			<?php $this->_deploy_map_form($options, true); ?>
 		</div>	
         <p class="submit">
             <input type="button" onclick="display_map_form();" value="<?php _e("Show / Hide Map's Options &raquo;", 'codepeople-post-map'); ?>" />
@@ -594,7 +618,7 @@ class CPM {
 	 */
 	function settings_page(){
 		// Check if post exists and save the configuraton options
-		if (wp_verify_nonce($_POST['cpm_map_noncename'],__FILE__)){
+		if (isset($_POST['cpm_map_noncename']) && wp_verify_nonce($_POST['cpm_map_noncename'],__FILE__)){
 			$options = $_POST['cpm_map'];
             $options['windowhtml'] = $this->get_configuration_option('windowhtml');
 			update_option('cpm_config', $options);
@@ -611,6 +635,15 @@ class CPM {
 	?>
 		<table class="form-table">
 			<tr valign="top">
+				<th scope="row"  style="color:#CCCCCC;"><label for="cpm_map_multiple"><?php _e('Display a Map by post in non singular pages (like homepage, archives, search results, etc...):', 'codepeople-post-map')?></label></th>
+				<td>
+					<input type="checkbox" DISABLED />
+                    <?php _e('Only one map is allowed by each webpage, but checking this option in pages with multiple posts like homepage, archives,etc, it is possible to display a map for each post', 'codepeople-post-map');?>
+                    <br />
+                     <span style="color:#FF0000;">The free version of CodePeople Post Map allows only one map by webpage. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a></span>
+				</td>
+			</tr>
+			<tr valign="top">
 				<th scope="row"><label for="cpm_map_search"  style="color:#CCCCCC;"><?php _e('Use points information in search results:', 'codepeople-post-map')?></label></th>
 				<td>
 					<input type="checkbox" name="cpm_map[search]" id="cpm_map_search" value="true" disabled /> <span style="color:#FF0000;">The search in the maps data is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a></span>
@@ -626,6 +659,26 @@ class CPM {
 				<th scope="row"><label for="cpm_map_highlight_class" style="color:#CCCCCC;"><?php _e('Highlight class:', 'codepeople-post-map')?></label></th>
 				<td>
 					<input type="input" name="cpm_map[highlight_class]" id="cpm_map_highlight_class" disabled /><span style="color:#FF0000;">The highlight class is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a></span>
+				</td>
+			</tr>
+            <tr valign="top">
+				<th scope="row"><label for="cpm_map_post_type" style="color:#CCCCCC;"><?php _e('Allow to associate a map to the post types:', 'codepeople-post-map')?></label></th>
+				<td valign="top">
+                <?php
+                    $post_types = get_post_types(array('public' => true), 'names');
+                ?>
+                    <select multiple size="3" DISABLED >
+                <?php   
+                        foreach($post_types as $post_type){
+                            print '<option value="'.$post_type.'" >'.$post_type.'</option>';
+                        }
+                ?>    
+                    </select>
+                <?php
+                    _e('Posts and Pages are selected by default', 'codepeople-post-map');
+                ?>
+                <br />    
+                <span style="color:#FF0000;">Associate the maps to custom post types is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a></span>
 				</td>
 			</tr>
 		</table>
@@ -861,7 +914,7 @@ class CPM {
 		$point_link = (!empty($point['post_id'])) ? get_permalink($point['post_id']) : '';
 		
 		$point_thumbnail = "";
-		if ($point['thumbnail'] != "") {
+		if (isset($point['thumbnail']) && $point['thumbnail'] != "") {
 			if(is_numeric($point['thumbnail'])){
 				$thumb = wp_get_attachment_image_src($point['thumbnail'], 'thumbnail');
 				$point_thumbnail = $thumb[0];
