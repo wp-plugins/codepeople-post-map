@@ -682,6 +682,33 @@ class CPM {
 				</td>
 			</tr>
 		</table>
+        <table cellpadding="10" cellspacing="10" width="500px">
+            <tr valign="top">
+                <td align="center" width="30%">
+                    <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map" target="_blank">
+                    <img src="<?php echo(CPM_PLUGIN_URL.'/images/routes.jpg'); ?>" width="100px" height="100px" class="cpm_thumbnail_admin" style="border:1px solid #AAA;" />
+                    </a>
+                    <br />Draws Routes
+                </td>
+                <td align="center">
+                    <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map" target="_blank">
+                    <img src="<?php echo(CPM_PLUGIN_URL.'/images/custom_post_type.jpg'); ?>" width="100px" height="100px" class="cpm_thumbnail_admin" style="border:1px solid #AAA;" />
+                    </a>
+                    <br />Associate maps to custom post types
+                </td>
+                <td align="center" width="30%">
+                    <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map" target="_blank">
+                    <img src="<?php echo(CPM_PLUGIN_URL.'/images/multiple.jpg'); ?>" width="100px" height="100px" class="cpm_thumbnail_admin" style="border:1px solid #AAA;" />
+                    </a>
+                    <br/>Display a map for each post in pages with multiple posts
+                </td>
+            </tr>
+        </table>
+        <script>
+            jQuery(function(){
+                jQuery('.cpm_thumbnail_admin').mouseover(function(){jQuery(this).width(300).height(300);}).mouseout(function(){jQuery(this).width(100).height(100);});
+            });
+        </script>
 		<p  style="font-weight:bold;"><?php _e('For more information go to the <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map" target="_blank">CodePeople Post Map</a> plugin page'); ?></p>
 		<div class="submit"><input type="submit" class="button-primary" value="<?php _e('Update Settings', 'codepeople-post-map');?>" /></div>
 		<?php 
