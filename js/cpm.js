@@ -44,7 +44,7 @@ jQuery(function(){
 				g.geocode({address:a}, function(result, status){
 					me.counter--;
 					if(status && status == "OK"){
-                        m[i]['latlng'] = new google.mapsLatLng(result[0]['geometry']['location'].lat(), result[0]['geometry']['location'].lng())
+                        m[i]['latlng'] = new google.maps.LatLng(result[0]['geometry']['location'].lat(), result[0]['geometry']['location'].lng())
 					}else{
 						m[i]['invalid'] = true;
 					}
