@@ -392,28 +392,6 @@ class CPM {
 	} // End _deploy_map_form
 	
 	/**
-	 * Get all the thumbnails from post
-	 */
-	function _all_post_thumb($the_parent){
-		$attachments_id = array();
-		$attachments = get_children( array(
-										'post_parent' => $the_parent, 
-										'post_type' => 'attachment', 
-										'post_mime_type' => 'image',
-										'orderby' => 'menu_order', 
-										'order' => 'ASC',
-										'numberposts' => 10) );									
-											
-		if($attachments == true) :
-			foreach($attachments as $attachment) :
-				array_push($attachments_id,$attachment->ID);
-			endforeach;		
-		endif;
-
-		return $attachments_id; 
-	} // End _all_post_thumb
-	
-	/**
 	 * Private method to print Maps form
 	 */
 	function _print_form($options){
@@ -464,37 +442,14 @@ class CPM {
 					</td>
 				</tr>
 				<tr valign="top">
-					<td valign="top" colspan="2">
-					<?php 
-					$attch_list = $this->_all_post_thumb($post->ID);
-					if (count($attch_list) > 0) { 
-					?>
-						<div>
-							<?php _e("Select the thumbnail by clicking on the images","codepeople-post-map"); ?>
-						</div>
-						<div id="cpm_thumbnail_container">
-							<input type="hidden" name="cpm_point[thumbnail]" value="<?php if($options["thumbnail"]){ echo $options["thumbnail"];} ?>" id="cpm_point_thumbnail" />
-							<?php 
-							foreach ($attch_list as $attch) { 
-							   $thumbnail = wp_get_attachment_image_src($attch, 'thumbnail');
-							?>
-							<div class="cpm_thumb <?php if($options["thumbnail"] && $options["thumbnail"] == $thumbnail[0]){ echo 'cpm_thumb_selected';}?>">
-								<img attch="<?php echo $attch ?>" src="<?php echo $thumbnail[0] ?>" width="40" height="40" />
-							</div>
-							<?php  } ?>
-						</div>
-					<?php } else { ?>
-						<div>
-							<strong><?php _e("Thumbnail: ","codepeople-post-map"); ?></strong><?php _e("If you want to attach an image to the point you need to upload it first to the post gallery","codepeople-post-map"); ?>
-						</div> 
-					<?php  } ?> 
-					</td>	
+					<th scope="row">
+                        <?php _e("Select an images to attach to the point: ","codepeople-post-map"); ?>
+					</th>
+                    <td>
+                        <input type="text" name="cpm_point[thumbnail]" value="<?php if($options["thumbnail"]){ echo $options["thumbnail"];} ?>" id="cpm_point_thumbnail" />
+                        <input class="button" type="button" value="Upload Images" onclick="cpm_thumbnail_selection(this);" />
+                    </td>	
 				</tr>
-				<tr valign="top">
-					<td><a class="button" href="upload.php" title="Upload Images"><?php _e("Upload Images","codepeople-post-map") ?></a></td>
-					<td>
-					</td>
-				</tr>	
 				<tr valign="top">
 					<td colspan="2">
 						<table>
@@ -597,7 +552,9 @@ class CPM {
 		wp_enqueue_script(
 			'admin_cpm_script',
 			CPM_PLUGIN_URL.'/js/cpm.admin.js',
-			array('jquery')
+			array('jquery'),
+            null,
+            true
 		);
 	} // End load_admin_resources
 	
@@ -929,6 +886,12 @@ class CPM {
 							 "post":"'.$point['post_id'].'"};';
 	} // End _set_map_point
 	
+    function _get_img_id($url){
+        global $wpdb;
+        $attachment = $wpdb->get_col($wpdb->prepare("SELECT ID FROM " . $wpdb->prefix . "posts" . " WHERE guid='%s';", $url )); 
+        return $attachment[0];
+    } // End get_img_id
+    
 	/**
 	 * Get the html info associated to point marker
 	 */
@@ -941,24 +904,25 @@ class CPM {
 		$point_link = (!empty($point['post_id'])) ? get_permalink($point['post_id']) : '';
 		
 		$point_thumbnail = "";
-		if (isset($point['thumbnail']) && $point['thumbnail'] != "") {
-			if(is_numeric($point['thumbnail'])){
-				$thumb = wp_get_attachment_image_src($point['thumbnail'], 'thumbnail');
+        
+        if (isset($point['thumbnail']) && $point['thumbnail'] != "") {
+            if(preg_match("/attachment_id=(\d+)/i", $point['thumbnail'], $matches)){
+            	$thumb = wp_get_attachment_image_src($matches[1], 'thumbnail');
 				$point_thumbnail = $thumb[0];
 			}else{
-				$point_thumbnail = $point['thumbnail'];
+                $thumb = wp_get_attachment_image_src($this->_get_img_id($point['thumbnail']), 'thumbnail');
+				$point_thumbnail = $thumb[0];
 			}
+            if($point_thumbnail != "")
+                $point_img_url = $point_thumbnail;
 		}
-		
-		$point_img_url = ($point_thumbnail != "")? $point_thumbnail : $this->_post_img($point['post_id']);
-		
 		$point_excerpt = $this->_get_excerpt($point['post_id']);
 
 		$point_description = ($point['description'] != "") ? $point['description'] : $point_excerpt;
 		$point_address = $point['address'];
 
 		if(isset($point_img_url)) {
-			$point_img = "<img src='".$point_img_url."' style='margin:8px 0 0 8px; width:90px; height:90px'/>";
+			$point_img = "<img src='".$point_img_url."' style='margin:8px 0 0 8px; width:90px; height:90px' align='right' />";
 			$html_width = "310px";
 		} else {
 			$point_img = "";
@@ -973,32 +937,6 @@ class CPM {
 		return $windowhtml;
 		
 	} // End _get_windowhtml
-	
-	/**
-	 * Get the thumbnail from post
-	 */
-	function _post_img($the_parent,$size = 'thumbnail'){
-		
-		if( function_exists('has_post_thumbnail') && has_post_thumbnail($the_parent)) {
-			$thumbnail_id = get_post_thumbnail_id( $the_parent );
-			if(!empty($thumbnail_id))
-			$img = wp_get_attachment_image_src( $thumbnail_id, $size );	
-		} else {
-		$attachments = get_children( array(
-											'post_parent' => $the_parent, 
-											'post_type' => 'attachment', 
-											'post_mime_type' => 'image',
-											'orderby' => 'menu_order', 
-											'order' => 'ASC', 
-											'numberposts' => 1) );
-		if($attachments == true) :
-			foreach($attachments as $id => $attachment) :
-				$img = wp_get_attachment_image_src($id, $size);			
-			endforeach;		
-		endif;
-		}
-		if (isset($img[0])) return $img[0]; 
-	} // End _post_img
 	
 	/**
 	 * Get the excerpt from content

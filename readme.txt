@@ -25,14 +25,21 @@ The map inserted into a template displaying multiple posts will contain as many 
 *   The plugin is capable of dealing with **large volumes of dots or markers**.
 *   Another way for users to discover **additional entries related** to the post.
 *   The **location information** can be defined by physical address or point coordinates.
-*   The location information and description may be used in posts search (**only for advanced plugin version**).
-*   Allows addresses in **different languages**.
 *   Allows to **insert a map** in the best position within your blog or simply **associate the geolocation information** to the post but without displaying the map.
 *   Markers **customization**.
 *   Based on **Google Maps Javascript API Version 3**.
 *   Allows to embed maps in **multiple languages**.
 *   Displays **markers** belonging to posts of the same categories.
 *   **Several customization options** are available: initial zoom, width, height, margins, alignment, map type, map language, the way the map is displayed in a single post (either fully deployed or icon to display map), enable or disable map controls, the number of points plotted on a map, as well as the class that will be assigned to the post when the mouse hovers over the marker associated with the post.
+
+**Premium Features:**
+
+*   The location information and description may be used in posts search.
+*   Allows to associate multiple map points to each post/page.
+*   Allows to draw routes through points in the same post.
+*   Allows to associate a map with any public post_type in WordPress.
+*   In non singular webpages, Google Post Map display a map for each post.
+
 
 If you want more information about this plugin or another one don't doubt to visit my website:
 
@@ -70,7 +77,7 @@ The settings are divided into two main groups, those belonging to the map and th
 
 *   Location name: Name of the place you are indicating on the map, alternatively, the name of the post can be used.
 *   Location description: Description of the place you are showing on the map. If left blank, the post summary will be used.
-*   Select the thumbnail by clicking on the images: Select the thumbnail to associate with the localization point. The thumbnails are selected from the images in the gallery associated with the post.
+*   Select an image from media library: Select an image to associate with the localization point.
 *   Address: Physical address of the geolocation point.
 *   Latitude: Latitude of the geolocation point.
 *   Longitude: Longitude of the geolocation point.

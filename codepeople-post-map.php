@@ -16,13 +16,19 @@ require (CPM_PLUGIN_DIR.'/include/functions.php');
 add_action( 'init', 'cpm_init');
 add_action( 'admin_init', 'cpm_admin_init' );
 
+register_activation_hook(__FILE__, 'codepeople_post_map_regiter');
+
+if(!function_exists('codepeople_post_map_regiter')){
+    function codepeople_post_map_regiter(){
+        $cpm_obj = new CPM;
+        $cpm_obj->set_default_configuration(true);
+    }
+}
+
 function cpm_admin_init(){
 	global $cpm_obj;
 	
 	load_plugin_textdomain( 'codepeople-post-map', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );	
-	
-	// Set default configuration
-	$cpm_obj->set_default_configuration();	
 	
 	// Insert the map's insertion form below the posts and pages editor
 	$form_title = __('Associate an address to the post for Google Maps association', 'codepeople-post-map');
