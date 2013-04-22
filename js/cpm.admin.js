@@ -6,9 +6,33 @@
 */
 
 (function ($) {
-	var _latlng_btn;
+	var _latlng_btn,
+    thumbnail_field;
 	
-	function _get_latlng(request, callback){
+    // thumbnail selection
+    window["cpm_send_to_editor"] = function(html) {
+
+        var file_url = jQuery(html).attr('href');
+        if (file_url) {
+            jQuery(thumbnail_field).val(file_url);
+        }
+        tb_remove();
+        window.send_to_editor = window.cpm_send_to_editor_default;
+
+    };
+		
+    window["cpm_send_to_editor_default"] = window.send_to_editor;
+    
+    window["cpm_thumbnail_selection"] = function(e){
+        thumbnail_field = $(e).parent().find('input[type="text"]');
+        window.send_to_editor = window.cpm_send_to_editor;
+        tb_show('', 'media-upload.php?TB_iframe=true');
+        return false;
+    };
+    
+    //---------------------------------------------------------
+    
+    function _get_latlng(request, callback){
 		var g = new google.maps.Geocoder();
 		g.geocode(request, callback);
 	};
@@ -145,26 +169,20 @@
 			$(this).css({"border":"solid #F9F9F9 1px"})
 		});
 		
-		// Actions for thumbnail selection
-		$(".cpm_thumb").click(function(){
-			var e = $(this);
-			$("#cpm_point_thumbnail").attr("value", $('img', e).attr('src'));
-			$(".cpm_thumb_selected").removeClass("cpm_thumb_selected");
-			e.addClass("cpm_thumb_selected");
-		});
-		
 		// Action for insert shortcode 
 		$('#cpm_map_shortcode').click(function(){
-			if(send_to_editor){
-				send_to_editor('[codepeople-post-map]');
-				var t = $('#content');
-				if(t.length){
-					var v= t.val()
-					if(v.indexOf('codepeople-post-map') == -1)
-						t.val(v+'[codepeople-post-map]');
-				}
+            if(window.cpm_send_to_editor_default)
+                window.send_to_editor = window.cpm_send_to_editor_default;
+        	if(send_to_editor){
+        		send_to_editor('[codepeople-post-map]');
 			}
-		});
+            var t = $('#content');
+            if(t.length){
+                var v= t.val()
+                if(v.indexOf('codepeople-post-map') == -1)
+                    t.val(v+'[codepeople-post-map]');
+            }
+        });
 		
 		// Create the script tag and load the maps api
 		if($('.cpm_map_container').length){
