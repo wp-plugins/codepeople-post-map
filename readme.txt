@@ -12,6 +12,16 @@ CodePeople Post Map allows to associate geolocation information to your posts an
 
 == Description ==
 
+Post Map features:
+
+	► Deal with large volumes of dots or markers
+	► Another way to discover additional entries related to the post
+	► The location can be defined by physical address or point coordinates
+	► Allows to insert a map in the best position within your blog
+	► Markers customization
+	► Allows to embed maps in multiple languages
+	► Allows several map controls and configuration options
+
 **CodePeople Post Map** allows to insert a Google Map in a post or in any of the WordPress templates that display multiple posts.
 
 The map inserted in a single post displays a marker at the position indicated by the geolocation information pertaining to the post, but also shows markers of the last posts published in related categories. The number of markers to display can be set in the plugin's settings.
@@ -20,7 +30,7 @@ The map inserted into a template displaying multiple posts will contain as many 
 
 **CodePeople Post Map** has a wide range of settings to make your maps more versatile and adaptable.
 
-**Features:**
+**More about the Main Features:**
 
 *   The plugin is capable of dealing with **large volumes of dots or markers**.
 *   Another way for users to discover **additional entries related** to the post.
