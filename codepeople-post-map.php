@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: CodePeople Post Map 
+Plugin Name: CP Google Maps 
 Version: 1.0.1
 Author: <a href="http://www.codepeople.net">CodePeople</a>
 Plugin URI: http://wordpress.dwbooster.com/content-tools/codepeople-post-map
-Description: CodePeople Post Map Allows to associate geocode information to posts and display it on map. CodePeople Post Map display the post list as markers on map. The scale of map is determined by the markers, to display distant points is required to load a map with smaller scales. To get started: 1) Click the "Activate" link to the left of this description. 2) Go to your <a href="options-general.php?page=codepeople-post-map.php">CodePeople Post Map configuration</a> page and configure the maps settings. 3) Go to post edition page to enter the geolocation information.
+Description: CP Google Maps Allows to associate geocode information to posts and display it on map. CP Google Maps display the post list as markers on map. The scale of map is determined by the markers, to display distant points is required to load a map with smaller scales. To get started: 1) Click the "Activate" link to the left of this description. 2) Go to your <a href="options-general.php?page=codepeople-post-map.php">CP Google Maps configuration</a> page and configure the maps settings. 3) Go to post edition page to enter the geolocation information.
  */
 
 define('CPM_PLUGIN_DIR', WP_PLUGIN_DIR."/".dirname(plugin_basename(__FILE__)));
