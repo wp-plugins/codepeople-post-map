@@ -17,7 +17,7 @@ Google Map features:
 	► Insert a Google map in the best position within your blog
 	► Deal with large volumes of dots or markers on the Google Maps
 	► Uses Google Maps to discover additional entries related to the post
-	► The location can be defined by physical address or point coordinates
+	► The location can be defined by physical address and point coordinates
 	► Map markers customization
 	► Allows to embed Google Maps in multiple languages
 	► Allows several Google Maps controls and configuration options
@@ -34,7 +34,7 @@ The Google Maps inserted into a template displaying multiple posts will contain 
 
 *   The plugin is capable of dealing with **large volumes of dots or markers**.
 *   Another way for users to discover **additional entries related** to the post.
-*   The **location information** can be defined by physical address or point coordinates.
+*   The **location information** can be defined by physical address and point coordinates.
 *   Allows to **insert the Google maps** in the best position within your blog or simply **associate the geolocation information** to the post but without displaying the Google maps.
 *   Markers **customization**.
 *   Based on **Google Maps Javascript API Version 3**.

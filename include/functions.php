@@ -110,7 +110,7 @@ class CPM {
 		$new_cpm_point['icon'] = $_POST['default_icon'];
 		
 		// The address is required, if address is empty the couple: latitude, longitude must be defined
-		if(!empty($new_cpm_point['address']) || (!empty($new_cpm_point['latitude']) && !empty($new_cpm_point['longitude']))){
+		if(!(empty($new_cpm_point['address']) || empty($new_cpm_point['latitude']) || empty($new_cpm_point['longitude']))){
 			$new_cpm_point['address'] = esc_attr($new_cpm_point['address']);
 			$new_cpm_point['name'] = esc_attr($new_cpm_point['name']);
 			$new_cpm_point['description'] = esc_attr($new_cpm_point['description']);
@@ -455,6 +455,7 @@ class CPM {
 						<table>
 							<tr valign="top">
 								<td>
+                                    <span style="font-weight:bold;">Address, latitude and longitude are required fields.</span>
 									<table>
 										<tr valign="top">
 											<th scope="row"><label for="cpm_point_address"><?php _e('Address:', 'codepeople-post-map')?></label></th>
@@ -477,7 +478,7 @@ class CPM {
 										<tr valign="top">
 											<th scope="row" style="text-align:right;"><p class="submit"><input type="button" name="cpm_point_verify" id="cpm_point_verify" value="<?php _e('Verify', 'codepeople-post-map'); ?>" onclick="cpm_checking_point(this);" /></p></th>
 											<td>
-												<label for="cpm_point_verify"><?php _e('Verify this latitude and longitude using Geocoding. This could overwrite the point address.', 'codepeople-post-map')?></label>
+												<label for="cpm_point_verify"><?php _e('Verify this latitude and longitude using Geocoding. This could overwrite the point address.', 'codepeople-post-map')?><span style="color:#FF0000">(<?php _e('Required: Press the button "verify" after complete the address.', 'codepeople-post-map'); ?>)</span></label>
 											</td>
 										</tr>
 									</table>
@@ -906,12 +907,13 @@ class CPM {
 		$point_thumbnail = "";
         
         if (isset($point['thumbnail']) && $point['thumbnail'] != "") {
+            $point_img_url = $point['thumbnail'];
             if(preg_match("/attachment_id=(\d+)/i", $point['thumbnail'], $matches)){
             	$thumb = wp_get_attachment_image_src($matches[1], 'thumbnail');
-				$point_thumbnail = $thumb[0];
+				if(is_array($thumb))$point_thumbnail = $thumb[0];
 			}else{
                 $thumb = wp_get_attachment_image_src($this->_get_img_id($point['thumbnail']), 'thumbnail');
-				$point_thumbnail = $thumb[0];
+				if(is_array($thumb))$point_thumbnail = $thumb[0];
 			}
             if($point_thumbnail != "")
                 $point_img_url = $point_thumbnail;
