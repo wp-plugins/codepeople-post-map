@@ -749,7 +749,9 @@ class CPM {
 	function replace_shortcode($atts){
 		global $post, $id;
 		
-		// Limit the publication of map to only one
+        $this->load_resources();
+		
+        // Limit the publication of map to only one
 		if($this->flush_map)
 			return '';
 		
