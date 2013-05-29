@@ -44,13 +44,20 @@ The Google Maps inserted into a template displaying multiple posts will contain 
 
 **Premium Features:**
 
+*   Allows to load all points that belong to a specific category.
+*   Allows to load the points associated to all posts.
 *   The location information and description may be used in posts search.
 *   Allows to associate multiple Google maps points to each post/page.
 *   Allows to draw routes through points in the same post.
 *   Allows to associate the Google maps with any public post_type in WordPress.
 *   In non singular webpages, Google Maps display a map for each post.
 
+Note 1: To display all points that belong to a specific category, it is required to insert the following shortcode [codepeople-post-map cat=3]. The number 3 represent the category ID, replace this number by the corresponding category's ID. To insert the code directly in a template, the snippet of code is:
 
+            <?php echo do_shortcode('[codepeople-post-map cat=3]'); ?>
+            
+Note 2: To display all points in the website, use -1 as the category's ID: [codepeople-post-map cat=-1] or  <?php echo do_shortcode('[codepeople-post-map cat=-1]'); ?> for template.
+ 
 If you want more information about this plugin or another one don't doubt to visit my website:
 
 [http://wordpress.dwbooster.com](http://wordpress.dwbooster.com "CodePeople WordPress Repository")
@@ -105,6 +112,15 @@ A: Only one, because only one point location can be associated with a single pos
 
 A: Load the template in which you want to place the map in the text editor of your choice and place the following code in the position where you want to display the Google maps:
 <?php echo do_shortcode ('[codepeople-post-map]'); ?>
+
+= Q: Is possible to load all points in a category? =
+
+A: To display all points that belong to a specific category, it is required to insert the following shortcode [codepeople-post-map cat=3]. The number 3 represent the category ID, replace this number by the corresponding category's ID. To insert the code directly in a template, the snippet of code is: 
+<?php echo do_shortcode ('[codepeople-post-map cat=3]'); ?>
+
+= Q: Is possible to load all points in the website? =
+
+A: To display all points in the website use -1 as the category ID: [codepeople-post-map cat=-1] or <?php echo do_shortcode ('[codepeople-post-map cat=-1]'); ?> for template.
 
 = Q: If I link geolocation information to a post but do not insert a Google map in it, will the geolocation information be available? =
 
