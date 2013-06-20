@@ -57,7 +57,15 @@ Note 1: To display all points that belong to a specific category, it is required
             <?php echo do_shortcode('[codepeople-post-map cat=3]'); ?>
             
 Note 2: To display all points in the website, use -1 as the category's ID: [codepeople-post-map cat=-1] or  <?php echo do_shortcode('[codepeople-post-map cat=-1]'); ?> for template.
- 
+
+If you prefer configure your map directly from the shortcode, then you must enter an attribute for each map feature to specify. For example:
+            
+            [codepeople-post-map width="500" height="500"]
+
+The complete list of allowed attributes is:
+            
+            width, height, zoom, type, mousewheel, zoompancontrol, typecontrol
+            
 If you want more information about this plugin or another one don't doubt to visit my website:
 
 [http://wordpress.dwbooster.com](http://wordpress.dwbooster.com "CodePeople WordPress Repository")

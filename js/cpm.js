@@ -77,7 +77,7 @@ jQuery(function(){
 							scaleControl: me.data.scalecontrol,
 							zoomControl: me.data.zoompancontrol,
 							mapTypeControl: me.data.typecontrol,
-							scrollWheel: me.data.mousewheel
+							scrollwheel: me.data.mousewheel
 					});
 
 					var map = me.map,

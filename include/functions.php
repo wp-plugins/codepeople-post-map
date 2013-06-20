@@ -15,6 +15,7 @@ class CPM {
 	var $flush_map = false; // Determine if the map's code was generated to limit only one map for page
 	var $map_id; // ID of map
     var $limit=0; // The number of pins allowed in map zero = unlimited
+	var $extended = array();
 	
 	//---------- CONSTRUCTOR ----------
 	
@@ -748,7 +749,9 @@ class CPM {
 	 */
 	function replace_shortcode($atts){
 		global $post, $id;
-		
+        
+        if(is_array($atts)) $this->extended = $atts;
+        
         $this->load_resources();
 		
         // Limit the publication of map to only one
@@ -821,7 +824,8 @@ class CPM {
 	 * Generates the DIV tag where the map will be loaded
 	 */
 	function _set_map_tag($atts){
-		extract($atts);				
+		$atts = array_merge($atts, $this->extended);
+        extract($atts);				
 		
 		$output ='<div id="'.$this->map_id.'" class="cpm-map" style="display:none; width:'.$width.'px; height:'.$height.'px; ';
 		switch ($align) {
@@ -846,6 +850,8 @@ class CPM {
 	 * Generates the javascript tag with map configuration
 	 */
 	function _set_map_config($atts){
+        $atts = array_merge($atts, $this->extended);
+		
 		extract($atts);
 		$default_language = $this->get_configuration_option('language');
 		$output  = "<script type=\"text/javascript\">\n";
@@ -867,9 +873,9 @@ class CPM {
 		$output .= "cpm_global['$this->map_id']['type'] = '$type';\n";	
 		  
 		// Define controls
-		$output .= "cpm_global['$this->map_id']['mousewheel'] = ".(($mousewheel) ? 'true' : 'false').";\n";	  
-		$output .= "cpm_global['$this->map_id']['zoompancontrol'] = ".(($zoompancontrol) ? 'true' : 'false').";\n";	  
-		$output .= "cpm_global['$this->map_id']['typecontrol'] = ".(($typecontrol) ? 'true' : 'false').";\n";	  
+		$output .= "cpm_global['$this->map_id']['mousewheel'] = ".((isset($mousewheel) && $mousewheel) ? 'true' : 'false').";\n";	  
+		$output .= "cpm_global['$this->map_id']['zoompancontrol'] = ".((isset($zoompancontrol) && $zoompancontrol) ? 'true' : 'false').";\n";	  
+		$output .= "cpm_global['$this->map_id']['typecontrol'] = ".((isset($typecontrol) && $typecontrol) ? 'true' : 'false').";\n";	  
 		$output .= "</script>";
 		
 		return $output;
