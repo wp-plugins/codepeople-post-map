@@ -447,7 +447,7 @@ class CPM {
                         <?php _e("Select an images to attach to the point: ","codepeople-post-map"); ?>
 					</th>
                     <td>
-                        <input type="text" name="cpm_point[thumbnail]" value="<?php if($options["thumbnail"]){ echo $options["thumbnail"];} ?>" id="cpm_point_thumbnail" />
+                        <input type="text" name="cpm_point[thumbnail]" value="<?php if(isset($options["thumbnail"])){ echo $options["thumbnail"];} ?>" id="cpm_point_thumbnail" />
                         <input class="button" type="button" value="Upload Images" onclick="cpm_thumbnail_selection(this);" />
                     </td>	
 				</tr>
