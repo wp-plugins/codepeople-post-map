@@ -55,8 +55,10 @@ jQuery(function(){
                     }
 				});
 			},
-			
-            _load_map : function(){
+			_str_transform : function( t ){
+                return t.replace( /&lt;/g, '<').replace( /&gt;/g, '>').replace( /&amp;/g, '&').replace( /&quot;/g, '"').replace(/\\'/g, "'");
+            },
+			_load_map : function(){
 			
 				var me = this,
 					m  = me.data.markers,
@@ -99,7 +101,7 @@ jQuery(function(){
 														  position: m[i].latlng,
 														  map: map,
 														  icon: new google.maps.MarkerImage(m[i].icon),
-														  title:((m[i].address) ? m[i].address : '')
+														  title:((m[i].address) ? me._str_transform(m[i].address) : '')
 														 });
 					  
 							marker.id = i;
@@ -156,7 +158,7 @@ jQuery(function(){
 			
 			// Open the marker bubble
 			open_infowindow : function(m){
-				this.infowindow.setContent(this.data.markers[m.id].info);
+				this.infowindow.setContent(this._str_transform(this.data.markers[m.id].info));
 				this.infowindow.open(this.map, m);
 			},	
 			
