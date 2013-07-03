@@ -886,10 +886,10 @@ class CPM {
 	 */
 	function _set_map_point($point, $index, $default = "false"){
 		return 'cpm_global["'.$this->map_id.'"]["markers"]['.$index.'] = 
-							{"address":"'.str_replace(array('&quot;', '&lt;', '&gt;', '&#039;', '&amp;'), array('\"', '<', '>', "'", '&'), $point['address']).'",
+							{"address":"'.esc_js(str_replace(array('&quot;', '&lt;', '&gt;', '&#039;', '&amp;'), array('\"', '<', '>', "'", '&'), $point['address'])).'",
 							 "lat":"'.$point['latitude'].'",
 							 "lng":"'.$point['longitude'].'",
-							 "info":"'.str_replace(array('&quot;', '&lt;', '&gt;', '&#039;', '&amp;'), array('\"', '<', '>', "'", '&'), $this->_get_windowhtml($point)).'",
+							 "info":"'.esc_js(str_replace(array('&quot;', '&lt;', '&gt;', '&#039;', '&amp;'), array('\"', '<', '>', "'", '&'), $this->_get_windowhtml($point))).'",
 							 "open":"'.$default.'",
 							 "icon":"'.((!empty($point['icon'])) ? $point['icon'] : $this->get_configuration_option('default_icon')).'",
 							 "post":"'.$point['post_id'].'"};';
