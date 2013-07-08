@@ -174,6 +174,8 @@ class CPM {
 							'typecontrol' => true,
 							'highlight'	=> true,
 							'highlight_class' => 'cpm_highlight',
+							'show_window' => true,
+                            'show_default' => true,
 							'windowhtml' => "<div class='cpm-infowindow'>
                                                 <div class='cpm-content'>
                                                     <a title='%link%' href='%link%'>%thumbnail%</a>
@@ -355,6 +357,20 @@ class CPM {
 				</td>
 			</tr>
             
+            <tr valign="top">
+				<th scope="row"><label for="cpm_show_window"><?php _e('Show info bubbles:', 'codepeople-post-map');?></th>
+				<td>
+                    <input type="checkbox" id="cpm_show_window" name="cpm_map[show_window]" value="true" <?php echo ((isset($options['show_window']) && $options['show_window']) ? 'checked' : '');?>><span> Display the bubbles associated to the points</span>
+                </td>
+			</tr>
+            
+            <tr valign="top">
+				<th scope="row"><label for="cpm_show_default"><?php _e('Display a bubble by default:', 'codepeople-post-map');?></th>
+				<td>
+                    <input type="checkbox" id="cpm_show_default" name="cpm_map[show_default]" value="true" <?php echo ((isset($options['show_default']) && $options['show_default']) ? 'checked' : '');?>><span> Display a bubble opened by default</span>
+                </td>
+			</tr>
+
             <tr valign="top">
 				<th scope="row"><label for="cpm_map_route" style="color:#CCCCCC;"><?php _e('Display route:', 'codepeople-post-map');?></th>
 				<td>
@@ -871,6 +887,9 @@ class CPM {
 		$highlight = $this->get_configuration_option('highlight');
 		$output .= "cpm_global['$this->map_id']['highlight'] = ".(($highlight && !is_singular()) ? 'true' : 'false').";\n"; 
 		$output .= "cpm_global['$this->map_id']['type'] = '$type';\n";	
+        $output .= "cpm_global['$this->map_id']['show_window'] = ".((isset($show_window) && $show_window) ? 'true' : 'false').";\n";
+		$output .= "cpm_global['$this->map_id']['show_default'] = ".((isset($show_default) && $show_default) ? 'true' : 'false').";\n";
+        
 		  
 		// Define controls
 		$output .= "cpm_global['$this->map_id']['mousewheel'] = ".((isset($mousewheel) && $mousewheel) ? 'true' : 'false').";\n";	  

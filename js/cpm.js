@@ -24,6 +24,8 @@ jQuery(function(){
 				scalecontrol 	: true,
 				zoompancontrol 	: true,
 				typecontrol 	: true,
+				show_window     : true,
+                show_default    : true,
 				display			: 'map',
 				highlight		: true,
 				highlight_class : 'cpm_highlight'
@@ -86,13 +88,14 @@ jQuery(function(){
 						bounds = new google.maps.LatLngBounds (),
 						open_by_default;
 					
-					google.maps.event.addListenerOnce(map, 'idle', function(){
-						setTimeout(function(){
-							if(open_by_default)
-										google.maps.event.trigger(me.markers[open_by_default - 1], 'click');
-						}, 1000);				
-					});
-					
+                    if( me.data.show_default ){
+                        google.maps.event.addListenerOnce(map, 'idle', function(){
+                            setTimeout(function(){
+                                if(open_by_default)
+                                            google.maps.event.trigger(me.markers[open_by_default - 1], 'click');
+                            }, 1000);				
+                        });
+					}
 					me.infowindow = new google.maps.InfoWindow({maxWidth:340});
 					for (var i = c; i < h; i++){		
 						if(!m[i]['invalid']){
@@ -158,6 +161,7 @@ jQuery(function(){
 			
 			// Open the marker bubble
 			open_infowindow : function(m){
+                if ( !this.data.show_window ) return;
 				this.infowindow.setContent(this._str_transform(this.data.markers[m.id].info));
 				this.infowindow.open(this.map, m);
 			},	
