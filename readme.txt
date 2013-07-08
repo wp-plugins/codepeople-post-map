@@ -37,6 +37,8 @@ The Google Maps inserted into a template displaying multiple posts will contain 
 *   The **location information** can be defined by physical address and point coordinates.
 *   Allows to **insert the Google maps** in the best position within your blog or simply **associate the geolocation information** to the post but without displaying the Google maps.
 *   Markers **customization**.
+*   Allows to display or hide the bubbles with markers information.
+*   Allows to display a bubble opened by default.
 *   Based on **Google Maps Javascript API Version 3**.
 *   Allows to embed Google maps in **multiple languages**.
 *   Displays **markers** belonging to posts of the same categories.
@@ -92,6 +94,8 @@ The settings are divided into two main groups, those belonging to the Google map
 *   Map margin: Margin of the map.
 *   Map type: Select one of the possible types of maps to load (roadmap, satellite, terrain, hybrid).
 *   Map language: a large number of languages is available to be used on maps, select the one that matches your blog's language.
+*   Show info bubbles: display or hide the bubbles with the information associated to the points.
+*   Display a bubble by default: display  a bubble opened by default.
 *   Display map in post / page: When the Google maps are inserted in a post you can select whether to display the Google maps or display an icon, which displays the map, when pressed (if the Google maps are inserted into a template that allows multiple posts, this option does not apply)
 *   Options: This setting allows you to select which map controls should be available.
 *   Enter the number of points on the post / page map: When the Google maps are inserted into a post, points that belong to the same categories will be shown on the same Google map. This option allows you to set the number of points to be shown. When the Google maps are inserted into a template that allows multiple posts this option does not apply.
@@ -133,6 +137,14 @@ A: To display all points in the website use -1 as the category ID: [codepeople-p
 = Q: If I link geolocation information to a post but do not insert a Google map in it, will the geolocation information be available? =
 
 A: If you have inserted a Google map into a template where multiple posts are displayed, then the geolocation information associated with posts is displayed on the map.
+
+= Q: How can I disable the information window of point opened by default? =
+
+A: Go to the settings of map (the settings page of plugin for settings of all maps, or the settings of a particular map), and uncheck the option "Display a bubble by default"
+
+= Q: How can I disable all information windows of points? =
+
+A: Go to the settings of map (the settings page of plugin for settings of all maps, or the settings of a particular map), and uncheck the option "Show info bubbles"
 
 == Screenshots ==
 
