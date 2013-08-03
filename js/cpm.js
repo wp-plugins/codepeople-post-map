@@ -19,6 +19,7 @@ jQuery(function(){
 			defaults : {
 				markers 		: [],
 				zoom			: 10,
+				dynamic_zoom    : false,
 				type			: 'ROADMAP',
 				mousewheel 		: true,
 				scalecontrol 	: true,
@@ -119,10 +120,10 @@ jQuery(function(){
 						}
 					}	
 					
-					if (h > 1) {
+					if (h > 1 && me.data.dynamic_zoom) {
 					  map.fitBounds(bounds);
 					}
-					else if (h == 1) {
+					else if (h == 1 || !me.data.dynamic_zoom) {
 					  map.setCenter(bounds.getCenter());
 					  map.setZoom(me.data.zoom);
 					}
@@ -216,9 +217,15 @@ jQuery(function(){
 		
 		var map = $('.cpm-map');
 		if(map.length){
-			// Create the script tag and load the maps api
-			$('<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false'+((typeof cpm_language != 'undefined' && cpm_language.lng) ? '&language='+cpm_language.lng: '')+'&callback=cpm_init"></script>').appendTo('body');	
-		}	
-		
+            if(typeof google == 'undefined' || google['maps'] == null){
+                // Create the script tag and load the maps api
+                var script=document.createElement('script');
+                script.type  = "text/javascript";
+                script.src='http://maps.google.com/maps/api/js?sensor=false'+((typeof cpm_language != 'undefined' && cpm_language.lng) ? '&language='+cpm_language.lng: '')+'&callback=cpm_init';
+                document.body.appendChild(script);
+            }else{
+                cpm_init();
+            }
+        }	
 	})(jQuery);
 });

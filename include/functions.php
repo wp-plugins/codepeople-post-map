@@ -121,6 +121,9 @@ class CPM {
 			$new_cpm_map['mousewheel'] 		= ($new_cpm_map['mousewheel'] == true);
 			$new_cpm_map['typecontrol'] 	= ($new_cpm_map['typecontrol'] == true);
             $new_cpm_map['single'] 	        = (isset($new_cpm_map['single'])) ? true : false;
+			$new_cpm_map['dynamic_zoom'] 	= (isset($new_cpm_map['dynamic_zoom']) && $new_cpm_map['dynamic_zoom']) ? true : false;
+            $new_cpm_map['show_default'] 	= (isset($new_cpm_map['show_default']) && $new_cpm_map['show_default']) ? true : false;
+            $new_cpm_map['show_window'] 	= (isset($new_cpm_map['show_window']) && $new_cpm_map['show_window']) ? true : false;
 			
             if($new_cpm_map['single']){
                 if($cpm_point){
@@ -159,6 +162,7 @@ class CPM {
 	function _default_configuration(){
 		return array(
 							'zoom' => '10',
+							'dynamic_zoom' => false,
 							'width' => '450',
 							'height' => '450',
 							'margin' => '10',
@@ -302,6 +306,12 @@ class CPM {
 				<th scope="row"><label for="cpm_map_zoom"><?php _e('Map zoom:', 'codepeople-post-map')?></label></th>
 				<td>
 					<input type="text" size="4" name="cpm_map[zoom]" id="cpm_map_zoom" value="<?php echo ((isset($options['zoom'])) ? $options['zoom'] : '');?>" />
+				</td>
+			</tr>
+			<tr valign="top">
+				<th scope="row"><label for="cpm_map_dynamic_zoom"><?php _e('Dynamic zoom:', 'codepeople-post-map')?></label></th>
+				<td>
+					<input type="checkbox" name="cpm_map[dynamic_zoom]" id="cpm_map_dynamic_zoom" <?php echo ( ( isset($options['dynamic_zoom'] ) && $options['dynamic_zoom'] ) ? 'CHECKED' : '' ); ?> /> <?php _e( 'Allows to adjust the zoom dynamically to display all points on map', 'codepeople-post-map' ); ?>
 				</td>
 			</tr>
 			<tr valign="top">
@@ -880,6 +890,7 @@ class CPM {
 		$output .= "var cpm_global = cpm_global || {};\n";
 		$output .= "cpm_global['$this->map_id'] = {}; \n";
 		$output .= "cpm_global['$this->map_id']['zoom'] = $zoom;\n";
+		$output .= "cpm_global['$this->map_id']['dynamic_zoom'] = ".((isset($dynamic_zoom) && $dynamic_zoom) ? 'true' : 'false').";\n";
 		$output .= "cpm_global['$this->map_id']['markers'] = new Array();\n";
 		$output .= "cpm_global['$this->map_id']['display'] = '$display';\n"; 
 		$output .= "cpm_global['$this->map_id']['highlight_class'] = '".$this->get_configuration_option('highlight_class')."';\n"; 
