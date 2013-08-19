@@ -5,7 +5,7 @@
  * Plugin URI: http://wordpress.dwbooster.com
 */
 
-body .content .cpm-map img, .cpm-map img{ max-width: none !important; height: auto !important; background: none !important;}
+body .content .cpm-map img, .cpm-map img{ max-width: none !important; height: auto !important; background: none !important;border:0 !important;margin:0 !important;padding:0 !important;}
 .cpm-map *{box-sizing:content-box;-moz-box-sizing:content-box;}
 .cpm-mapicon { width:20px; height:34px; cursor:pointer;background:url(../images/icons/marker.png) no-repeat 0 0; }
 .cpm-infowindow {margin:0; padding:0px; height:80px; width:%width%;font-size:11px; clear:both; line-height:13px;}

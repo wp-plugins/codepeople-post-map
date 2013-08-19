@@ -149,6 +149,16 @@
 		});
 	};
 	
+    window[ 'cpm_display_more_info' ] = function( e ){
+        e = $( e );
+        e.parent().hide().next( '.cpm_more_info' ).show();
+    };
+    
+    window[ 'cpm_hide_more_info' ] = function( e ){
+        e = $( e );
+        e.parent().hide().prev( '.cpm_more_info_hndl' ).show();
+    };
+    
     function enable_disable_fields(f, v){
         var p = f.parents('#map_data');
         p.find('input[type="text"]').attr({'DISABLED':v,'READONLY':v});

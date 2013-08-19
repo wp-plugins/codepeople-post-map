@@ -186,7 +186,6 @@ class CPM {
                                                     <a class='title' href='%link%'>%title%</a>
                                                     <div class='address'>%address%</div>
                                                     <div class='description'>%description%</div>
-                                                    <a href='%link%' class='more'>more &raquo;</a>
                                                 </div>
                                                 <div style='clear:both;'></div>
                                             </div>"
@@ -318,6 +317,12 @@ class CPM {
 				<th scope="row"><label for="cpm_map_width"><?php _e('Map width:', 'codepeople-post-map')?></label></th>
 				<td>
 					<input type="text" size="4" name="cpm_map[width]" id="cpm_map_width" value="<?php echo ((isset($options['width'])) ? $options['width'] : '');?>" />
+                    <span class="cpm_more_info_hndl" style="margin-left: 10px;"><a href="javascript:void(0);" onclick="cpm_display_more_info( this );">[ + more information]</a></span>
+                    <div class="cpm_more_info">
+                        <p>To insert the map in a responsive design (in a responsive design, the map's width should be adjusted with the page width):</p>
+                        <p>the value of map's width should be defined as a percentage of container's width, for example, type the value: <strong>100%</strong></p>
+                        <a href="javascript:void(0)" onclick="cpm_hide_more_info( this );">[ + less information]</a>
+                    </div>
 				</td>
 			</tr>
 			<tr valign="top">
@@ -447,6 +452,15 @@ class CPM {
 		</script>
 		<p  style="font-weight:bold;"><?php _e('For more information go to the <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map" target="_blank">CodePeople Post Map</a> plugin page'); ?></p>
 		<p  style="border:1px solid #E6DB55;margin-bottom:10px;padding:5px;background-color: #FFFFE0;"><?php _e('For any issues with the map, go to our <a href="http://wordpress.dwbooster.com/contact-us" target="_blank">contact page</a> and leave us a message.'); ?></p>
+        <p>
+            To insert a map in the post follow the steps below:
+        </p>
+        <ol>
+            <li>Enter the point's information (the latitude and longitude are required, but are obtained pressing the "verify" button after type the address)</li>
+            <li>Insert the shortcode in the post's content pressing the "insert the map tag" button</li>
+            <li>If you want to use specific settings just for this map, press the "Show/Hide Map's Options" button, and modifies the settings for this map</li>
+            <li>Don't forget to press the "Update" button for save the post and map data</li>
+        </ol>
 		<div style="border:1px solid #CCC;margin-bottom:10px;min-height:60px;">
 			<h3><?php _e('Map points'); ?></h3>
 			<div id="points_container" style="padding:10px;">
@@ -466,6 +480,8 @@ class CPM {
 					<th scope="row"><label for="cpm_point_description"><?php _e('Location description:', 'codepeople-post-map')?></label></th>
 					<td>
 						<input type="text" size="40" style="width:95%;" name="cpm_point[description]" id="cpm_point_description" value="<?php echo ((isset($options['description'])) ? $options['description'] : '');?>" />
+                        <br />
+                        <em>It is possible to insert a link to another page in the infowindow associated to the point. Type the link tag to the other page in the point description box, similar to: <span style="white-space:nowrap;"><strong>&lt;a href="http://wordpress.dwbooster.com" &gt;CLICK HERE &lt;/a&gt;</strong></span></em>
 					</td>
 				</tr>
 				<tr valign="top">
@@ -536,7 +552,19 @@ class CPM {
 					<label for="cpm_point_bubble"><?php _e('If you want to display the map in page / post:', 'codepeople-post-map')?></label>
 				</th>
                 <td> 
-					<p style="float:left;"><input type="button" class="button-primary" name="cpm_map_shortcode" id="cpm_map_shortcode" value="<?php _e('insert the map tag', 'codepeople-post-map'); ?>" /></p>
+					<input type="button" class="button-primary" name="cpm_map_shortcode" id="cpm_map_shortcode" value="<?php _e('insert the map tag', 'codepeople-post-map'); ?>" />
+                    <span class="cpm_more_info_hndl" style="margin-left: 10px;"><a href="javascript:void(0);" onclick="cpm_display_more_info( this );">[ + more information]</a></span>
+                    <div class="cpm_more_info">
+                        <p>It is possible to use attributes in the shortcode, like: width, height, zoom and the other maps attributes:</p>
+                        <p><strong>[codepeople-post-map width="450" height="500"]</strong></p>
+                        <p>The premium version of plugin allows to use a special attribute "cat" (referent to category), to display all points created in a category:</p>
+                        <p><strong>[codepeople-post-map cat="35"]</strong><br/>Note: the number 35 correspond to the ID of category.</p>
+                        <p>or all points on website, using as category ID the value "-1"</p>
+                        <p><strong>[codepeople-post-map cat="-1"]</strong></p>
+                        <br />
+                        <a href="javascript:void(0)" onclick="cpm_hide_more_info( this );">[ + less information]</a>
+                    </div>
+                    
 				</td>
             </tr>
 		</table>	
