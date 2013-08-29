@@ -13,6 +13,4 @@ body .content .cpm-map img, .cpm-map img{ max-width: none !important; height: au
 .cpm-infowindow .cpm-content .title {font-size:12px; line-height: 18px; font-weight:bold;}
 .cpm-infowindow .cpm-content .address {font-weight:bold; font-size:9px;}
 .cpm-infowindow .cpm-content .description {font-size:10px;}
-.cpm-infowindow .cpm-content .more {font-size:11px; float:left; display:block;}
-.cpm-infowindow .thumbnail {float:left;}
 .cpm_highlight{border:1px dotted #CCC; padding:5px;}

@@ -990,7 +990,7 @@ class CPM {
 		$point_address = $point['address'];
 
 		if(isset($point_img_url)) {
-			$point_img = "<img src='".$point_img_url."' style='margin:8px 0 0 8px; width:90px; height:90px' align='right' />";
+			$point_img = "<img src='".$point_img_url."' style='margin:8px 0 0 8px !important; width:90px; height:90px' align='right' />";
 			$html_width = "310px";
 		} else {
 			$point_img = "";
