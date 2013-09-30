@@ -80,11 +80,6 @@
 		});
 	};		
 	
-	// Show/Hide the information related to the map 
-	window['display_map_form'] = function (){
-		$('#map_data').slideToggle();
-	};
-	
 	// Check the point or address existence
 	window['cpm_checking_point'] = function (e){
 		var language = 'en';
