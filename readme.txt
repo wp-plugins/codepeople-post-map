@@ -3,7 +3,7 @@ Contributors: codepeople
 Donate link: http://wordpress.dwbooster.com/content-tools/codepeople-post-map
 Tags:google maps,shortcode,map,maps,categories,post map,point,marker,list,location,address,images,geocoder,google maps,google
 Requires at least: 3.0.5
-Tested up to: 3.6
+Tested up to: 3.6.1
 Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -145,6 +145,20 @@ A: Go to the settings of map (the settings page of plugin for settings of all ma
 = Q: How can I disable all information windows of points? =
 
 A: Go to the settings of map (the settings page of plugin for settings of all maps, or the settings of a particular map), and uncheck the option "Show info bubbles"
+
+= Q: How can I use different icons, in the points markers?  =
+
+A: To use your own icons, you only should to upload the icons images to the following location: "/wp-content/plugins/codepeople-post-map/images/icons/", and then select the image from the list in the point's definition.
+
+= Q: How can I use particular settings in a map? =
+
+A: You may use a particular settings in a map, defining the options directly as attributes of shortcode: [codepeople-post-map width="100%"]
+
+If you are inserting the map in a particular page/post, you may check the field named "Use particular settings for this map", and then entering the particular values in the settings options.
+
+= Q: Is it possible to display the map as responsive desing? =
+
+A: Yes, that is possible, you only should to define the width of map with values in percent. For example: 100%
 
 == Screenshots ==
 

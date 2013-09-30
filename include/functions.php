@@ -102,55 +102,36 @@ class CPM {
 		}
 
 		// authentication passed, save data
+		$default_icon = ( !empty( $_POST['default_icon'] ) ) ? $_POST['default_icon'] : $this->get_configuration_option('default_icon');
+        
+		delete_post_meta($post_id,'cpm_point');
+		delete_post_meta($post_id,'cpm_map');
 		
-		// Check the existence of a point associated to the post
-		$cpm_point = get_post_meta($post_id, 'cpm_point', TRUE);
-		
-		$new_cpm_point = $_POST['cpm_point'];
+        $new_cpm_point = $_POST['cpm_point'];
 		$new_cpm_map = $_POST['cpm_map'];
-		$new_cpm_point['icon'] = $_POST['default_icon'];
+		$new_cpm_point['icon'] = $default_icon;
 		
-		// The address is required, if address is empty the couple: latitude, longitude must be defined
-		if(!(empty($new_cpm_point['address']) || empty($new_cpm_point['latitude']) || empty($new_cpm_point['longitude']))){
-			$new_cpm_point['address'] = esc_attr($new_cpm_point['address']);
-			$new_cpm_point['name'] = esc_attr($new_cpm_point['name']);
-			$new_cpm_point['description'] = esc_attr($new_cpm_point['description']);
-			
-			
-			$new_cpm_map['zoompancontrol'] 	= ($new_cpm_map['zoompancontrol'] == true);
-			$new_cpm_map['mousewheel'] 		= ($new_cpm_map['mousewheel'] == true);
-			$new_cpm_map['typecontrol'] 	= ($new_cpm_map['typecontrol'] == true);
-            $new_cpm_map['single'] 	        = (isset($new_cpm_map['single'])) ? true : false;
-			$new_cpm_map['dynamic_zoom'] 	= (isset($new_cpm_map['dynamic_zoom']) && $new_cpm_map['dynamic_zoom']) ? true : false;
+        // Set the map's config
+        $new_cpm_map['single'] = (isset($new_cpm_map['single'])) ? true : false;
+        if($new_cpm_map['single']){
+            $new_cpm_point['address'] = esc_attr($new_cpm_point['address']);
+            $new_cpm_point['name'] = esc_attr($new_cpm_point['name']);
+            $new_cpm_point['description'] = esc_attr($new_cpm_point['description']);
+            
+            
+            $new_cpm_map['zoompancontrol'] 	= ($new_cpm_map['zoompancontrol'] == true);
+            $new_cpm_map['mousewheel'] 		= ($new_cpm_map['mousewheel'] == true);
+            $new_cpm_map['typecontrol'] 	= ($new_cpm_map['typecontrol'] == true);
+            $new_cpm_map['dynamic_zoom'] 	= (isset($new_cpm_map['dynamic_zoom']) && $new_cpm_map['dynamic_zoom']) ? true : false;
             $new_cpm_map['show_default'] 	= (isset($new_cpm_map['show_default']) && $new_cpm_map['show_default']) ? true : false;
             $new_cpm_map['show_window'] 	= (isset($new_cpm_map['show_window']) && $new_cpm_map['show_window']) ? true : false;
-			
-            if($new_cpm_map['single']){
-                if($cpm_point){
-                    // Update metadata
-                    update_post_meta($post_id,'cpm_map',$new_cpm_map);
-                }else{
-                    // Create metadata
-                    add_post_meta($post_id,'cpm_map',$new_cpm_map,TRUE);
-                }
-            }else{
-                delete_post_meta($post_id,'cpm_map');
-            }
             
-			
-			if($cpm_point){
-				// Update metadata
-				update_post_meta($post_id,'cpm_point',$new_cpm_point);
-			}else{
-				// Create metadata
-				add_post_meta($post_id,'cpm_point',$new_cpm_point,TRUE);
-			}
-		}else{
-			// Remove metadata
-			if($cpm_point) {
-				delete_post_meta($post_id,'cpm_point');
-				delete_post_meta($post_id,'cpm_map');
-			}	
+            add_post_meta($post_id,'cpm_map',$new_cpm_map,TRUE);
+        } 
+            
+		// The address is required, if address is empty the couple: latitude, longitude must be defined
+		if(!(empty($new_cpm_point['address']) || empty($new_cpm_point['latitude']) || empty($new_cpm_point['longitude']))){
+			add_post_meta($post_id,'cpm_point',$new_cpm_point,TRUE);
 		}
 		
 	} // End save_map
@@ -277,7 +258,15 @@ class CPM {
 				<a href="http://mapicons.nicolasmollet.com" target="_blank">
 					<img src="<?php echo CPM_PLUGIN_URL ?>/images/miclogo-88x31.gif" />
 				</a>
-			 </div> 	
+			 </div>
+             <div class="clear"></div>
+             <span class="cpm_more_info_hndl  cpm_blink_me" style="margin-left: 10px;"><a href="javascript:void(0);" onclick="cpm_display_more_info( this );">[ + more information]</a></span>
+             <div class="cpm_more_info">
+                <p>To use your own markers icons, you only should to upload the icons images to the following location:</p>
+                <p>/wp-content/plugins/codepeople-post-map/images/icons</p>
+                <p>and then select the icon's image from the list</p>
+                <a href="javascript:void(0)" onclick="cpm_hide_more_info( this );">[ + less information]</a>
+             </div>
 		<?php
 	} // End _deploy_icons
 	
@@ -317,7 +306,7 @@ class CPM {
 				<th scope="row"><label for="cpm_map_width"><?php _e('Map width:', 'codepeople-post-map')?></label></th>
 				<td>
 					<input type="text" size="4" name="cpm_map[width]" id="cpm_map_width" value="<?php echo ((isset($options['width'])) ? $options['width'] : '');?>" />
-                    <span class="cpm_more_info_hndl" style="margin-left: 10px;"><a href="javascript:void(0);" onclick="cpm_display_more_info( this );">[ + more information]</a></span>
+                    <span class="cpm_more_info_hndl cpm_blink_me" style="margin-left: 10px;"><a href="javascript:void(0);" onclick="cpm_display_more_info( this );">[ + more information]</a></span>
                     <div class="cpm_more_info">
                         <p>To insert the map in a responsive design (in a responsive design, the map's width should be adjusted with the page width):</p>
                         <p>the value of map's width should be defined as a percentage of container's width, for example, type the value: <strong>100%</strong></p>
@@ -552,8 +541,8 @@ class CPM {
 					<label for="cpm_point_bubble"><?php _e('If you want to display the map in page / post:', 'codepeople-post-map')?></label>
 				</th>
                 <td> 
-					<input type="button" class="button-primary" name="cpm_map_shortcode" id="cpm_map_shortcode" value="<?php _e('insert the map tag', 'codepeople-post-map'); ?>" />
-                    <span class="cpm_more_info_hndl" style="margin-left: 10px;"><a href="javascript:void(0);" onclick="cpm_display_more_info( this );">[ + more information]</a></span>
+					<input type="button" class="button-primary" name="cpm_map_shortcode" id="cpm_map_shortcode" value="<?php _e('insert the map tag', 'codepeople-post-map'); ?>" style="height:40px; padding-left:30px; padding-right:30px; font-size:1.5em;" />
+                    <span class="cpm_more_info_hndl cpm_blink_me" style="margin-left: 10px;"><a href="javascript:void(0);" onclick="cpm_display_more_info( this );">[ + more information]</a></span>
                     <div class="cpm_more_info">
                         <p>It is possible to use attributes in the shortcode, like: width, height, zoom and the other maps attributes:</p>
                         <p><strong>[codepeople-post-map width="450" height="500"]</strong></p>
@@ -571,9 +560,6 @@ class CPM {
 		<div id="map_data">
 			<?php $this->_deploy_map_form($options, true); ?>
 		</div>	
-        <p class="submit">
-            <input type="button" onclick="display_map_form();" value="<?php _e("Show / Hide Map's Options &raquo;", 'codepeople-post-map'); ?>" />
-        </p>
         <p>&nbsp;</p>
 		<?php
 		// create a custom nonce for submit verification later
@@ -762,7 +748,8 @@ class CPM {
 	 * Populate the attribute points
 	 */
 	function populate_points($post, $force = false){
-		$point = get_post_meta($post->ID, 'cpm_point', TRUE);
+		if(is_singular() && !$force) return;
+        $point = get_post_meta($post->ID, 'cpm_point', TRUE);
 		if(!empty($point)){
 			$point['post_id'] = $post->ID;
 			if(!in_array($point, $this->points)){
@@ -814,7 +801,7 @@ class CPM {
 		
 		$this->flush_map = true;
 		
-        if($id){
+        if( isset($id) ){
             $cpm_map = get_post_meta($post->ID, 'cpm_map', TRUE);
         }
         
