@@ -840,7 +840,7 @@ class CPM {
 			foreach($posts as $_post){
 				$this->populate_points($_post, true);
 			}	
-			
+		    	
 			$output  = $this->_set_map_tag($cpm_map);
 			$output .= $this->_set_map_config($cpm_map);
 			
@@ -867,8 +867,7 @@ class CPM {
 	function _set_map_tag($atts){
 		$atts = array_merge($atts, $this->extended);
         extract($atts);				
-		
-		$output ='<div id="'.$this->map_id.'" class="cpm-map" style="display:none; width:'.$width.'px; height:'.$height.'px; ';
+		$output ='<div id="'.$this->map_id.'" class="cpm-map" style="display:none; width:'.$width.(( strpos($width, '%') !== false ) ? '' : 'px').'; height:'.$height.(( strpos($height, '%') !== false ) ? '' : 'px').'; ';
 		switch ($align) {
 			case "left" :		  
 				$output .= 'float:left; margin:'.$margin.'px;"';
