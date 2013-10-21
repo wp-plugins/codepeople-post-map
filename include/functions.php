@@ -766,7 +766,10 @@ class CPM {
 	 * Generates the javascript code of map points, only called from webpage of multiples posts
 	 */
 	function print_points(){
-        global $id;
+        global $id, $cpm_shortcode;
+        
+		if( empty( $cpm_shortcode ) || !$cpm_shortcode ) return;
+		
         $limit = abs($this->limit);
         $str = '';
         $current = '';
@@ -789,8 +792,10 @@ class CPM {
 	 * Replace each [codepeople-post-map] shortcode by the map
 	 */
 	function replace_shortcode($atts){
-		global $post, $id;
+		global $post, $id, $cpm_shortcode;
         
+		$cpm_shortcode = true;
+		
         if(is_array($atts)) $this->extended = $atts;
         
         $this->load_resources();
