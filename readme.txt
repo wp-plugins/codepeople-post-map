@@ -113,7 +113,7 @@ The settings are divided into two main groups, those belonging to the Google map
 *   Display a bubble by default: display  a bubble opened by default.
 *   Display map in post / page: When the Google maps are inserted in a post you can select whether to display the Google maps or display an icon, which displays the map, when pressed (if the Google maps are inserted into a template that allows multiple posts, this option does not apply)
 *   Options: This setting allows you to select which map controls should be available.
-*	Display the get directions link: Displays a link in the infowindow to get the direction to the point (available only in the premium version of plugin)
+*	Display the get directions link: Displays a link in the infowindow to get the directions to the point (available only in the premium version of plugin)
 *	Display a link to Google Maps: Displays a link in the infowindow to load the point directly on Google Maps.
 *   Enter the number of points on the post / page map: When the Google maps are inserted into a post, points that belong to the same categories will be shown on the same Google map. This option allows you to set the number of points to be shown. When the Google maps are inserted into a template that allows multiple posts this option does not apply.
 *   Highlight post when mouse hovers over related point on map:  When the Google maps are inserted into a template that allows multiple posts,  hovering the mouse over one of the points will highlight the associated post through assignment of a class in the next setup option. 
@@ -186,14 +186,14 @@ A: You may use a particular settings in a map, defining the options directly as 
 
 If you are inserting the map in a particular page/post, you may check the field named "Use particular settings for this map", and then entering the particular values in the settings options.
 
-= Q: Is it possible to display the map as responsive desing? =
+= Q: Is possible to display the map as responsive design? =
 
 A: Yes, that is possible, you only should to define the width of map with values in percent. For example: 100%
 Pay attention the height definition with percent is not recommended, because it is only possible if the map's container has a fixed height.
 
 = Q: How to get the directions to the point? =
 
-A: Go to the settings page of plugin and check the box to display the "Get Directions" link in the infowindow. The "Get Direction" link will be displayed in the infowindow.
+A: Go to the settings page of plugin and check the box to display the "Get directions" link in the infowindow. The "Get directions" link will be displayed in the infowindow.
 
 = Q: How to open the point on Google Maps? =
 
@@ -201,7 +201,7 @@ A: If you want to display a link to open the point directly on Google Maps, go t
 
 = Q: Could I insert the map as widget? =
 
-A: Yes, go to the menu option: "Appearance / Widgets" and insert the "CP Google Maps" widget on side bar.
+A: Yes, you can. Go to the menu option: "Appearance / Widgets" and insert the "CP Google Maps" widget on side bar.
 
 == Screenshots ==
 
