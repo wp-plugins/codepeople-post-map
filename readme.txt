@@ -3,7 +3,7 @@ Contributors: codepeople
 Donate link: http://wordpress.dwbooster.com/content-tools/codepeople-post-map
 Tags:google maps,shortcode,map,maps,categories,post map,point,marker,list,location,address,images,geocoder,google maps,google
 Requires at least: 3.0.5
-Tested up to: 3.6.1
+Tested up to: 3.7.1
 Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -51,20 +51,28 @@ The Google Maps inserted into a template displaying multiple posts will contain 
 *   The location information and description may be used in posts search.
 *   Allows to associate multiple Google maps points to each post/page.
 *   Allows to draw routes through points in the same post.
+*   Allows to display a link to get directions to the point.
+*   Allows to display a link to open the point directly on Google Maps.
+*   Allows to display multiple maps in the same post/page (but displays the same points in all maps on page). 
+*   Allows to insert the map as widget on sidebars.
 *   Allows to associate the Google maps with any public post_type in WordPress.
 *   In non singular webpages, Google Maps display a map for each post.
 
-Note 1: To display all points that belong to a specific category, it is required to insert the following shortcode [codepeople-post-map cat=3]. The number 3 represent the category ID, replace this number by the corresponding category's ID. To insert the code directly in a template, the snippet of code is:
+Note 1: To display all points that belong to a specific category, it is required to insert the following shortcode [codepeople-post-map cat="3"]. The number 3 represent the category ID, replace this number by the corresponding category's ID. To insert the code directly in a template, the snippet of code is:
 
-            <?php echo do_shortcode('[codepeople-post-map cat=3]'); ?>
+            <?php echo do_shortcode('[codepeople-post-map cat="3"]'); ?>
+			
+Note 2:	To display all points that belong to more than one category, separate the categories IDs with the comma symbol [codepeople-post-map cat="3,5"]. The numbers 3 y 5 are the categories IDs, replace these numbers by the corresponding categories IDs. To insert the code directly in a template, the snippet of code is:
+
+            <?php echo do_shortcode('[codepeople-post-map cat="3,5"]'); ?>
             
-Note 2: To display all points in the website, use -1 as the category's ID: [codepeople-post-map cat=-1] or  <?php echo do_shortcode('[codepeople-post-map cat=-1]'); ?> for template.
+Note 3: To display all points in the website, use -1 as the category's ID: [codepeople-post-map cat="-1"] or  <?php echo do_shortcode('[codepeople-post-map cat="-1"]'); ?> for template.
 
 If you prefer configure your map directly from the shortcode, then you must enter an attribute for each map feature to specify. For example:
             
             [codepeople-post-map width="500" height="500"]
 
-The complete list of allowed attributes is:
+The complete list of allowed attributes:
             
             width, height, zoom, type, mousewheel, zoompancontrol, typecontrol
             
@@ -78,6 +86,9 @@ If you want more information about this plugin or another one don't doubt to vis
 
 1.	Download and unzip the plugin
 2.	Upload the entire codepeople-post-map/ directory to the /wp-content/plugins/ directory
+
+
+
 3.	Activate the plugin through the Plugins menu in WordPress
 
 == Interface ==
@@ -88,19 +99,27 @@ The settings are divided into two main groups, those belonging to the Google map
 
 **Google Maps configuration options:**
 
-*   Map zoom: initial map zoom.
+*   Map zoom: Initial map zoom.
+*   Dynamic zoom: Allows to adjust the map's zoom dynamically to display all points at the same time.
 *   Map width: Width of the map.
 *   Map height: Height of the map.
 *   Map margin: Margin of the map.
+*   Map align: Aligns the map at left, center or right of area.
 *   Map type: Select one of the possible types of maps to load (roadmap, satellite, terrain, hybrid).
 *   Map language: a large number of languages is available to be used on maps, select the one that matches your blog's language.
+*   Map route: Draws the route through the points that belong to the same post (available only in the premium version of plugin)
+*   Travel Mode: Travel mode used in route drawing (available only in the premium version of plugin) 
 *   Show info bubbles: display or hide the bubbles with the information associated to the points.
 *   Display a bubble by default: display  a bubble opened by default.
 *   Display map in post / page: When the Google maps are inserted in a post you can select whether to display the Google maps or display an icon, which displays the map, when pressed (if the Google maps are inserted into a template that allows multiple posts, this option does not apply)
 *   Options: This setting allows you to select which map controls should be available.
+*	Display the get directions link: Displays a link in the infowindow to get the direction to the point (available only in the premium version of plugin)
+*	Display a link to Google Maps: Displays a link in the infowindow to load the point directly on Google Maps.
 *   Enter the number of points on the post / page map: When the Google maps are inserted into a post, points that belong to the same categories will be shown on the same Google map. This option allows you to set the number of points to be shown. When the Google maps are inserted into a template that allows multiple posts this option does not apply.
 *   Highlight post when mouse hovers over related point on map:  When the Google maps are inserted into a template that allows multiple posts,  hovering the mouse over one of the points will highlight the associated post through assignment of a class in the next setup option. 
 *   Highlight class: Name of the class to be assigned to a post to highlight when the mouse is hovered over the point associated with that post on the Google map.
+*   Use points information in search results: Allows search in the points information ( Available only in the premium version of plugin )
+*	Allow to associate a map to the post types: Allows to associate points to custom post types in website ( Available only in the premium version of plugin )
 
 **Configuration options related to the location points**
 
@@ -114,11 +133,17 @@ The settings are divided into two main groups, those belonging to the Google map
 *   Select the marker by clicking on the images: Select the bookmark icon to show on the Google maps.
 *   Insert the map tag: Inserts a shortcode in the content of the post where the Google map is displayed with the features selected in the setup. You can attach geolocation information to a post but choose not to show the Google maps in the content of the post. In case you do want to display a map in the post content, use this button.
 
+**Inserting maps as widgets on sidebars** (Available only in the premium version of plugin)
+
+To insert the maps as widget on sidebars, go to the menu option "Appearance / Widgets", and drag the "CP Google Maps" widget to the sidebar. 
+
+It is possible define, for each map on sidebar, the categories IDs to display (optional attribute), and the height of map. The map's width is set to the 100% of sidebar.
+
 == Frequently Asked Questions ==
 
 = Q: How many maps I can insert into a post? =
 
-A: Only one, because only one point location can be associated with a single post.
+A: In the free version of plugin only one map with only one point associated in each post/page. In the premium version of plugin it is possible associate multiple points to the post and insert multiple sortcodes ( if there are multiple maps included in the same post/page, all of them will display the same points)
 
 = Q: How to insert Google maps into a template? =
 
@@ -127,12 +152,17 @@ A: Load the template in which you want to place the map in the text editor of yo
 
 = Q: Is possible to load all points in a category? =
 
-A: To display all points that belong to a specific category, it is required to insert the following shortcode [codepeople-post-map cat=3]. The number 3 represent the category ID, replace this number by the corresponding category's ID. To insert the code directly in a template, the snippet of code is: 
-<?php echo do_shortcode ('[codepeople-post-map cat=3]'); ?>
+A: To display all points that belong to a specific category, it is required to insert the following shortcode [codepeople-post-map cat="3"]. The number 3 represent the category ID, replace this number by the corresponding category's ID. To insert the code directly in a template, the snippet of code is: 
+<?php echo do_shortcode ('[codepeople-post-map cat="3"]'); ?>
+
+= Q: Is possible to load all points in more than one category? =
+
+A: To display all points that belong to multiple categories, it is required separate the categories IDs with comma "," [codepeople-post-map cat="3,5"]. The numbers 3 and 5 are the categories IDs, replace these numbers with the corresponding categories IDs. To insert the code directly in a template, the snippet of code is: 
+<?php echo do_shortcode ('[codepeople-post-map cat="3,5"]'); ?>
 
 = Q: Is possible to load all points in the website? =
 
-A: To display all points in the website use -1 as the category ID: [codepeople-post-map cat=-1] or <?php echo do_shortcode ('[codepeople-post-map cat=-1]'); ?> for template.
+A: To display all points in the website use -1 as the category ID: [codepeople-post-map cat="-1"] or <?php echo do_shortcode ('[codepeople-post-map cat="-1"]'); ?> for template.
 
 = Q: If I link geolocation information to a post but do not insert a Google map in it, will the geolocation information be available? =
 
@@ -159,9 +189,23 @@ If you are inserting the map in a particular page/post, you may check the field 
 = Q: Is it possible to display the map as responsive desing? =
 
 A: Yes, that is possible, you only should to define the width of map with values in percent. For example: 100%
+Pay attention the height definition with percent is not recommended, because it is only possible if the map's container has a fixed height.
+
+= Q: How to get the directions to the point? =
+
+A: Go to the settings page of plugin and check the box to display the "Get Directions" link in the infowindow. The "Get Direction" link will be displayed in the infowindow.
+
+= Q: How to open the point on Google Maps? =
+
+A: If you want to display a link to open the point directly on Google Maps, go to the settings page of plugin, and checks the box to display the link in the infowindow.
+
+= Q: Could I insert the map as widget? =
+
+A: Yes, go to the menu option: "Appearance / Widgets" and insert the "CP Google Maps" widget on side bar.
 
 == Screenshots ==
 
-1. Global maps settings
-2. Point insertion's form 
-3. Maps in action
+1. Maps in action
+2. Global maps settings
+3. Point insertion's form 
+4. Inserting map on sidebars
