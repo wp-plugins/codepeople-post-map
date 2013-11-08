@@ -381,7 +381,7 @@ class CPM {
 					<th scope="row"><label for="cpm_get_direction"  style="color:#CCCCCC;"><?php _e('Display the get directions link:', 'codepeople-post-map');?></th>
 					<td>
 						<input type="checkbox" disabled><span> Display a link at  bottom of infowindow to get directions</span><br />
-						<span style="color:#FF0000;">The route between points is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a></span>
+						<span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a></span>
 					</td>
 				</tr>
 				
@@ -389,7 +389,15 @@ class CPM {
 					<th scope="row"><label for="cpm_map_link"  style="color:#CCCCCC;"><?php _e('Display a link to Google Maps:', 'codepeople-post-map');?></th>
 					<td>
 						<input type="checkbox" disabled><span> Display a link at  bottom of infowindow to display on Google Maps</span><br />
-						<span style="color:#FF0000;">The route between points is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a></span>
+						<span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a></span>
+					</td>
+				</tr>
+				
+				<tr valign="top">
+					<th scope="row"><label for="cpm_street_view_link" style="color:#CCCCCC;"><?php _e('Display a link to street view:', 'codepeople-post-map');?></th>
+					<td>
+						<input type="checkbox" disabled /><span> Display a link at bottom of infowindow to load the corresponding street view</span><br />
+						<span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a></span>
 					</td>
 				</tr>
 <?php
@@ -427,6 +435,24 @@ class CPM {
 			<tr valign="top">
 				<th scope="row"><label for="cpm_map_points"><?php _e('Enter the number of posts to display on the post/page map:'); ?></th>
 				<td><input type="text" name="cpm_map[points]" id="cpm_map_points" value="<?php echo ((isset($options['points'])) ? $options['points'] : '');?>" /></td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="cpm_map_stylized" style="color:#CCCCCC;"><?php _e('Allow stylize the maps:', 'codepeople-post-map')?></label></th>
+				<td valign="top">
+					<input type="checkbox" DISABLED />
+				</td>
+			</tr>
+			<tr>
+				<th></th>
+				<td>
+					<span>
+					<?php
+						_e( 'If you want change the maps\' styles, be sure to know how to create a JSON structure with the map\'s styles', 'codepeople-post-map')
+					?>
+					</span><br />
+					<textarea rows="10" cols="80" DISABLED READONLY ></textarea><br />
+					 <span style="color:#FF0000;">This feature is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a></span>
+				</td>
 			</tr>
 		</table>
 	<?php
