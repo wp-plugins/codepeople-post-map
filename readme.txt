@@ -147,12 +147,12 @@ It is possible define, for each map on sidebar, the categories IDs to display (o
 
 = Q: Why the map's tag is not inserted on page content? =
 
-A: There are some content editors, available as WordPress plugins, that provoke some compatibility issues with WordPress, in this case you should type the sortcode manually:
+A: There are some content editors, available as WordPress plugins, that provoke some compatibility issues with WordPress, in this case you should type the shortcode manually:
 [codepeople-post-map]
 
 = Q: How many maps I can insert into a post? =
 
-A: In the free version of plugin only one map with only one point associated in each post/page. In the premium version of plugin it is possible associate multiple points to the post and insert multiple sortcodes ( if there are multiple maps included in the same post/page, all of them will display the same points)
+A: In the free version of plugin only one map with only one point associated in each post/page. In the premium version of plugin it is possible associate multiple points to the post and insert multiple shortcodes ( if there are multiple maps included in the same post/page, all of them will display the same points)
 
 = Q: How to insert Google maps into a template? =
 
