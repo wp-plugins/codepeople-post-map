@@ -53,8 +53,10 @@ The Google Maps inserted into a template displaying multiple posts will contain 
 *   Allows to draw routes through points in the same post.
 *   Allows to display a link to get directions to the point.
 *   Allows to display a link to open the point directly on Google Maps.
+*   Allows to display a link to display directly the street view in the specific point.
 *   Allows to display multiple maps in the same post/page (but displays the same points in all maps on page). 
 *   Allows to insert the map as widget on sidebars.
+*   Allows to styling the map.
 *   Allows to associate the Google maps with any public post_type in WordPress.
 *   In non singular webpages, Google Maps display a map for each post.
 
@@ -115,7 +117,9 @@ The settings are divided into two main groups, those belonging to the Google map
 *   Options: This setting allows you to select which map controls should be available.
 *	Display the get directions link: Displays a link in the infowindow to get the directions to the point (available only in the premium version of plugin)
 *	Display a link to Google Maps: Displays a link in the infowindow to load the point directly on Google Maps.
+*	Display a link to Street View: Displays a link in the infowindow to display the street view in the specific point.
 *   Enter the number of points on the post / page map: When the Google maps are inserted into a post, points that belong to the same categories will be shown on the same Google map. This option allows you to set the number of points to be shown. When the Google maps are inserted into a template that allows multiple posts this option does not apply.
+*   Allow stylize the maps: Allows to define a JSON object to stylize the maps.
 *   Highlight post when mouse hovers over related point on map:  When the Google maps are inserted into a template that allows multiple posts,  hovering the mouse over one of the points will highlight the associated post through assignment of a class in the next setup option. 
 *   Highlight class: Name of the class to be assigned to a post to highlight when the mouse is hovered over the point associated with that post on the Google map.
 *   Use points information in search results: Allows search in the points information ( Available only in the premium version of plugin )
@@ -140,6 +144,11 @@ To insert the maps as widget on sidebars, go to the menu option "Appearance / Wi
 It is possible define, for each map on sidebar, the categories IDs to display (optional attribute), and the height of map. The map's width is set to the 100% of sidebar.
 
 == Frequently Asked Questions ==
+
+= Q: Why the map's tag is not inserted on page content? =
+
+A: There are some content editors, available as WordPress plugins, that provoke some compatibility issues with WordPress, in this case you should type the sortcode manually:
+[codepeople-post-map]
 
 = Q: How many maps I can insert into a post? =
 
@@ -176,6 +185,10 @@ A: Go to the settings of map (the settings page of plugin for settings of all ma
 
 A: Go to the settings of map (the settings page of plugin for settings of all maps, or the settings of a particular map), and uncheck the option "Show info bubbles"
 
+= Q: How can I stylize the maps? =
+
+A: In the premium version of plugin is possible define a JSON object to stylize the maps: the maps' colors, labels, etc.
+
 = Q: How can I use different icons, in the points markers?  =
 
 A: To use your own icons, you only should to upload the icons images to the following location: "/wp-content/plugins/codepeople-post-map/images/icons/", and then select the image from the list in the point's definition.
@@ -206,6 +219,7 @@ A: Yes, you can. Go to the menu option: "Appearance / Widgets" and insert the "C
 == Screenshots ==
 
 1. Maps in action
-2. Global maps settings
-3. Point insertion's form 
-4. Inserting map on sidebars
+2. Styling the maps
+3. Global maps settings
+4. Point insertion's form 
+5. Inserting map on sidebars
