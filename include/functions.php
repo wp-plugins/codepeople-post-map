@@ -381,7 +381,7 @@ class CPM {
 					<th scope="row"><label for="cpm_get_direction"  style="color:#CCCCCC;"><?php _e('Display the get directions link:', 'codepeople-post-map');?></th>
 					<td>
 						<input type="checkbox" disabled><span> Display a link at  bottom of infowindow to get directions</span><br />
-						<span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a></span>
+						<span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
 					</td>
 				</tr>
 				
@@ -389,7 +389,7 @@ class CPM {
 					<th scope="row"><label for="cpm_map_link"  style="color:#CCCCCC;"><?php _e('Display a link to Google Maps:', 'codepeople-post-map');?></th>
 					<td>
 						<input type="checkbox" disabled><span> Display a link at  bottom of infowindow to display on Google Maps</span><br />
-						<span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a></span>
+						<span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
 					</td>
 				</tr>
 				
@@ -397,7 +397,7 @@ class CPM {
 					<th scope="row"><label for="cpm_street_view_link" style="color:#CCCCCC;"><?php _e('Display a link to street view:', 'codepeople-post-map');?></th>
 					<td>
 						<input type="checkbox" disabled /><span> Display a link at bottom of infowindow to load the corresponding street view</span><br />
-						<span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a></span>
+						<span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
 					</td>
 				</tr>
 <?php
@@ -407,7 +407,7 @@ class CPM {
 				<th scope="row"><label for="cpm_map_route" style="color:#CCCCCC;"><?php _e('Display route:', 'codepeople-post-map');?></th>
 				<td>
                     <input type="checkbox" DISABLED><span> Draws the route between the points in the same post</span><br />
-                    <span style="color:#FF0000;">The route between points is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a></span>
+                    <span style="color:#FF0000;">The route between points is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
                 </td>
 			</tr>
             
@@ -451,7 +451,7 @@ class CPM {
 					?>
 					</span><br />
 					<textarea rows="10" cols="80" DISABLED READONLY ></textarea><br />
-					 <span style="color:#FF0000;">This feature is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a></span>
+					 <span style="color:#FF0000;">This feature is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
 				</td>
 			</tr>
 		</table>
@@ -499,7 +499,7 @@ class CPM {
 		<div style="border:1px solid #CCC;margin-bottom:10px;min-height:60px;">
 			<h3><?php _e('Map points'); ?></h3>
 			<div id="points_container" style="padding:10px;">
-			<?php _e('Multiple points in the same Post/Page are available only in the <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map" target="_blank">advanced version</a>.'); ?>
+			<?php _e('Multiple points in the same Post/Page are available only in the <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download" target="_blank">advanced version</a>.'); ?>
 			</div>
 		</div>
 		<div class="point_form" style="border:1px solid #CCC;">
@@ -685,25 +685,25 @@ class CPM {
 					<input type="checkbox" DISABLED />
                     <?php _e('Only one map is allowed by each webpage, but checking this option in pages with multiple posts like homepage, archives,etc, it is possible to display a map for each post', 'codepeople-post-map');?>
                     <br />
-                     <span style="color:#FF0000;">The free version of CodePeople Post Map allows only one map by webpage. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a></span>
+                     <span style="color:#FF0000;">The free version of CodePeople Post Map allows only one map by webpage. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
 				</td>
 			</tr>
 			<tr valign="top">
 				<th scope="row"><label for="cpm_map_search"  style="color:#CCCCCC;"><?php _e('Use points information in search results:', 'codepeople-post-map')?></label></th>
 				<td>
-					<input type="checkbox" name="cpm_map[search]" id="cpm_map_search" value="true" disabled /> <span style="color:#FF0000;">The search in the maps data is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a></span>
+					<input type="checkbox" name="cpm_map[search]" id="cpm_map_search" value="true" disabled /> <span style="color:#FF0000;">The search in the maps data is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
 				</td>
 			</tr>
 			<tr valign="top">
 				<th scope="row"><label for="cpm_map_highlight" style="color:#CCCCCC;"><?php _e('Highlight post when mouse move over related point on map:', 'codepeople-post-map')?></label></th>
 				<td>
-					<input type="checkbox" name="cpm_map[highlight]" id="cpm_map_highlight" value="true" disabled /> <span style="color:#FF0000;">The post highlight is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a></span>
+					<input type="checkbox" name="cpm_map[highlight]" id="cpm_map_highlight" value="true" disabled /> <span style="color:#FF0000;">The post highlight is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
 				</td>
 			</tr>
 			<tr valign="top">
 				<th scope="row"><label for="cpm_map_highlight_class" style="color:#CCCCCC;"><?php _e('Highlight class:', 'codepeople-post-map')?></label></th>
 				<td>
-					<input type="input" name="cpm_map[highlight_class]" id="cpm_map_highlight_class" disabled /><span style="color:#FF0000;">The highlight class is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a></span>
+					<input type="input" name="cpm_map[highlight_class]" id="cpm_map_highlight_class" disabled /><span style="color:#FF0000;">The highlight class is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
 				</td>
 			</tr>
             <tr valign="top">
@@ -723,7 +723,7 @@ class CPM {
                     _e('Posts and Pages are selected by default', 'codepeople-post-map');
                 ?>
                 <br />    
-                <span style="color:#FF0000;">Associate the maps to custom post types is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/contact-us/codepeople-post-map">Click Here</a></span>
+                <span style="color:#FF0000;">Associate the maps to custom post types is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
 				</td>
 			</tr>
 		</table>
