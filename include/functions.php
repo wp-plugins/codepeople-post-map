@@ -690,6 +690,16 @@ class CPM {
 			</tr>
 			
             <tr valign="top">
+				<th scope="row" style="color:#CCCCCC;"><label for="cpm_map_geolocation_information"><?php _e('Generate points dynamically from geolocation information included on posts:', 'codepeople-post-map')?></label></th>
+				<td>
+					<input type="checkbox" DISABLED />
+                    <?php _e('The geolocation information is added to the post from WordPress app in your mobile', 'codepeople-post-map');?>
+					<br />
+                    <span style="color:#FF0000;">The free version of CodePeople Post Map allows only one map by webpage. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
+				</td>
+			</tr>
+			
+            <tr valign="top">
 				<th scope="row"  style="color:#CCCCCC;"><label for="cpm_map_multiple"><?php _e('Display a Map by post in non singular pages (like homepage, archives, search results, etc...):', 'codepeople-post-map')?></label></th>
 				<td>
 					<input type="checkbox" DISABLED />
