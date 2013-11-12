@@ -57,6 +57,7 @@ The Google Maps inserted into a template displaying multiple posts will contain 
 *   Allows to display multiple maps in the same post/page (but displays the same points in all maps on page). 
 *   Allows to insert the map as widget on sidebars.
 *   Allows to styling the map.
+*	Generates dynamic points from the geolocation information, stored in the image's metadata when it is uploaded to WordPress.
 *   Allows to associate the Google maps with any public post_type in WordPress.
 *   In non singular webpages, Google Maps display a map for each post.
 
@@ -77,7 +78,9 @@ If you prefer configure your map directly from the shortcode, then you must ente
 The complete list of allowed attributes:
             
             width, height, zoom, type, mousewheel, zoompancontrol, typecontrol
-            
+
+Note 4: The geolocation information is stored in image's metadata from mobiles or cameras with GPS devices.
+
 If you want more information about this plugin or another one don't doubt to visit my website:
 
 [http://wordpress.dwbooster.com](http://wordpress.dwbooster.com "CodePeople WordPress Repository")
@@ -119,6 +122,7 @@ The settings are divided into two main groups, those belonging to the Google map
 *	Display a link to Google Maps: Displays a link in the infowindow to load the point directly on Google Maps.
 *	Display a link to Street View: Displays a link in the infowindow to display the street view in the specific point.
 *   Enter the number of points on the post / page map: When the Google maps are inserted into a post, points that belong to the same categories will be shown on the same Google map. This option allows you to set the number of points to be shown. When the Google maps are inserted into a template that allows multiple posts this option does not apply.
+*   Generate points dynamically from geolocation information included on images, when images are uploaded to WordPress: If the image uploaded to WordPress includes geolocation information is generated a point with related to the geolocation information.
 *   Allow stylize the maps: Allows to define a JSON object to stylize the maps.
 *   Highlight post when mouse hovers over related point on map:  When the Google maps are inserted into a template that allows multiple posts,  hovering the mouse over one of the points will highlight the associated post through assignment of a class in the next setup option. 
 *   Highlight class: Name of the class to be assigned to a post to highlight when the mouse is hovered over the point associated with that post on the Google map.
@@ -216,6 +220,10 @@ A: If you want to display a link to open the point directly on Google Maps, go t
 
 A: Yes, you can. Go to the menu option: "Appearance / Widgets" and insert the "CP Google Maps" widget on side bar.
 
+= Q: My images include geolocation information. Is possible use the geolocaion information stored in the image to generate points on map? =
+
+A: Go to the settings page of plugin and select the corresponding option to allow processing the information stored on image's metadata, and then if an image uploaded to WordPress, includes geolocation information, will be generated a point with this information dynamically, that will be displayed on map.
+
 == Screenshots ==
 
 1. Maps in action
@@ -223,3 +231,4 @@ A: Yes, you can. Go to the menu option: "Appearance / Widgets" and insert the "C
 3. Global maps settings
 4. Point insertion's form 
 5. Inserting map on sidebars
+6. Generates points, from the geolocation information stored on image's metadata
