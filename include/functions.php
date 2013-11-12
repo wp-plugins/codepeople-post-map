@@ -680,12 +680,22 @@ class CPM {
 	?>
 		<table class="form-table">
 			<tr valign="top">
+				<th scope="row" style="color:#CCCCCC;"><label for="cpm_map_exif_information"><?php _e('Generate points dynamically from geolocation information included on images, when images are uploaded to WordPress:', 'codepeople-post-map')?></label></th>
+				<td>
+					<input type="checkbox" DISABLED />
+                    <?php _e('The geolocation information is added to the images from your mobiles or cameras, if they have associated GPS devices', 'codepeople-post-map');?>
+					<br />
+                    <span style="color:#FF0000;">The free version of CodePeople Post Map allows only one map by webpage. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
+				</td>
+			</tr>
+			
+            <tr valign="top">
 				<th scope="row"  style="color:#CCCCCC;"><label for="cpm_map_multiple"><?php _e('Display a Map by post in non singular pages (like homepage, archives, search results, etc...):', 'codepeople-post-map')?></label></th>
 				<td>
 					<input type="checkbox" DISABLED />
                     <?php _e('Only one map is allowed by each webpage, but checking this option in pages with multiple posts like homepage, archives,etc, it is possible to display a map for each post', 'codepeople-post-map');?>
                     <br />
-                     <span style="color:#FF0000;">The free version of CodePeople Post Map allows only one map by webpage. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
+                    <span style="color:#FF0000;">The free version of CodePeople Post Map allows only one map by webpage. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
 				</td>
 			</tr>
 			<tr valign="top">
