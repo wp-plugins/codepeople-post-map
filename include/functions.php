@@ -919,6 +919,12 @@ class CPM {
 				codepeople-post-map require JavaScript
 			</noscript>
 			";	
+			
+			if( !empty( $atts['print'] ) ){
+			
+				print $output;
+				return '';
+			}
 			return $output;
 		}else{ 
 			global $id;
@@ -928,6 +934,12 @@ class CPM {
 			$cpm_map = $this->get_configuration_option();
 			$output  = $this->_set_map_tag($cpm_map);
 			$output .= $this->_set_map_config($cpm_map);
+			
+			if( !empty( $atts['print'] ) ){
+				print $output;
+				return '';
+			}
+			
 			return $output;
 		}	
 	} // End replace_shortcode

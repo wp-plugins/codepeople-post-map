@@ -82,6 +82,10 @@ The complete list of allowed attributes:
 
 Note 4: The geolocation information is stored in image's metadata from mobiles or cameras with GPS devices.
 
+Note 5: Some plugins interfere with the shortcodes replacements, and provokes that maps don't be loaded correctly, in this case should be passed a new parameter through the shortcode print=1
+
+Passing the parameter print=1, displays the map at beginning of page/post content.
+
 If you want more information about this plugin or another one don't doubt to visit my website:
 
 [http://wordpress.dwbooster.com](http://wordpress.dwbooster.com "CodePeople WordPress Repository")
@@ -225,6 +229,11 @@ A: Yes, you can. Go to the menu option: "Appearance / Widgets" and insert the "C
 = Q: My images include geolocation information. Is possible use the geolocaion information stored in the image to generate points on map? =
 
 A: Go to the settings page of plugin and select the corresponding option to allow processing the information stored on image's metadata, and then if an image uploaded to WordPress, includes geolocation information, will be generated a point with this information dynamically, that will be displayed on map.
+
+= Q: Why the maps are not showing on website? =
+
+Some plugins interfere with the shortcodes replacements, and provokes that maps don't be loaded correctly, in this case should be passed a new parameter through the shortcode print=1
+Passing the parameter print=1, displays the map at beginning of page/post content.
 
 == Screenshots ==
 
