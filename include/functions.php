@@ -109,8 +109,8 @@ class CPM {
 		
         $new_cpm_point = $_POST['cpm_point'];
 		$new_cpm_map = $_POST['cpm_map'];
-		$new_cpm_point['icon'] = $default_icon;
-		
+		$new_cpm_point['icon'] = str_replace( CPM_PLUGIN_URL, '', $default_icon );
+
         // Set the map's config
         $new_cpm_map['single'] = (isset($new_cpm_map['single'])) ? true : false;
         if($new_cpm_map['single']){
@@ -229,6 +229,7 @@ class CPM {
 		$icons_array = array();
 
 		$default_icon = (isset($options) && isset($options['icon'])) ? $options['icon'] : $this->get_configuration_option('default_icon');
+		if( strpos($default_icon, 'http') !== 0 ) $default_icon = CPM_PLUGIN_URL.$default_icon;
 		
 		if ($handle = opendir($icon_dir)) {
 			
@@ -885,24 +886,29 @@ class CPM {
         }
         
 		if(is_singular()){ // For maps in a post or page
-			$number = (!empty($this->limit)) ? 'numberposts='.$this->limit.'&' : '';
-			
 			// Set the actual post only to avoid duplicates
 			$posts = array($post);
 			
+			$query_arg = array( 'meta_key' => 'cpm_point', 'orderby' => 'post_date', 'order' => 'DESC' );
+			if( !empty($this->limit) ){
+				$query_arg[ 'numberposts' ] = $this->limit;
+			}
+			
 			// Get POSTs in the same category
 			$categories = get_the_category();
+			$categories_ids = array();
 			foreach($categories as $category){
-				$posts = array_merge($posts, get_posts($number.'category='. $category->term_id));
+				array_push( $categories_ids, $category->term_id);
 			}
+			
+			if( !empty( $categories_ids ) ){
+				$query_arg[ 'category' ] = implode( ',', $categories_ids );
+			}
+			
+			$posts = array_merge( $posts, get_posts( $query_arg ) );
 			
 			// Remove duplicate posts
 			$posts = array_filter($posts, array('CPM', '_unique_element'));
-			
-			// The first post is the actual post, I remove it before sorting the rest of posts in list
-			$actual = array_shift($posts);
-			usort($posts, array('CPM', '_ordering_array'));
-			array_unshift($posts, $actual);
 			
 			// Obtain only the number of posts configured in the plugin settings
 			if(!empty($cpm_map['points']) && $cpm_map['points'] > 0)
@@ -1012,13 +1018,16 @@ class CPM {
 	 * Generates the javascript code of map points
 	 */
 	function _set_map_point($point, $index, $default = "false"){
+		$icon = (!empty($point['icon'])) ? $point['icon'] : $this->get_configuration_option('default_icon');
+		if( strpos( $icon, 'http' ) !== 0 ) $icon = CPM_PLUGIN_URL.$icon;
+		
 		return 'cpm_global["'.$this->map_id.'"]["markers"]['.$index.'] = 
 							{"address":"'.esc_js(str_replace(array('&quot;', '&lt;', '&gt;', '&#039;', '&amp;'), array('\"', '<', '>', "'", '&'), $point['address'])).'",
 							 "lat":"'.$point['latitude'].'",
 							 "lng":"'.$point['longitude'].'",
 							 "info":"'.esc_js(str_replace(array('&quot;', '&lt;', '&gt;', '&#039;', '&amp;'), array('\"', '<', '>', "'", '&'), $this->_get_windowhtml($point))).'",
 							 "open":"'.$default.'",
-							 "icon":"'.((!empty($point['icon'])) ? $point['icon'] : $this->get_configuration_option('default_icon')).'",
+							 "icon":"'.$icon.'",
 							 "post":"'.$point['post_id'].'"};';
 	} // End _set_map_point
 	
