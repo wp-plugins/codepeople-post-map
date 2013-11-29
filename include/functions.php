@@ -889,7 +889,7 @@ class CPM {
 			// Set the actual post only to avoid duplicates
 			$posts = array($post);
 			
-			$query_arg = array( 'meta_key' => 'cpm_point', 'orderby' => 'post_date', 'order' => 'DESC' );
+			$query_arg = array( 'meta_key' => 'cpm_point', 'post_status' => 'publish', 'orderby' => 'post_date', 'order' => 'DESC' );
 			if( !empty($this->limit) ){
 				$query_arg[ 'numberposts' ] = $this->limit;
 			}
