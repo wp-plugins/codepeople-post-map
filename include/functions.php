@@ -277,7 +277,10 @@ class CPM {
 	function _deploy_map_form($options = NULL, $single = false){
 		?>
 		<h2><?php _e('Maps Configuration', 'codepeople-post-map'); ?></h2>
-		<p  style="border:1px solid #E6DB55;margin-bottom:10px;padding:5px;background-color: #FFFFE0;"><?php _e('For any issues with the map, go to our <a href="http://wordpress.dwbooster.com/contact-us" target="_blank">contact page</a> and leave us a message.'); ?></p>
+		<p  style="border:1px solid #E6DB55;margin-bottom:10px;padding:5px;background-color: #FFFFE0;">
+		<?php _e('For any issues with the map, go to our <a href="http://wordpress.dwbooster.com/contact-us" target="_blank">contact page</a> and leave us a message.'); ?><br/><br />
+		<?php _e('If you want test the premium version of CP Google Maps go to the following links:<br/> <a href="http://www.dreamweaverdownloads.com/demos/cp-google-maps/wp-login.php" target="_blank">Administration area: Click to access the administration area demo</a><br/> <a href="http://www.dreamweaverdownloads.com/demos/cp-google-maps/" target="_blank">Public page: Click to access the CP Google Maps</a>'); ?>
+		</p>
 		<table class="form-table">
 			<?php
                 if($single){
@@ -597,6 +600,8 @@ class CPM {
                         <p><strong>[codepeople-post-map cat="35"]</strong><br/>Note: the number 35 correspond to the ID of category.</p>
                         <p>or all points on website, using as category ID the value "-1"</p>
                         <p><strong>[codepeople-post-map cat="-1"]</strong></p>
+						<p>The special attribute "tag", allow to display all points that belong to the posts with a specific tag assigned, for example "mytag":</p>
+                        <p><strong>[codepeople-post-map tag="mytag"]</strong></p>
                         <br />
                         <a href="javascript:void(0)" onclick="cpm_hide_more_info( this );">[ + less information]</a>
                     </div>
@@ -701,15 +706,6 @@ class CPM {
 			</tr>
 			
             <tr valign="top">
-				<th scope="row"  style="color:#CCCCCC;"><label for="cpm_map_multiple"><?php _e('Display a Map by post in non singular pages (like homepage, archives, search results, etc...):', 'codepeople-post-map')?></label></th>
-				<td>
-					<input type="checkbox" DISABLED />
-                    <?php _e('Only one map is allowed by each webpage, but checking this option in pages with multiple posts like homepage, archives,etc, it is possible to display a map for each post', 'codepeople-post-map');?>
-                    <br />
-                    <span style="color:#FF0000;">The free version of CodePeople Post Map allows only one map by webpage. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
-				</td>
-			</tr>
-			<tr valign="top">
 				<th scope="row"><label for="cpm_map_search"  style="color:#CCCCCC;"><?php _e('Use points information in search results:', 'codepeople-post-map')?></label></th>
 				<td>
 					<input type="checkbox" name="cpm_map[search]" id="cpm_map_search" value="true" disabled /> <span style="color:#FF0000;">The search in the maps data is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
@@ -849,8 +845,8 @@ class CPM {
                     if( $count > $limit) break;
                 }
             }    
-            $default = ($id && $id == $current) ? "true" : "false";
-            $str .=  $this->_set_map_point($this->points[$k], $k, $default);
+            
+            $str .=  $this->_set_map_point($this->points[$k], $k);
         }
         if(strlen($str)) print "<script>if(typeof cpm_global != 'undefined'){".$str."}</script>";
 	} // End print_points
@@ -1017,7 +1013,7 @@ class CPM {
 	/*
 	 * Generates the javascript code of map points
 	 */
-	function _set_map_point($point, $index, $default = "false"){
+	function _set_map_point($point, $index){
 		$icon = (!empty($point['icon'])) ? $point['icon'] : $this->get_configuration_option('default_icon');
 		if( strpos( $icon, 'http' ) !== 0 ) $icon = CPM_PLUGIN_URL.$icon;
 		
@@ -1026,7 +1022,6 @@ class CPM {
 							 "lat":"'.$point['latitude'].'",
 							 "lng":"'.$point['longitude'].'",
 							 "info":"'.esc_js(str_replace(array('&quot;', '&lt;', '&gt;', '&#039;', '&amp;'), array('\"', '<', '>', "'", '&'), $this->_get_windowhtml($point))).'",
-							 "open":"'.$default.'",
 							 "icon":"'.$icon.'",
 							 "post":"'.$point['post_id'].'"};';
 	} // End _set_map_point

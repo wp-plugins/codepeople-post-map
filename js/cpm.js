@@ -110,7 +110,7 @@ jQuery(function(){
 					  
 							marker.id = i;
 							me.markers.push(marker);
-							if(m[i]['open'] == "true"){
+							if( typeof open_by_default == 'undefined' ){
 								open_by_default = me.markers.length;
 							}
 							
