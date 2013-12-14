@@ -9,8 +9,8 @@ body .content .cpm-map img, .cpm-map img{ max-width: none !important; height: au
 .cpm-map *{box-sizing:content-box;-moz-box-sizing:content-box;}
 .cpm-mapicon { width:20px; height:34px; cursor:pointer;background:url(../images/icons/marker.png) no-repeat 0 0; }
 .cpm-infowindow {margin:0; padding:0px; min-height:80px; font-size:11px; clear:both; line-height:13px;}
-.cpm-infowindow .cpm-content {float:left;width:100%;}
-.cpm-infowindow .cpm-content .title {font-size:12px; line-height: 18px; font-weight:bold;}
+.cpm-infowindow .cpm-content {float:left;width:100%; color:black;}
+.cpm-infowindow .cpm-content .title {font-size:12px; line-height: 18px; font-weight:bold; color:black;}
 .cpm-infowindow .cpm-content .address {font-weight:bold; font-size:9px;}
 .cpm-infowindow .cpm-content .description {font-size:10px;}
 .cpm_highlight{border:1px dotted #CCC; padding:5px;}

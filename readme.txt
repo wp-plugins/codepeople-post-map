@@ -3,7 +3,7 @@ Contributors: codepeople
 Donate link: http://wordpress.dwbooster.com/content-tools/codepeople-post-map
 Tags:google maps,shortcode,map,maps,categories,post map,point,marker,list,location,address,images,geocoder,google maps,google
 Requires at least: 3.0.5
-Tested up to: 3.7.1
+Tested up to: 3.8
 Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -48,6 +48,7 @@ The Google Maps inserted into a template displaying multiple posts will contain 
 
 *   Allows to load all points that belong to a specific category.
 *   Allows to load the points associated to all posts.
+*   Allows to display the points that belong to the posts with a specific tag.
 *   The location information and description may be used in posts search.
 *   Allows to associate multiple Google maps points to each post/page.
 *   Allows to draw routes through points in the same post.
@@ -62,6 +63,13 @@ The Google Maps inserted into a template displaying multiple posts will contain 
 *   Allows to associate the Google maps with any public post_type in WordPress.
 *   In non singular webpages, Google Maps display a map for each post.
 
+**Demo of Premium Version of Plugin**
+
+[http://www.dreamweaverdownloads.com/demos/cp-google-maps/wp-login.php](http://www.dreamweaverdownloads.com/demos/cp-google-maps/wp-login.php "Click to access the administration area demo")
+
+[http://www.dreamweaverdownloads.com/demos/cp-google-maps/](http://www.dreamweaverdownloads.com/demos/cp-google-maps/ "Click to access the Sell Downloads")
+
+
 Note 1: To display all points that belong to a specific category, it is required to insert the following shortcode [codepeople-post-map cat="3"]. The number 3 represent the category ID, replace this number by the corresponding category's ID. To insert the code directly in a template, the snippet of code is:
 
             <?php echo do_shortcode('[codepeople-post-map cat="3"]'); ?>
@@ -72,6 +80,10 @@ Note 2:	To display all points that belong to more than one category, separate th
             
 Note 3: To display all points in the website, use -1 as the category's ID: [codepeople-post-map cat="-1"] or  <?php echo do_shortcode('[codepeople-post-map cat="-1"]'); ?> for template.
 
+Note 4:	To display all points that belong to the posts with a specific tag assigned, for example the tag name "mytag", use the shortcode's attribute "tag", like follows: [codepeople-post-map tag="mytag"]. To insert the code directly in a template, the snippet of code is:
+
+            <?php echo do_shortcode('[codepeople-post-map tag="mytag"]'); ?>
+			
 If you prefer configure your map directly from the shortcode, then you must enter an attribute for each map feature to specify. For example:
             
             [codepeople-post-map width="500" height="500"]
@@ -169,10 +181,16 @@ A: In the free version of plugin only one map with only one point associated in 
 A: Load the template in which you want to place the map in the text editor of your choice and place the following code in the position where you want to display the Google maps:
 <?php echo do_shortcode ('[codepeople-post-map]'); ?>
 
+= Q: Is possible to load all points that belong to the posts with  a tag assigned? =
+
+A:	To display all points that belong to the posts with a specific tag assigned, for example the tag name "mytag", use the shortcode's attribute "tag", like follows: [codepeople-post-map tag="mytag"]. To insert the code directly in a template, the snippet of code is:
+<?php echo do_shortcode('[codepeople-post-map tag="mytag"]'); ?>
+
 = Q: Is possible to load all points in a category? =
 
 A: To display all points that belong to a specific category, it is required to insert the following shortcode [codepeople-post-map cat="3"]. The number 3 represent the category ID, replace this number by the corresponding category's ID. To insert the code directly in a template, the snippet of code is: 
 <?php echo do_shortcode ('[codepeople-post-map cat="3"]'); ?>
+
 
 = Q: Is possible to load all points in more than one category? =
 
