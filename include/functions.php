@@ -910,7 +910,7 @@ class CPM {
 			if(!empty($cpm_map['points']) && $cpm_map['points'] > 0)
 				$posts = array_slice($posts, 0, $cpm_map['points']);
 			
-			foreach($posts as $_post){
+			foreach( array_reverse( $posts ) as $_post){
 				$this->populate_points($_post, true);
 			}	
 		    	
