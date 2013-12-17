@@ -186,32 +186,53 @@ jQuery(function(){
 		// End CPM class definition
 		
 		// Callback function to be called after loading the maps api
-		window['cpm_init'] = function(){
-			$('.cpm-map').each(function(){
-				var map_container = $(this),
-					map_id = map_container.attr('id');
-
-				if(cpm_global && cpm_global[map_id] && cpm_global[map_id]['markers'].length){
-					// The maps data are defined
-					var cpm = new $.CPM(map_id, cpm_global[map_id]);
-					
-					// Display map
-					if(cpm_global[map_id]['display'] == 'map'){
+		function initialize( e )
+		{
+			var map_container = $( e ),
+				map_id = map_container.attr('id');
+			
+			if( map_container.parent().is( ':hidden' ) )
+			{
+				setTimeout( function(){ initialize( e ); }, 500 );
+				return;
+			}
+			
+			if(cpm_global && cpm_global[map_id] && cpm_global[map_id]['markers'].length){
+				// The maps data are defined
+				var cpm = new $.CPM(map_id, cpm_global[map_id]);
+				
+				// Display map
+				if(cpm_global[map_id]['display'] == 'map'){
+					map_container.show();
+					cpm.set_map();
+				}else{
+					// Insert a icon to display map
+					var map_icon = $('<div class="cpm-mapicon"></div>');
+					map_icon.click(function(){
 						map_container.show();
 						cpm.set_map();
-					}else{
-						// Insert a icon to display map
-						var map_icon = $('<div class="cpm-mapicon"></div>');
-						map_icon.click(function(){
-							map_container.show();
-							cpm.set_map();
-						});
-						map_icon.insertBefore(map_container);
-					}	
-					
-					
+					});
+					map_icon.insertBefore(map_container);
 				}	
-				
+			}
+		};
+		
+		window['cpm_init'] = function(){
+			$('.cpm-map').each(function(){
+				if( $( this ).parent().is( ':hidden' ) )
+                {
+					setTimeout(
+						( function ( e )
+							{
+								return function(){ initialize( e ); };
+							} )( this ),
+						500
+					);
+				}
+				else
+				{
+					initialize( this );
+				}	
 			});
 		};
 		
