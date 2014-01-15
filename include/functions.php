@@ -404,6 +404,30 @@ class CPM {
 						<span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
 					</td>
 				</tr>
+				
+				<tr valign="top">
+					<th scope="row"><label for="cpm_show_default" style="color:#CCCCCC;"><?php _e('Display the Panoramio layer:', 'codepeople-post-map');?></th>
+					<td>
+						<input type="checkbox" checked /><span> Display a layer with photos published in Panoramio</span><br />
+						<span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
+					</td>
+				</tr>
+				
+				<tr valign="top">
+					<th scope="row"><label for="cpm_your_location" style="color:#CCCCCC;"><?php _e('Display the user\'s location:', 'codepeople-post-map');?></th>
+					<td>
+						<input type="checkbox" disabled /><span> Display an icon with the user's location on map</span><br />
+						<span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
+					</td>
+				</tr>
+				
+				<tr valign="top">
+					<th scope="row"><label for="cpm_your_location_title" style="color:#CCCCCC;"><?php _e('Title of user\'s location:', 'codepeople-post-map');?></th>
+					<td>
+						<input type="text" disabled value="You are here" /><span> Title of user's location</span><br />
+						<span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
+					</td>
+				</tr>
 <?php
 			}
 ?>            
@@ -587,12 +611,10 @@ class CPM {
 		</p>	
 		<table class="form-table">
 			<tr valign="top">
-                <th scope="row">
-					<label for="cpm_point_bubble"><?php _e('If you want to display the map in page / post:', 'codepeople-post-map')?></label>
-				</th>
-                <td> 
-					<input type="button" class="button-primary" name="cpm_map_shortcode" id="cpm_map_shortcode" value="<?php _e('insert the map tag', 'codepeople-post-map'); ?>" style="height:40px; padding-left:30px; padding-right:30px; font-size:1.5em;" />
-                    <span class="cpm_more_info_hndl cpm_blink_me" style="margin-left: 10px;"><a href="javascript:void(0);" onclick="cpm_display_more_info( this );">[ + more information]</a></span>
+                <td scope="row" valign="top" style="vertical-align:top;width:350px;">
+					<label><?php _e('If you want to display the map in page / post:', 'codepeople-post-map')?></label><br />
+					<input type="button" class="button-primary" name="cpm_map_shortcode" id="cpm_map_shortcode" value="<?php _e('Insert the map tag', 'codepeople-post-map'); ?>" style="height:40px; padding-left:30px; padding-right:30px; font-size:1.5em;" /><br />
+					<span class="cpm_more_info_hndl cpm_blink_me" style="margin-left: 10px;"><a href="javascript:void(0);" onclick="cpm_display_more_info( this );">[ + more information]</a></span>
                     <div class="cpm_more_info">
                         <p>It is possible to use attributes in the shortcode, like: width, height, zoom and the other maps attributes:</p>
                         <p><strong>[codepeople-post-map width="450" height="500"]</strong></p>
@@ -605,7 +627,20 @@ class CPM {
                         <br />
                         <a href="javascript:void(0)" onclick="cpm_hide_more_info( this );">[ + less information]</a>
                     </div>
-                    
+                </td>
+				<td valign="top" style="vertical-align:top;">
+					<label style="color:#CCC;">To display the points that belong to any category:</label><br />
+					<select size="2" multiple="multiple" style="height:48px;width:100%;" disabled>
+						<option value="-1">All points on website</option>
+					<?php
+						$categories = get_categories();
+						foreach( $categories as $category )
+						{
+							print '<option value="'.$category->term_id.'">'.$category->name.'</option>';
+						}
+						
+					?>
+					</select>
 				</td>
             </tr>
 		</table>	
