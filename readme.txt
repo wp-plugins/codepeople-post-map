@@ -137,6 +137,9 @@ The settings are divided into two main groups, those belonging to the Google map
 *   Display a bubble by default: display  a bubble opened by default.
 *   Display map in post / page: When the Google maps are inserted in a post you can select whether to display the Google maps or display an icon, which displays the map, when pressed (if the Google maps are inserted into a template that allows multiple posts, this option does not apply)
 *   Options: This setting allows you to select which map controls should be available.
+*	Display the Panoramio layer: Displays a new layer on map with images published in Panoramio (available only in the premium version of plugin)
+*	Display the user's location: Displays a marker with the location of user that is visiting the webpage (available only in the premium version of plugin)
+*	Title of user's location: Enter the title of infowindow belonging to the user's marker (available only in the premium version of plugin)
 *	Display the get directions link: Displays a link in the infowindow to get the directions to the point (available only in the premium version of plugin)
 *	Display a link to Google Maps: Displays a link in the infowindow to load the point directly on Google Maps.
 *	Display a link to Street View: Displays a link in the infowindow to display the street view in the specific point.
