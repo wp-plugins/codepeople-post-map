@@ -58,6 +58,8 @@ The Google Maps inserted into a template displaying multiple posts will contain 
 *   Allows to display multiple maps in the same post/page (but displays the same points in all maps on page). 
 *   Allows to insert the map as widget on sidebars.
 *   Allows to styling the map.
+*   Allows to display the Panoramio layer on map.
+*   Allows to display the user location on map.
 *	Generates dynamic points from the geolocation information, stored in the image's metadata when it is uploaded to WordPress.
 *	Generates dynamic points on map, relative to the geolocation information, assigned to the posts from WordPress App.
 *   Allows to associate the Google maps with any public post_type in WordPress.
@@ -257,7 +259,9 @@ Passing the parameter print=1, displays the map at beginning of page/post conten
 
 1. Maps in action
 2. Styling the maps
-3. Global maps settings
-4. Point insertion's form 
-5. Inserting map on sidebars
-6. Generates points, from the geolocation information stored on image's metadata
+3. Map with Panoramio layer
+4. Map with user's location
+5. Global maps settings
+6. Point insertion's form 
+7. Inserting map on sidebars
+8. Generates points, from the geolocation information stored on image's metadata
