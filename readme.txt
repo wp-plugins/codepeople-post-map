@@ -67,9 +67,9 @@ The Google Maps inserted into a template displaying multiple posts will contain 
 
 **Demo of Premium Version of Plugin**
 
-[http://www.dreamweaverdownloads.com/demos/cp-google-maps/wp-login.php](http://www.dreamweaverdownloads.com/demos/cp-google-maps/wp-login.php "Click to access the administration area demo")
+[http://demos.net-factor.com/cp-google-maps/wp-login.php](http://demos.net-factor.com/cp-google-maps/wp-login.php "Click to access the administration area demo")
 
-[http://www.dreamweaverdownloads.com/demos/cp-google-maps/](http://www.dreamweaverdownloads.com/demos/cp-google-maps/ "Click to access the Public Page")
+[http://demos.net-factor.com/cp-google-maps/](http://demos.net-factor.com/cp-google-maps/ "Click to access the Public Page")
 
 
 Note 1: To display all points that belong to a specific category, it is required to insert the following shortcode [codepeople-post-map cat="3"]. The number 3 represent the category ID, replace this number by the corresponding category's ID. To insert the code directly in a template, the snippet of code is:
