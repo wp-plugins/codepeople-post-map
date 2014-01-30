@@ -97,7 +97,7 @@ jQuery(function(){
                             }, 1000);				
                         });
 					}
-					me.infowindow = new google.maps.InfoWindow({maxWidth:340});
+					me.infowindow = new google.maps.InfoWindow();
 					for (var i = c; i < h; i++){		
 						if(!m[i]['invalid']){
 							bounds.extend(m[i].latlng);
@@ -113,7 +113,7 @@ jQuery(function(){
 							if( typeof open_by_default == 'undefined' ){
 								open_by_default = me.markers.length;
 							}
-							
+							$( me._str_transform(m[ i ].info) ).find( 'img' ).each( function(){ var img = new Image(); img.src = this.src; } );
 							google.maps.event.addListener(marker, 'click', function(){ me.open_infowindow(this); });
 							google.maps.event.addListener(marker, 'mouseover', function(){ me.set_highlight(this); });
 							google.maps.event.addListener(marker, 'mouseout', function(){ me.unset_highlight(this); });
