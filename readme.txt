@@ -255,7 +255,14 @@ A: Go to the settings page of plugin and select the corresponding option to allo
 
 = Q: Why the maps are not showing on website? =
 
-Some plugins interfere with the shortcodes replacements, and provokes that maps don't be loaded correctly, in this case should be passed a new parameter through the shortcode print=1
+A: Some plugins interfere with the shortcodes replacements, and provokes that maps don't be loaded correctly, in this case should be passed a new parameter through the shortcode print=1
+Passing the parameter print=1, displays the map at beginning of page/post content.
+
+= Q: How can I change the route between address? =
+
+A: The route depends on the order of the points. If you want change the route, you should change the order of point. Takes the point by the handle's icon, and drag it to its correct position in the points list.
+
+A: Some plugins interfere with the shortcodes replacements, and provokes that maps don't be loaded correctly, in this case should be passed a new parameter through the shortcode print=1
 Passing the parameter print=1, displays the map at beginning of page/post content.
 
 == Screenshots ==
