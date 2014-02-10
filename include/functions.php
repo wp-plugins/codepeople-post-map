@@ -122,6 +122,7 @@ class CPM {
             $new_cpm_map['zoompancontrol'] 	= ($new_cpm_map['zoompancontrol'] == true);
             $new_cpm_map['mousewheel'] 		= ($new_cpm_map['mousewheel'] == true);
             $new_cpm_map['typecontrol'] 	= ($new_cpm_map['typecontrol'] == true);
+            $new_cpm_map['streetviewcontrol'] 	= ($new_cpm_map['streetviewcontrol'] == true);
             $new_cpm_map['dynamic_zoom'] 	= (isset($new_cpm_map['dynamic_zoom']) && $new_cpm_map['dynamic_zoom']) ? true : false;
             $new_cpm_map['show_default'] 	= (isset($new_cpm_map['show_default']) && $new_cpm_map['show_default']) ? true : false;
             $new_cpm_map['show_window'] 	= (isset($new_cpm_map['show_window']) && $new_cpm_map['show_window']) ? true : false;
@@ -157,6 +158,7 @@ class CPM {
 							'mousewheel' => true,
 							'zoompancontrol' => true,
 							'typecontrol' => true,
+							'streetviewcontrol' => true,
 							'highlight'	=> true,
 							'highlight_class' => 'cpm_highlight',
 							'show_window' => true,
@@ -452,6 +454,8 @@ class CPM {
 			<tr valign="top">
 				<th scope="row"><label for="wpGoogleMaps_description"><?php _e('Options:')?></label></th>
 				<td>
+					<input type="checkbox" name="cpm_map[streetviewcontrol]" id="cpm_map_streetviewcontrol" value="true" <?php echo ((isset($options['streetviewcontrol']) && $options['streetviewcontrol']) ? 'checked' : '');?> />
+					<label for="cpm_map_streetviewcontrol"><?php _e('Display the street view control', 'codepeople-post-map'); ?></label><br />
 					<input type="checkbox" name="cpm_map[mousewheel]" id="cpm_map_mousewheel" value="true" <?php echo ((isset($options['mousewheel']) && $options['mousewheel']) ? 'checked' : '');?> />
 					<label for="cpm_map_mousewheel"><?php _e('Enable mouse wheel zoom', 'codepeople-post-map'); ?></label><br />
 					<input type="checkbox" name="cpm_map[zoompancontrol]" id="cpm_map_zoompancontrol" value="true" <?php echo ((isset($options['zoompancontrol']) && $options['zoompancontrol']) ? 'checked' : '');?> />
@@ -604,46 +608,58 @@ class CPM {
 				</tr>
 			</table>
 		</div>
-		<p style="border:1px solid #CCC; padding:10px;">
+		<div style="border:1px solid #CCC; padding:10px; margin:10px 0;">
+			<p>
 			<?php
 			_e( 'To insert this map in a post/page, press the <strong>"insert the map tag"</strong> button and save the post/page modifications.' );
 			?>
-		</p>	
-		<table class="form-table">
-			<tr valign="top">
-                <td scope="row" valign="top" style="vertical-align:top;width:350px;">
-					<label><?php _e('If you want to display the map in page / post:', 'codepeople-post-map')?></label><br />
-					<input type="button" class="button-primary" name="cpm_map_shortcode" id="cpm_map_shortcode" value="<?php _e('Insert the map tag', 'codepeople-post-map'); ?>" style="height:40px; padding-left:30px; padding-right:30px; font-size:1.5em;" /><br />
-					<span class="cpm_more_info_hndl cpm_blink_me" style="margin-left: 10px;"><a href="javascript:void(0);" onclick="cpm_display_more_info( this );">[ + more information]</a></span>
-                    <div class="cpm_more_info">
-                        <p>It is possible to use attributes in the shortcode, like: width, height, zoom and the other maps attributes:</p>
-                        <p><strong>[codepeople-post-map width="450" height="500"]</strong></p>
-                        <p>The premium version of plugin allows to use a special attribute "cat" (referent to category), to display all points created in a category:</p>
-                        <p><strong>[codepeople-post-map cat="35"]</strong><br/>Note: the number 35 correspond to the ID of category.</p>
-                        <p>or all points on website, using as category ID the value "-1"</p>
-                        <p><strong>[codepeople-post-map cat="-1"]</strong></p>
-						<p>The special attribute "tag", allow to display all points that belong to the posts with a specific tag assigned, for example "mytag":</p>
-                        <p><strong>[codepeople-post-map tag="mytag"]</strong></p>
-                        <br />
-                        <a href="javascript:void(0)" onclick="cpm_hide_more_info( this );">[ + less information]</a>
-                    </div>
-                </td>
-				<td valign="top" style="vertical-align:top;">
-					<label style="color:#CCC;">To display the points that belong to any category:</label><br />
-					<select size="2" multiple="multiple" style="height:48px;width:100%;" disabled>
-						<option value="-1">All points on website</option>
-					<?php
-						$categories = get_categories();
-						foreach( $categories as $category )
-						{
-							print '<option value="'.$category->term_id.'">'.$category->name.'</option>';
-						}
-						
-					?>
-					</select>
-				</td>
-            </tr>
-		</table>	
+			</p>
+			<div style="border:1px solid #CCC; padding:10px; padding:5px;">
+				<p style="color:#CCC;">
+				<input type="checkbox" DISABLED />
+				<?php
+				_e( 'Do you want display a <strong>shape</strong> on map?' );
+				?>
+				<br /><span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download" target="_blank">Click Here</a></span>
+				</p>
+			</div>	
+			<table class="form-table">
+				<tr valign="top">
+					<td scope="row" valign="top" style="vertical-align:top;width:350px;">
+						<label><?php _e('If you want to display the map in page / post:', 'codepeople-post-map')?></label><br />
+						<input type="button" class="button-primary" name="cpm_map_shortcode" id="cpm_map_shortcode" value="<?php _e('Insert the map tag', 'codepeople-post-map'); ?>" style="height:40px; padding-left:30px; padding-right:30px; font-size:1.5em;" /><br />
+						<span class="cpm_more_info_hndl cpm_blink_me" style="margin-left: 10px;"><a href="javascript:void(0);" onclick="cpm_display_more_info( this );">[ + more information]</a></span>
+						<div class="cpm_more_info">
+							<p>It is possible to use attributes in the shortcode, like: width, height, zoom and the other maps attributes:</p>
+							<p><strong>[codepeople-post-map width="450" height="500"]</strong></p>
+							<p>The premium version of plugin allows to use a special attribute "cat" (referent to category), to display all points created in a category:</p>
+							<p><strong>[codepeople-post-map cat="35"]</strong><br/>Note: the number 35 correspond to the ID of category.</p>
+							<p>or all points on website, using as category ID the value "-1"</p>
+							<p><strong>[codepeople-post-map cat="-1"]</strong></p>
+							<p>The special attribute "tag", allow to display all points that belong to the posts with a specific tag assigned, for example "mytag":</p>
+							<p><strong>[codepeople-post-map tag="mytag"]</strong></p>
+							<br />
+							<a href="javascript:void(0)" onclick="cpm_hide_more_info( this );">[ + less information]</a>
+						</div>
+					</td>
+					<td valign="top" style="vertical-align:top;">
+						<label style="color:#CCC;">To display the points that belong to any category:</label><br />
+						<select size="2" multiple="multiple" style="height:48px;width:100%;" disabled>
+							<option value="-1">All points on website</option>
+						<?php
+							$categories = get_categories();
+							foreach( $categories as $category )
+							{
+								print '<option value="'.$category->term_id.'">'.$category->name.'</option>';
+							}
+							
+						?>
+						</select>
+						<br /><span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download" target="_blank">Click Here</a></span>
+					</td>
+				</tr>
+			</table>	
+		</div>	
 		<div id="map_data">
 			<?php $this->_deploy_map_form($options, true); ?>
 		</div>	
@@ -1040,6 +1056,7 @@ class CPM {
 		$output .= "cpm_global['$this->map_id']['mousewheel'] = ".((isset($mousewheel) && $mousewheel) ? 'true' : 'false').";\n";	  
 		$output .= "cpm_global['$this->map_id']['zoompancontrol'] = ".((isset($zoompancontrol) && $zoompancontrol) ? 'true' : 'false').";\n";	  
 		$output .= "cpm_global['$this->map_id']['typecontrol'] = ".((isset($typecontrol) && $typecontrol) ? 'true' : 'false').";\n";	  
+		$output .= "cpm_global['$this->map_id']['streetviewcontrol'] = ".((isset($streetviewcontrol) && $streetviewcontrol) ? 'true' : 'false').";\n";	  
 		$output .= "</script>";
 		
 		return $output;

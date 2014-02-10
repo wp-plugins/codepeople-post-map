@@ -25,6 +25,7 @@ jQuery(function(){
 				scalecontrol 	: true,
 				zoompancontrol 	: true,
 				typecontrol 	: true,
+				streetviewcontrol : true,
 				show_window     : true,
                 show_default    : true,
 				display			: 'map',
@@ -82,6 +83,7 @@ jQuery(function(){
 							scaleControl: me.data.scalecontrol,
 							zoomControl: me.data.zoompancontrol,
 							mapTypeControl: me.data.typecontrol,
+							streetViewControl: me.data.streetviewcontrol,
 							scrollwheel: me.data.mousewheel
 					});
 
