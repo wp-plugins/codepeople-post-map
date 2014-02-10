@@ -52,6 +52,7 @@ The Google Maps inserted into a template displaying multiple posts will contain 
 *   The location information and description may be used in posts search.
 *   Allows to associate multiple Google maps points to each post/page.
 *   Allows to draw routes through points in the same post.
+*   Allows to draw shapes on map.
 *   Allows to display a link to get directions to the point.
 *   Allows to display a link to open the point directly on Google Maps.
 *   Allows to display a link to display directly the street view in the specific point.
@@ -90,13 +91,29 @@ If you prefer configure your map directly from the shortcode, then you must ente
             
             [codepeople-post-map width="500" height="500"]
 
-The complete list of allowed attributes:
+The complete list of allowed attributes are:
             
-            width, height, zoom, type, mousewheel, zoompancontrol, typecontrol
+           width: the map's width.
+		   height: the map's height.
+		   zoom: the map's zoom.
+		   dynamic_zoom: adjust zoom dynamically, allowed values: 0, 1
+		   zoompancontrol: display or not the zoom control, allowed values: 0, 1
+		   typecontrol: display the type control, allowed values: 0, 1
+		   mousewheel: enable the mouse wheel, allowed values: 0, 1
+		   streetviewcontrol: enable the street view control, allowed values: 0, 1 
+		   route: display the route between points.
+		   show_window: enable/disable the infowindows
+		   show_default: open infowindow by default
+		   mode: DRIVING, BICYCLING, TRANSIT, WALKING
+		   tag: tags slugs separated by ","
+		   cat: categories IDs separated by "," or -1
+		   excludecat: categories to exclude separated by ","
+		   excludepost: posts to exclude separated by ","
+		   excludetag: tags to exclude, with the tags IDs separated by "," 
 
-Note 4: The geolocation information is stored in image's metadata from mobiles or cameras with GPS devices.
+Note 5: The geolocation information is stored in image's metadata from mobiles or cameras with GPS devices.
 
-Note 5: Some plugins interfere with the shortcodes replacements, and provokes that maps don't be loaded correctly, in this case should be passed a new parameter through the shortcode print=1
+Note 6: Some plugins interfere with the shortcodes replacements, and provokes that maps don't be loaded correctly, in this case should be passed a new parameter through the shortcode print=1
 
 Passing the parameter print=1, displays the map at beginning of page/post content.
 
@@ -164,6 +181,14 @@ The settings are divided into two main groups, those belonging to the Google map
 *   Select the marker by clicking on the images: Select the bookmark icon to show on the Google maps.
 *   Insert the map tag: Inserts a shortcode in the content of the post where the Google map is displayed with the features selected in the setup. You can attach geolocation information to a post but choose not to show the Google maps in the content of the post. In case you do want to display a map in the post content, use this button.
 
+**Configure Shapes**
+
+*   Check the box over the "Insert the map tag" button.
+*   Enter the stroke weight of shape.
+*   Enter the color of shape.
+*   Enter the opacity of shape.
+*   Press with the mouse on map at right to draw the shape.
+
 **Inserting maps as widgets on sidebars** (Available only in the premium version of plugin)
 
 To insert the maps as widget on sidebars, go to the menu option "Appearance / Widgets", and drag the "CP Google Maps" widget to the sidebar. 
@@ -196,6 +221,17 @@ A:	To display all points that belong to the posts with a specific tag assigned, 
 A: To display all points that belong to a specific category, it is required to insert the following shortcode [codepeople-post-map cat="3"]. The number 3 represent the category ID, replace this number by the corresponding category's ID. To insert the code directly in a template, the snippet of code is: 
 <?php echo do_shortcode ('[codepeople-post-map cat="3"]'); ?>
 
+= Q: How to exclude the points in a category? =
+
+A: To exclude the points that belong to a specific category, or various categories, inserts the attribute excludecat in the shortcode [codepeople-post-map excludecat="3,4"]. The number 3 and 4 represent the categories IDs.
+
+= Q: How to exclude the points in a post? =
+
+A: To exclude the points that belong to a post, or various posts, inserts the attribute excludepos in the shortcode [codepeople-post-map excludepost="3,4"]. The number 3 and 4 represent the posts IDs.
+
+= Q: How to exclude the points in posts with tag? =
+
+A: To exclude the points that belong to the post with a specific tag, or various tags, inserts the attribute excludetag in the shortcode [codepeople-post-map excludetag="3,4"]. The number 3 and 4 represent the tags IDs.
 
 = Q: Is possible to load all points in more than one category? =
 
@@ -268,7 +304,8 @@ A: The route depends on the order of the points. If you want change the route, y
 2. Styling the maps
 3. Map with Panoramio layer
 4. Map with user's location
-5. Global maps settings
-6. Point insertion's form 
-7. Inserting map on sidebars
-8. Generates points, from the geolocation information stored on image's metadata
+5. Map with shape
+6. Global maps settings
+7. Point insertion's form 
+8. Inserting map on sidebars
+9. Generates points, from the geolocation information stored on image's metadata
