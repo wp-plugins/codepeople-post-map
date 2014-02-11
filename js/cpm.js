@@ -115,7 +115,6 @@ jQuery(function(){
 							if( typeof open_by_default == 'undefined' ){
 								open_by_default = me.markers.length;
 							}
-							$( me._str_transform(m[ i ].info) ).find( 'img' ).each( function(){ var img = new Image(); img.src = this.src; } );
 							google.maps.event.addListener(marker, 'click', function(){ me.open_infowindow(this); });
 							google.maps.event.addListener(marker, 'mouseover', function(){ me.set_highlight(this); });
 							google.maps.event.addListener(marker, 'mouseout', function(){ me.unset_highlight(this); });
@@ -164,9 +163,26 @@ jQuery(function(){
 			
 			// Open the marker bubble
 			open_infowindow : function(m){
-                if ( !this.data.show_window ) return;
-				this.infowindow.setContent(this._str_transform(this.data.markers[m.id].info));
-				this.infowindow.open(this.map, m);
+				var me = this;
+                if ( !me.data.show_window ) return;
+				
+				var c  = me._str_transform( me.data.markers[ m.id ].info ),
+					img = $( c ).find( 'img' );
+					
+				if( img.length )
+				{
+					$( '<img src="'+img.attr( 'src' ) +'">' ).load( (function( c, m ){
+						return function(){
+							me.infowindow.setContent( c );
+							me.infowindow.open( me.map, m );
+						};
+					} )( c, m ) );
+				}
+				else
+				{
+					me.infowindow.setContent( c );
+					me.infowindow.open( me.map, m );
+				}
 			},	
 			
 			// Set the highlight class to the post with ID m['post']
