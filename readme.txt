@@ -193,7 +193,7 @@ The settings are divided into two main groups, those belonging to the Google map
 
 To insert the maps as widget on sidebars, go to the menu option "Appearance / Widgets", and drag the "CP Google Maps" widget to the sidebar. 
 
-It is possible define, for each map on sidebar, the categories IDs to display (optional attribute), and the height of map. The map's width is set to the 100% of sidebar.
+It is possible define, for each map on sidebar, all attributes available with the format attr="value". The map's width is set to the 100% of sidebar by default.
 
 == Frequently Asked Questions ==
 
