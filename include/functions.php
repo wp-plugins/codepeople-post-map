@@ -594,7 +594,7 @@ class CPM {
 									</table>
 								</td>
 								<td width="50%">
-									<div id="cpm_map_container" class="cpm_map_container" style="width:400px; height:250px; border:1px dotted #CCC;">
+									<div id="cpm_map_container" class="cpm_map_container" style="height:250px; border:1px dotted #CCC;">
 									</div>
 								</td>
 							</tr>
