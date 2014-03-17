@@ -227,8 +227,15 @@ jQuery(function(){
 					// Insert a icon to display map
 					var map_icon = $('<div class="cpm-mapicon"></div>');
 					map_icon.click(function(){
-						map_container.show();
-						cpm.set_map();
+						if(map_container.is( ':visible' ))
+						{
+							map_container.hide();
+						}
+						else
+						{
+							map_container.show();
+							cpm.set_map();
+						}
 					});
 					map_icon.insertBefore(map_container);
 				}	
