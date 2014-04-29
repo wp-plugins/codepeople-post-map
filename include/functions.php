@@ -410,7 +410,15 @@ class CPM {
 				<tr valign="top">
 					<th scope="row"><label for="cpm_show_default" style="color:#CCCCCC;"><?php _e('Display the Panoramio layer:', 'codepeople-post-map');?></th>
 					<td>
-						<input type="checkbox" checked /><span> Display a layer with photos published in Panoramio</span><br />
+						<input type="checkbox" disabled /><span> Display a layer with photos published in Panoramio</span><br />
+						<span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
+					</td>
+				</tr>
+				
+				<tr valign="top">
+					<th scope="row"><label for="cpm_MarkerClusterer" style="color:#CCCCCC;"><?php _e('Display a bundle of points in the same area, like a cluster:', 'codepeople-post-map');?></th>
+					<td>
+						<input type="checkbox" disabled /><span> Displays the number of points in the cluster</span><br />
 						<span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
 					</td>
 				</tr>

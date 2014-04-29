@@ -122,7 +122,7 @@ jQuery(function(){
 					}	
 					
 					if (h > 1 && me.data.dynamic_zoom) {
-					  map.fitBounds(bounds);
+						setTimeout( ( function( m, b ){ return function(){ m.fitBounds( b ); }; } )( map, bounds ), 500 );
 					}
 					else if (h == 1 || !me.data.dynamic_zoom) {
 					  map.setCenter(bounds.getCenter());
