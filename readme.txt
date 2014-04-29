@@ -1,7 +1,7 @@
 === CP Google Maps ===
 Contributors: codepeople
 Donate link: http://wordpress.dwbooster.com/content-tools/codepeople-post-map
-Tags:google maps,shortcode,map,maps,categories,post map,point,marker,list,location,address,images,geocoder,google maps,google,shape,panoramio,exif tag
+Tags:google maps,shortcode,map,maps,categories,post map,point,marker,list,location,address,images,geocoder,google maps,google,shape,panoramio,grouping,cluster,exif tag
 Requires at least: 3.0.5
 Tested up to: 3.9
 Stable tag: 1.0.1
@@ -60,6 +60,7 @@ The Google Maps inserted into a template displaying multiple posts will contain 
 *   Allows to insert the map as widget on sidebars.
 *   Allows to styling the map.
 *   Allows to display the Panoramio layer on map.
+*   Allows grouping multiple markers in a cluster.
 *   Allows to display the user location on map.
 *	Generates dynamic points from the geolocation information, stored in the image's metadata when it is uploaded to WordPress.
 *	Generates dynamic points on map, relative to the geolocation information, assigned to the posts from WordPress App.
@@ -155,6 +156,7 @@ The settings are divided into two main groups, those belonging to the Google map
 *   Display map in post / page: When the Google maps are inserted in a post you can select whether to display the Google maps or display an icon, which displays the map, when pressed (if the Google maps are inserted into a template that allows multiple posts, this option does not apply)
 *   Options: This setting allows you to select which map controls should be available.
 *	Display the Panoramio layer: Displays a new layer on map with images published in Panoramio (available only in the premium version of plugin)
+*	Display a bundle of points in the same area, like a cluster: Allows grouping multiple points in a cluster (available only in the premium version of plugin)
 *	Display the user's location: Displays a marker with the location of user that is visiting the webpage (available only in the premium version of plugin)
 *	Title of user's location: Enter the title of infowindow belonging to the user's marker (available only in the premium version of plugin)
 *	Display the get directions link: Displays a link in the infowindow to get the directions to the point (available only in the premium version of plugin)
