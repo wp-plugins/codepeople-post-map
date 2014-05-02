@@ -15,8 +15,7 @@
                 button: {
                 text: 'Select Image'
                 },
-                multiple: false,
-        
+                multiple: false
         }).on('select', 
 			(function( field ){
 				return function() {
