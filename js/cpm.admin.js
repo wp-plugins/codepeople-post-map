@@ -6,27 +6,28 @@
 */
 
 (function ($) {
-	var _latlng_btn,
-    thumbnail_field;
+	var _latlng_btn;
 	
-    // thumbnail selection
-    window["cpm_send_to_editor"] = function(html) {
-
-        var file_url = jQuery(html).attr('href');
-        if (file_url) {
-            jQuery(thumbnail_field).val(file_url);
-        }
-        tb_remove();
-        window.send_to_editor = window.cpm_send_to_editor_default;
-
-    };
-		
-    window["cpm_send_to_editor_default"] = window.send_to_editor;
-    
     window["cpm_thumbnail_selection"] = function(e){
-        thumbnail_field = $(e).parent().find('input[type="text"]');
-        window.send_to_editor = window.cpm_send_to_editor;
-        tb_show('', 'media-upload.php?TB_iframe=true');
+        var thumbnail_field = $(e).parent().find('input[type="text"]');
+        var media = wp.media({
+                title: 'Select Point Thumbnail',
+                button: {
+                text: 'Select Image'
+                },
+                multiple: false,
+        
+        }).on('select', 
+			(function( field ){
+				return function() {
+					var attachment = media.state().get('selection').first().toJSON();
+					if( !/image/g.test( attachment.mime ) ) return;
+					var fullSize = attachment.url;
+					var imgUrl = (typeof attachment.sizes.thumbnail === "undefined") ? fullSize : attachment.sizes.thumbnail.url;
+					field.val( imgUrl );
+				};
+			})( thumbnail_field )	
+		).open();
         return false;
     };
     
