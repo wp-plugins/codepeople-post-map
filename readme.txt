@@ -118,6 +118,8 @@ Note 6: Some plugins interfere with the shortcodes replacements, and provokes th
 
 Passing the parameter print=1, displays the map at beginning of page/post content.
 
+Note 7: To display all points in posts with a specific taxonomy assigned, or multiple taxonomies, should be used the "taxonomy" attribute in the shortcode, with the list of all taxonomies separated by the comma symbol, for example: taxonomy="taxonomy1,taxonomy2", and a new attribute for each taxonomy with the values corresponding. For example if you want select the points that belong to the posts with the values: "value1" for "taxonomy1", the shortcode would be: [codepeople-post-map taxonomy="taxonomy1" taxonomy1="value1"], for multiple taxonomies: [codepeople-post-map taxonomy="taxonomy1,taxonomy2" taxonomy1="value1" taxonomy2="value2,value3"].
+
 If you want more information about this plugin or another one don't doubt to visit my website:
 
 [http://wordpress.dwbooster.com](http://wordpress.dwbooster.com "CodePeople WordPress Repository")
