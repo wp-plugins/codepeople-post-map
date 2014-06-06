@@ -719,9 +719,9 @@ class CPM {
 		wp_enqueue_script( 'cpm_script', CPM_PLUGIN_URL.'/js/cpm.js', array('jquery'));
 	} // End load_resources
 	
-	function load_footer_resources(){
+	function load_header_resources(){
 		echo '<style>.cpm-map img{ max-width: none;box-shadow:none;}</style>';
-	} // End load_footer_resources
+	} // End load_header_resources
 	
 	/**
 	 * Print the settings page for entering the general setting's data of maps
