@@ -870,6 +870,7 @@ class CPM {
 	 * Populate the attribute points
 	 */
 	function populate_points($post, $force = false){
+		if( is_admin() ) return;
 		if(is_singular() && !$force) return;
         $point = get_post_meta($post->ID, 'cpm_point', TRUE);
 		if(!empty($point)){
