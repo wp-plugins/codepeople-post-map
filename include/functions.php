@@ -504,6 +504,9 @@ class CPM {
 	function _print_form($options){
 		global $post;
 		$default_configuration = $this->_default_configuration();
+		
+		// create a custom nonce for submit verification later
+		echo '<input type="hidden" name="cpm_map_noncename" value="' . wp_create_nonce(__FILE__) . '" />';
 	?>
 		<script>
 			var cpm_default_marker = "<?php echo $default_configuration['default_icon']; ?>";
@@ -673,8 +676,6 @@ class CPM {
 		</div>	
         <p>&nbsp;</p>
 		<?php
-		// create a custom nonce for submit verification later
-		echo '<input type="hidden" name="cpm_map_noncename" value="' . wp_create_nonce(__FILE__) . '" />';
 	} // End _print_form
 	
 	/**
