@@ -15,7 +15,6 @@ jQuery(function(){
 		
 		$.CPM.prototype = {
 			markers : [],
-			windows : [],
 			defaults : {
 				markers 		: [],
 				zoom			: 10,
@@ -88,14 +87,12 @@ jQuery(function(){
 					});
 
 					var map = me.map,
-						bounds = new google.maps.LatLngBounds (),
-						open_by_default;
+						bounds = new google.maps.LatLngBounds();
 					
                     if( me.data.show_default ){
                         google.maps.event.addListenerOnce(map, 'idle', function(){
                             setTimeout(function(){
-                                if(open_by_default)
-                                            google.maps.event.trigger(me.markers[open_by_default - 1], 'click');
+                                if( me.markers.length ) google.maps.event.trigger( me.markers[ 0 ], 'click' );
                             }, 1000);				
                         });
 					}
@@ -112,9 +109,6 @@ jQuery(function(){
 					  
 							marker.id = i;
 							me.markers.push(marker);
-							if( typeof open_by_default == 'undefined' ){
-								open_by_default = me.markers.length;
-							}
 							google.maps.event.addListener(marker, 'click', function(){ me.open_infowindow(this); });
 							google.maps.event.addListener(marker, 'mouseover', function(){ me.set_highlight(this); });
 							google.maps.event.addListener(marker, 'mouseout', function(){ me.unset_highlight(this); });

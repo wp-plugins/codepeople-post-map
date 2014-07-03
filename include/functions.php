@@ -494,6 +494,33 @@ class CPM {
 					 <span style="color:#FF0000;">This feature is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
 				</td>
 			</tr>
+            <tr>
+				<th scope="row"><label for="cpm_map_legend" style="color:#CCCCCC;"><?php _e('Display the map\'s legend:', 'codepeople-post-map')?></label></th>
+				<td valign="top">
+					<input type="checkbox" disabled readonly /> <span style="color:#FF0000;">This feature is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
+				</td>
+			</tr>
+            <tr>
+				<th scope="row"><label for="cpm_map_legend_taxonomy" style="color:#CCCCCC;"><?php _e('Select the taxonomy to display on legend:', 'codepeople-post-map')?></label></th>
+				<td valign="top">
+                    <select disabled readonly>
+                        <option value=""><?php _e( 'Select a taxonomy', 'codepeople-post-map' ); ?></option>
+                    </select>
+                </td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="cpm_map_legend_title" style="color:#CCCCCC;"><?php _e('Enter a title for legend:', 'codepeople-post-map')?></label></th>
+				<td valign="top">
+					<input type="text" disabled readonly />
+				</td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="cpm_map_legend_class" style="color:#CCCCCC;"><?php _e('Enter a classname to be applied to the legend:', 'codepeople-post-map')?></label></th>
+				<td valign="top">
+					<input type="text" disabled readonly />
+				</td>
+			</tr>
+			
 		</table>
 	<?php
 	} // End _deploy_map_form
@@ -946,7 +973,7 @@ class CPM {
 			// Set the actual post only to avoid duplicates
 			$posts = array($post);
 			
-			$query_arg = array( 'meta_key' => 'cpm_point', 'post_status' => 'publish', 'orderby' => 'post_date', 'order' => 'DESC' );
+			$query_arg = array( 'meta_key' => 'cpm_point', 'post_status' => 'publish', 'orderby' => 'post_date', 'order' => 'DESC', 'cache_results' => false);
 			if( !empty($this->limit) ){
 				$query_arg[ 'numberposts' ] = $this->limit;
 			}
