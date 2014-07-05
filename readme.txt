@@ -97,57 +97,57 @@ The complete list of allowed attributes are:
 
 Very Important. Some of attributes are available only in the premium version of the plugin.
             
-            width:  Values allowed, number or percentage. Defines the map's width. [codepeople-post-map width="300"] or [codepeople-post-map width="100%"]
-            
-            height:  Values allowed, number or percentage (In the web's development, the height in percentage is effective only if the parent element has a height defined). Defines the map's height. [codepeople-post-map height="300"]
-            
-            align:  Values allowed, left, right, center. Aligns the map's container to the left, right or center. [codepeople-post-map align="center"]
-            
-            dynamic_zoom:  Values allowed, 1 or 0. Adjust the zoom of map dynamically to display all points on map at the same time. [codepeople-post-map dynamic_zoom="1"]
-            
-            zoom:  Accepts a number to define the map's zoom. To apply a zoom to the map, the dynamic zoom should be 0. [codepeople-post-map dynamic_zoom="0" zoom="5"]
-            
-            type:  Values allowed, SATELLITE, ROADMAP, TERRAIN and HYBRID. Select the type of map to display. [codepeople-post-map type="ROADMAP"] 
-            
-            language:  Values allowed, en for English, es for Spanish, pt for Portuguese, etc. (for the complete list, check the Google Maps documentation). Select a language to display on map. [codepeople-post-map language="en"]
-            
-            route:  Values allowed, 0 or 1. Draw or not the route between points in a same post or page. [codepeople-post-map route="1"]
-            
-            mode:  Values allowed, DRIVING, BICYCLING and WALKING. Define the type of route. [codepeople-post-map route="1" mode="DRIVING"]
-            
-            show_window:  Values allowed, 0 or 1. To enable or disable the infowindows. [codepeople-post-map show_window="1" ]
-            
-            show_default:  Values allowed, 0 or 1. Display or not an infowindow expanded by default. [codepeople-post-map show_window="1" show_default="1"]
-            
-            panoramiolayer:  Values allowed, 0 or 1. Displays a layer with pictures of places. [codepeople-post-map panoramiolayer="1"]
-            
-            markerclusterer:  Values allowed, 0 or 1. Displays a cluster with the number of points in an area. [codepeople-post-map markerclusterer="1"]
-            
-            mousewheel:  Values allowed, 0 or 1. Enables the map's zoom with the mouse wheel. [codepeople-post-map mousewheel="1"]
-            
-            zoompancontrol:  Values allowed, 0 or 1. Displays or hide the zoom and pan controls. [codepeople-post-map zoompancontrol="1"]
-            
-            typecontrol:  Values allowed, 0 or 1. Displays or hide the type control. [codepeople-post-map typecontrol="1"]
-            
-            streetviewcontrol:  Values allowed, 0 or 1. Displays or hide the street-view control. [codepeople-post-map streetviewcontrol="1"]
-            
-            legend:  Accepts a taxonomy name as value. Some common taxonomies names are:  category and post_tag, for the categories and tags, respectively. Displays the legend with the list of elements that belong to the taxonomy and are assigned to the posts associated with the points. [codepeople-post-map legend="category"]
-            
-            legend_title:  Text to be used as legend title. [codepeople-post-map legend="category" legend_title="Select the categories to display on map"]
-            
-            legend_class:  Class name to be assigned to the legend. The legend design may be modified through CSS styles. Creates a class name, with the styles definition, and associates the new class name to the legend through the legend_class attribute. [codepeople-post-map legend="category" legend_class="my-legend-class"]
-            
-            tag:  Tags slugs separated by ",". Displays on map the points whose posts have assigned the tags.[codepeople-post-map tag="tag1,tag2,tag3"]
-            
-            cat:  Categories IDs separated by "," or -1. Displays on map the points whose posts belong to the categories. The special value -1, allows display on map all points defined in the website.[codepeople-post-map cat="2,4,56"] [codepeople-post-map cat="-1"]
-            
-            excludecat:  Categories IDs to exclude, separated by ",". From points to be displayed on map, the plugin excludes the points whose posts belong to the categories to exclude. [codepeople-post-map tag="tag1,tag2" excludecat="4"]
-            
-            excludepost:  Posts IDs to exclude separated by ",". [codepeople-post-map cat="-1" excludepost="235,260"]
-            
-            excludetag:  Tags IDs to exclude separated by ",". [codepeople-post-map excludetag="2,13"]
-            
-            taxonomy:  The taxonomy is a special attribute that should be combined with other attributes, depending of taxonomies to use for points filtering. Suppose the website includes two new taxonomies:  taxonomyA and taxonomyB, and the map should display all points that belong to the posts with the value T1 for taxonomyA, and T3,T4 for taxonomyB, the shortcode would be:  [codepeople-post-map taxonomy="taxonomyA,taxonomyB" taxonomyA="T1" taxonomyB="t2,t3"]
+width:  Values allowed, number or percentage. Defines the map's width. [codepeople-post-map width="300"] or [codepeople-post-map width="100%"]
+
+height:  Values allowed, number or percentage (In the web's development, the height in percentage is effective only if the parent element has a height defined). Defines the map's height. [codepeople-post-map height="300"]
+
+align:  Values allowed, left, right, center. Aligns the map's container to the left, right or center. [codepeople-post-map align="center"]
+
+dynamic_zoom:  Values allowed, 1 or 0. Adjust the zoom of map dynamically to display all points on map at the same time. [codepeople-post-map dynamic_zoom="1"]
+
+zoom:  Accepts a number to define the map's zoom. To apply a zoom to the map, the dynamic zoom should be 0. [codepeople-post-map dynamic_zoom="0" zoom="5"]
+
+type:  Values allowed, SATELLITE, ROADMAP, TERRAIN and HYBRID. Select the type of map to display. [codepeople-post-map type="ROADMAP"] 
+
+language:  Values allowed, en for English, es for Spanish, pt for Portuguese, etc. (for the complete list, check the Google Maps documentation). Select a language to display on map. [codepeople-post-map language="en"]
+
+route:  Values allowed, 0 or 1. Draw or not the route between points in a same post or page. [codepeople-post-map route="1"]
+
+mode:  Values allowed, DRIVING, BICYCLING and WALKING. Define the type of route. [codepeople-post-map route="1" mode="DRIVING"]
+
+show_window:  Values allowed, 0 or 1. To enable or disable the infowindows. [codepeople-post-map show_window="1" ]
+
+show_default:  Values allowed, 0 or 1. Display or not an infowindow expanded by default. [codepeople-post-map show_window="1" show_default="1"]
+
+panoramiolayer:  Values allowed, 0 or 1. Displays a layer with pictures of places. [codepeople-post-map panoramiolayer="1"]
+
+markerclusterer:  Values allowed, 0 or 1. Displays a cluster with the number of points in an area. [codepeople-post-map markerclusterer="1"]
+
+mousewheel:  Values allowed, 0 or 1. Enables the map's zoom with the mouse wheel. [codepeople-post-map mousewheel="1"]
+
+zoompancontrol:  Values allowed, 0 or 1. Displays or hide the zoom and pan controls. [codepeople-post-map zoompancontrol="1"]
+
+typecontrol:  Values allowed, 0 or 1. Displays or hide the type control. [codepeople-post-map typecontrol="1"]
+
+streetviewcontrol:  Values allowed, 0 or 1. Displays or hide the street-view control. [codepeople-post-map streetviewcontrol="1"]
+
+legend:  Accepts a taxonomy name as value. Some common taxonomies names are:  category and post_tag, for the categories and tags, respectively. Displays the legend with the list of elements that belong to the taxonomy and are assigned to the posts associated with the points. [codepeople-post-map legend="category"]
+
+legend_title:  Text to be used as legend title. [codepeople-post-map legend="category" legend_title="Select the categories to display on map"]
+
+legend_class:  Class name to be assigned to the legend. The legend design may be modified through CSS styles. Creates a class name, with the styles definition, and associates the new class name to the legend through the legend_class attribute. [codepeople-post-map legend="category" legend_class="my-legend-class"]
+
+tag:  Tags slugs separated by ",". Displays on map the points whose posts have assigned the tags.[codepeople-post-map tag="tag1,tag2,tag3"]
+
+cat:  Categories IDs separated by "," or -1. Displays on map the points whose posts belong to the categories. The special value -1, allows display on map all points defined in the website.[codepeople-post-map cat="2,4,56"] [codepeople-post-map cat="-1"]
+
+excludecat:  Categories IDs to exclude, separated by ",". From points to be displayed on map, the plugin excludes the points whose posts belong to the categories to exclude. [codepeople-post-map tag="tag1,tag2" excludecat="4"]
+
+excludepost:  Posts IDs to exclude separated by ",". [codepeople-post-map cat="-1" excludepost="235,260"]
+
+excludetag:  Tags IDs to exclude separated by ",". [codepeople-post-map excludetag="2,13"]
+
+taxonomy:  The taxonomy is a special attribute that should be combined with other attributes, depending of taxonomies to use for points filtering. Suppose the website includes two new taxonomies:  taxonomyA and taxonomyB, and the map should display all points that belong to the posts with the value T1 for taxonomyA, and T3,T4 for taxonomyB, the shortcode would be:  [codepeople-post-map taxonomy="taxonomyA,taxonomyB" taxonomyA="T1" taxonomyB="t2,t3"]
 
 Note 5: The geolocation information is stored in image's metadata from mobiles or cameras with GPS devices.
 
