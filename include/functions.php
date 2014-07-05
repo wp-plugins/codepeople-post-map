@@ -1106,14 +1106,15 @@ class CPM {
 		$icon = (!empty($point['icon'])) ? $point['icon'] : $this->get_configuration_option('default_icon');
 		if( strpos( $icon, 'http' ) !== 0 ) $icon = CPM_PLUGIN_URL.$icon;
 		
-		return 'cpm_global["'.$this->map_id.'"]["markers"]['.$index.'] = 
-							{"address":"'.esc_js(str_replace(array('&quot;', '&lt;', '&gt;', '&#039;', '&amp;'), array('\"', '<', '>', "'", '&'), $point['address'])).'",
-							 "lat":"'.$point['latitude'].'",
-							 "lng":"'.$point['longitude'].'",
-							 "info":"'.esc_js(str_replace(array('&quot;', '&lt;', '&gt;', '&#039;', '&amp;'), array('\"', '<', '>', "'", '&'), $this->_get_windowhtml($point))).'",
-							 "icon":"'.$icon.'",
-							 "post":"'.$point['post_id'].'"};';
-	} // End _set_map_point
+        $obj = new stdClass;
+        $obj->address = str_replace(array('&quot;', '&lt;', '&gt;', '&#039;', '&amp;'), array('\"', '<', '>', "'", '&'), $point['address']);
+        $obj->lat = $point['latitude'];
+        $obj->lng = $point['longitude'];
+        $obj->info = str_replace(array('&quot;', '&lt;', '&gt;', '&#039;', '&amp;'), array('\"', '<', '>', "'", '&'), $this->_get_windowhtml($point));
+        $obj->icon = $icon;
+        $obj->post = $point['post_id'];
+		return 'cpm_global["'.$this->map_id.'"]["markers"]['.$index.'] = '.json_encode( $obj ).';';
+    } // End _set_map_point
 	
     function _get_img_id($url){
         global $wpdb;
