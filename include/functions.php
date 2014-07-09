@@ -12,10 +12,10 @@ class CPM {
 	var $lang_array; // List of supported languages
 	var $points = array(); // List of points to set on map
 	var $points_str = ''; // List of points as javascript code
-	var $flush_map = false; // Determine if the map's code was generated to limit only one map for page
 	var $map_id; // ID of map
     var $limit=0; // The number of pins allowed in map zero = unlimited
 	var $extended = array();
+	var $multiple = false;
 	
 	//---------- CONSTRUCTOR ----------
 	
@@ -743,12 +743,17 @@ class CPM {
 	 * Load script and style files required for display google maps on public website
 	 */
 	function load_resources() {
-		wp_enqueue_style( 'cpm_style', CPM_PLUGIN_URL.'/styles/cpm-styles.css');
-		wp_enqueue_script( 'cpm_script', CPM_PLUGIN_URL.'/js/cpm.js', array('jquery'));
+        global $cpm_resources_loaded;
+        if( empty( $cpm_resources_loaded ) )
+        {
+            $cpm_resources_loaded = true;
+            print "<link rel='stylesheet' id='cpm_style-css'  href='".CPM_PLUGIN_URL.'/styles/cpm-styles.css'."' type='text/css' media='all' />";
+            print "<script src='".CPM_PLUGIN_URL.'/js/cpm.js'."'></script>";
+        }
 	} // End load_resources
 	
 	function load_header_resources(){
-		echo '<style>.cpm-map img{ max-width: none;box-shadow:none;}</style>';
+		echo '<style>.cpm-map img{ max-width: none !important;box-shadow:none !important;}</style>';
 	} // End load_header_resources
 	
 	/**
@@ -872,44 +877,17 @@ class CPM {
 	//---------- SHORTCODE METHODS ----------
 	
 	/*
-	 * Static method for ordering an array of posts
-	 */
-	static function _ordering_array($postA, $postB){
-		if ($postA->post_date == $postB->post_date) {
-            return 0;
-        }
-        return ($postA->post_date > $postB->post_date) ? -1 : +1;
-	} // End _ordering_array
-	
-	/*
-	 * Static method for remove duplicate posts
-	 */
-	static function _unique_element( $obj ) {
-		static $posts_list = array();
- 
-		if ( in_array( $obj->ID, $posts_list ) )
-			return false;
- 
-		$posts_list[] = $obj->ID;
-		return true;    
-	} // End _unique_element
-	
-	/*
 	 * Populate the attribute points
 	 */
-	function populate_points($post, $force = false){
+	function populate_points($post_id){
 		if( is_admin() ) return;
-		if(is_singular() && !$force) return;
-        $point = get_post_meta($post->ID, 'cpm_point', TRUE);
+		
+        $point = get_post_meta($post_id, 'cpm_point', TRUE);
 		if(!empty($point)){
-			$point['post_id'] = $post->ID;
+			$point['post_id'] = $post_id;
 			if(!in_array($point, $this->points)){
-                if($force){
-                    array_unshift($this->points, $point);
-                }else{
-                    $this->points[] = $point;
-                }
-			}	
+                $this->points[] = $point;
+            }	
 		}	
 	} // End populate_points
 	
@@ -917,65 +895,77 @@ class CPM {
 	 * Generates the javascript code of map points, only called from webpage of multiples posts
 	 */
 	function print_points(){
-        global $id, $cpm_shortcode;
+        global $id;
         
-		if( empty( $cpm_shortcode ) || !$cpm_shortcode ) return;
-		
-        $limit = abs($this->limit);
+		$limit = abs($this->limit);
+        
         $str = '';
-        $current = '';
-        $count = 0;
-        foreach($this->points as $k => $point){
+        $current_post = '';
+        $count_posts = 0;
+        $count_points = 0;
+        
+        foreach($this->points as $point){
             if(!empty($limit)){
-                if($current != $point['post_id']){
-                    $current = $point['post_id'];
-                    $count++;
-                    if( $count > $limit) break;
+                if($current_post != $point['post_id']){
+                    $current_post = $point['post_id'];
+                    $count_posts++;
+                    if( $count_posts > $limit) break;
                 }
             }    
             
-            $str .=  $this->_set_map_point($this->points[$k], $k);
+            $str .=  $this->_set_map_point($point, $count_points);
+            $count_points++;
         }
-        if(strlen($str)) print "<script>if(typeof cpm_global != 'undefined'){".$str."}</script>";
+        if(strlen($str))
+        {
+            $str = "<script>if(typeof cpm_global != 'undefined' && typeof cpm_global['".$this->map_id."'] != 'undefined' && typeof cpm_global['".$this->map_id."']['markers'] != 'undefined'){ ".$str." }</script>";
+        }
+        
+        $this->points = array();
+        print $str;
 	} // End print_points
 	
 	/**
 	 * Replace each [codepeople-post-map] shortcode by the map
 	 */
 	function replace_shortcode($atts){
-		global $post, $id, $cpm_shortcode;
+		global $post, $id, $cpm_objs;
         
-		$cpm_shortcode = true;
-		
-        if(is_array($atts)) $this->extended = $atts;
-        
+        // Load the plugin resources
         $this->load_resources();
-		
-        // Limit the publication of map to only one
-		if($this->flush_map)
-			return '';
-		
-		$this->flush_map = true;
-		
+        
+        $cpm_obj = new CPM;
+        $cpm_objs[] = $cpm_obj;
+        
+		if(is_array($atts)) $cpm_obj->extended = $atts;
+        
         if( isset($id) ){
-            $cpm_map = get_post_meta($post->ID, 'cpm_map', TRUE);
+            $cpm_map = get_post_meta($id, 'cpm_map', TRUE);
         }
         
         if(empty($cpm_map)){
-            $cpm_map = $this->get_configuration_option();
+            $cpm_map = $cpm_obj->get_configuration_option();
         }
 		
         if(!empty($cpm_map['points'])){
-            $this->limit = $cpm_map['points'];
+            $cpm_obj->limit = $cpm_map['points'];
         }
         
 		if(is_singular()){ // For maps in a post or page
 			// Set the actual post only to avoid duplicates
-			$posts = array($post);
+			$posts = array( $id );
 			
-			$query_arg = array( 'meta_key' => 'cpm_point', 'post_status' => 'publish', 'orderby' => 'post_date', 'order' => 'DESC', 'cache_results' => false);
-			if( !empty($this->limit) ){
-				$query_arg[ 'numberposts' ] = $this->limit;
+			$query_arg = array( 
+                'meta_key' => 'cpm_point', 
+                'post_status' => 'publish', 
+                'orderby' => 'post_date', 
+                'order' => 'DESC', 
+                'cache_results' => false,
+                'fields' => 'ids',
+                'post__not_in' => array( $id )
+            );
+			if( !empty($cpm_obj->limit) ){
+				$query_arg[ 'numberposts' ] = $cpm_obj->limit - 1;
 			}
 			
 			// Get POSTs in the same category
@@ -991,48 +981,30 @@ class CPM {
 			
 			$posts = array_merge( $posts, get_posts( $query_arg ) );
 			
-			// Remove duplicate posts
-			$posts = array_filter($posts, array('CPM', '_unique_element'));
-			
-			// Obtain only the number of posts configured in the plugin settings
-			if(!empty($cpm_map['points']) && $cpm_map['points'] > 0)
-				$posts = array_slice($posts, 0, $cpm_map['points']);
-			
-			foreach( array_reverse( $posts ) as $_post){
-				$this->populate_points($_post, true);
+			foreach( $posts as $_post){
+				$cpm_obj->populate_points($_post, true);
 			}	
 		    	
-			$output  = $this->_set_map_tag($cpm_map);
-			$output .= $this->_set_map_config($cpm_map);
+		}else{
+            $cpm_obj->multiple = true;
+        }
+        
+        $output  = $cpm_obj->_set_map_tag($cpm_map);
+		$output .= $cpm_obj->_set_map_config($cpm_map);
 			
-            $output .= "<noscript>
-				codepeople-post-map require JavaScript
-			</noscript>
-			";	
+        $output .= "<noscript>
+                        codepeople-post-map require JavaScript
+                    </noscript>
+                    ";	
 			
-			if( !empty( $atts['print'] ) ){
-			
-				print $output;
-				return '';
-			}
-			return $output;
-		}else{ 
-			global $id;
-            if($id){
-                $this->populate_points(get_post($id), true);
-            }
-			$cpm_map = $this->get_configuration_option();
-			$output  = $this->_set_map_tag($cpm_map);
-			$output .= $this->_set_map_config($cpm_map);
-			
-			if( !empty( $atts['print'] ) ){
-				print $output;
-				return '';
-			}
-			
-			return $output;
-		}	
-	} // End replace_shortcode
+        if( !empty( $atts['print'] ) ){
+            print $output;
+            $cpm_obj->print_points();
+            return '';
+        }
+        
+        return $output;    
+    } // End replace_shortcode
 	
 	/*
 	 * Generates the DIV tag where the map will be loaded
@@ -1141,15 +1113,13 @@ class CPM {
             	$thumb = wp_get_attachment_image_src($matches[1], 'thumbnail');
 				if(is_array($thumb))$point_thumbnail = $thumb[0];
 			}else{
-                $thumb = wp_get_attachment_image_src($this->_get_img_id($point['thumbnail']), 'thumbnail');
-				if(is_array($thumb))$point_thumbnail = $thumb[0];
+                $point_thumbnail = $point['thumbnail'];
 			}
             if($point_thumbnail != "")
                 $point_img_url = $point_thumbnail;
 		}
-		$point_excerpt = $this->_get_excerpt($point['post_id']);
-
-		$point_description = ($point['description'] != "") ? $point['description'] : $point_excerpt;
+		
+		$point_description = ($point['description'] != "") ? $point['description'] : $this->_get_excerpt($point['post_id']);
 		$point_address = $point['address'];
 
 		if(isset($point_img_url)) {
@@ -1166,7 +1136,6 @@ class CPM {
 		$windowhtml = str_replace( $find, $replace, $windowhtml_frame);
 					
 		return $windowhtml;
-		
 	} // End _get_windowhtml
 	
 	/**
@@ -1178,18 +1147,8 @@ class CPM {
 		$content = $content_post->post_content;
 
 		if ( '' != $content ) {
-			
-			$content = strip_shortcodes( $content ); 
-			$content = str_replace(']]>', ']]&gt;', $content);
-			$content = strip_tags($content);
-			$excerpt_length = 10;
-			$words = explode(' ', $content, $excerpt_length + 1);
-			if (count($words) > $excerpt_length) {
-				array_pop($words);
-				array_push($words, '[...]');
-				$content = implode(' ', $words);
-			}
-		}
+			return wp_trim_words( strip_shortcodes( $content ), 10 );
+        }
 		return $content;
 	} // End _get_excerpt
 	
