@@ -929,7 +929,7 @@ class CPM {
 	 * Replace each [codepeople-post-map] shortcode by the map
 	 */
 	function replace_shortcode($atts){
-		global $post, $id, $cpm_objs;
+		global $post, $id, $cpm_objs, $cpm_in_loop;
         
         // Load the plugin resources
         $this->load_resources();
@@ -939,7 +939,7 @@ class CPM {
         
 		if(is_array($atts)) $cpm_obj->extended = $atts;
         
-        if( isset($id) ){
+        if( isset($id) && ( is_singular() || !empty( $cpm_in_loop ) ) ){
             $cpm_map = get_post_meta($id, 'cpm_map', TRUE);
         }
         
@@ -951,7 +951,7 @@ class CPM {
             $cpm_obj->limit = $cpm_map['points'];
         }
         
-		if(is_singular()){ // For maps in a post or page
+		if( isset($id) && ( is_singular() || !empty( $cpm_in_loop ) ) ){ // For maps in a post or page
 			// Set the actual post only to avoid duplicates
 			$posts = array( $id );
 			

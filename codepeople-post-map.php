@@ -50,7 +50,26 @@ function cpm_init(){
 	add_shortcode('codepeople-post-map', array(&$cpm_master_obj, 'replace_shortcode'));
 	add_action('the_post', 'cpm_populate_points' );
 	add_action( 'wp_footer', 'cpm_print_points'  );	
+    add_action( 'loop_start', 'cpm_loop_start' );
+    add_action( 'loop_end', 'cpm_loop_end' );
 }
+
+if( !function_exists( 'cpm_loop_start' ) )
+    {
+        function cpm_loop_start()
+        {
+            global $cpm_in_loop;
+            $cpm_in_loop = true;
+        }
+    }
+if( !function_exists( 'cpm_loop_end' ) )
+    {
+        function cpm_loop_end()
+        {
+            global $cpm_in_loop;
+            $cpm_in_loop = false;
+        }
+    }
 
 if( !function_exists( 'cpm_populate_points' ) ){
 	function cpm_populate_points( $post ){
