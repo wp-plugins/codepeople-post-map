@@ -131,6 +131,8 @@ typecontrol:  Values allowed, 0 or 1. Displays or hide the type control. [codepe
 
 streetviewcontrol:  Values allowed, 0 or 1. Displays or hide the street-view control. [codepeople-post-map streetviewcontrol="1"]
 
+defaultpost: Defines the post ID, for centring the map, and display by default the infowindow corresponding to the first point associated to this post. [codepeople-post-map defaultpost="396"]
+
 legend:  Accepts a taxonomy name as value. Some common taxonomies names are:  category and post_tag, for the categories and tags, respectively. Displays the legend with the list of elements that belong to the taxonomy and are assigned to the posts associated with the points. [codepeople-post-map legend="category"]
 
 legend_title:  Text to be used as legend title. [codepeople-post-map legend="category" legend_title="Select the categories to display on map"]
