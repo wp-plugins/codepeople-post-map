@@ -86,18 +86,24 @@ jQuery(function( $ ){
                 });
 
                 var map = me.map,
-                    bounds = new google.maps.LatLngBounds();
+                    bounds = new google.maps.LatLngBounds(),
+                    default_point = -1;
                 
                 if( me.data.show_default ){
                     google.maps.event.addListenerOnce(map, 'idle', function(){
                         setTimeout(function(){
-                            if( me.markers.length ) google.maps.event.trigger( me.markers[ 0 ], 'click' );
+                            if( me.markers.length ) google.maps.event.trigger( ( ( me.markers[ default_point ] < 0 ) ? 0 : me.markers[ default_point ] ), 'click' );
                         }, 1000);				
                     });
                 }
                 me.infowindow = new google.maps.InfoWindow();
                 for (var i = c; i < h; i++){		
                     if(!m[i]['invalid']){
+                        if( typeof m[ i ][ 'default' ] != 'undefined' && m[ i ][ 'default' ] )
+                        {
+                            default_point = me.markers.length;
+                        }
+                        
                         bounds.extend(m[i].latlng);
                         var marker = new google.maps.Marker({
                                                       position: m[i].latlng,
@@ -118,8 +124,15 @@ jQuery(function( $ ){
                     setTimeout( ( function( m, b ){ return function(){ m.fitBounds( b ); }; } )( map, bounds ), 500 );
                 }
                 else if (h == 1 || !me.data.dynamic_zoom) {
-                  map.setCenter(bounds.getCenter());
-                  map.setZoom(me.data.zoom);
+                    if( default_point != -1 )
+                    {
+                        map.setCenter( me.markers[ default_point ].getPosition() );
+                    }
+                    else
+                    {
+                        map.setCenter(bounds.getCenter());
+                    }
+                    map.setZoom(me.data.zoom);
                 }
             }
         },

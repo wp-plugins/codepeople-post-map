@@ -14,6 +14,7 @@ class CPM {
 	var $points_str = ''; // List of points as javascript code
 	var $map_id; // ID of map
     var $limit=0; // The number of pins allowed in map zero = unlimited
+    var $defaultpost=''; // The post ID for centring the map, and display by default the infowindow
 	var $extended = array();
 	var $multiple = false;
 	
@@ -910,6 +911,11 @@ class CPM {
                     $current_post = $point['post_id'];
                     $count_posts++;
                     if( $count_posts > $limit) break;
+                    if( !empty($this->defaultpost) && $this->defaultpost == $current_post )
+                    {
+                        $point[ 'default' ] = 1;
+                        $this->defaultpost = '';
+                    }
                 }
             }    
             
@@ -939,6 +945,8 @@ class CPM {
         
 		if(is_array($atts)) $cpm_obj->extended = $atts;
         
+        if( !empty( $atts[ 'defaultpost' ] ) )  $cpm_obj->defaultpost = str_replace( ' ', '', $atts[ 'defaultpost' ] );
+		
         if( isset($id) && ( is_singular() || !empty( $cpm_in_loop ) ) ){
             $cpm_map = get_post_meta($id, 'cpm_map', TRUE);
         }
@@ -1085,6 +1093,7 @@ class CPM {
         $obj->info = str_replace(array('&quot;', '&lt;', '&gt;', '&#039;', '&amp;'), array('\"', '<', '>', "'", '&'), $this->_get_windowhtml($point));
         $obj->icon = $icon;
         $obj->post = $point['post_id'];
+        $obj->default = ( !empty( $point[ 'default' ] ) ) ? true : false;
 		return 'cpm_global["'.$this->map_id.'"]["markers"]['.$index.'] = '.json_encode( $obj ).';';
     } // End _set_map_point
 	
