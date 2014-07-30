@@ -748,6 +748,8 @@ class CPM {
         if( empty( $cpm_resources_loaded ) )
         {
             $cpm_resources_loaded = true;
+            
+            wp_enqueue_script( 'jquery' );
             print "<link rel='stylesheet' id='cpm_style-css'  href='".CPM_PLUGIN_URL.'/styles/cpm-styles.css'."' type='text/css' media='all' />";
             print "<script src='".CPM_PLUGIN_URL.'/js/cpm.js'."'></script>";
         }
