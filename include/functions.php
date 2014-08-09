@@ -749,7 +749,11 @@ class CPM {
         {
             $cpm_resources_loaded = true;
             
-            wp_enqueue_script( 'jquery' );
+            if( !wp_script_is( 'jquery' ) )
+            {
+                print "<script src='".($_SERVER['SERVER_PORT'] == 443 ? "https" : "http")."://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>";
+            }
+            
             print "<link rel='stylesheet' id='cpm_style-css'  href='".CPM_PLUGIN_URL.'/styles/cpm-styles.css'."' type='text/css' media='all' />";
             print "<script src='".CPM_PLUGIN_URL.'/js/cpm.js'."'></script>";
         }
@@ -959,6 +963,12 @@ class CPM {
 		
         if(!empty($cpm_map['points'])){
             $cpm_obj->limit = $cpm_map['points'];
+        }
+        
+        if( !empty( $atts[ 'points' ] ) )
+        {
+            $atts[ 'points' ] = trim( $atts[ 'points' ] );
+            if( is_numeric( $atts[ 'points' ] ) && $atts[ 'points' ] > 0 ) $cpm_obj->limit = $atts[ 'points' ];
         }
         
 		if( isset($id) && ( is_singular() || !empty( $cpm_in_loop ) ) ){ // For maps in a post or page
