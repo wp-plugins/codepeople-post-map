@@ -92,7 +92,7 @@ jQuery(function( $ ){
                 if( me.data.show_default ){
                     google.maps.event.addListenerOnce(map, 'idle', function(){
                         setTimeout(function(){
-                            if( me.markers.length ) google.maps.event.trigger( ( ( me.markers[ default_point ] < 0 ) ? 0 : me.markers[ default_point ] ), 'click' );
+                            if( me.markers.length ) google.maps.event.trigger( ( ( default_point < 0 ) ? me.markers[ 0 ] : me.markers[ default_point ] ), 'click' );
                         }, 1000);				
                     });
                 }
