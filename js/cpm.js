@@ -273,7 +273,7 @@ jQuery(function( $ ){
             // Create the script tag and load the maps api
             var script=document.createElement('script');
             script.type  = "text/javascript";
-            script.src='http://maps.google.com/maps/api/js?sensor=false'+((typeof cpm_language != 'undefined' && cpm_language.lng) ? '&language='+cpm_language.lng: '')+'&callback=cpm_init';
+            script.src=(( typeof window.location.protocol != 'undefined' ) ? window.location.protocol : 'http:' )+'//maps.google.com/maps/api/js?sensor=false'+((typeof cpm_language != 'undefined' && cpm_language.lng) ? '&language='+cpm_language.lng: '')+'&callback=cpm_init';
             document.body.appendChild(script);
         }else{
             cpm_init();
