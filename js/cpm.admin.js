@@ -88,7 +88,7 @@
 		if(typeof google != 'undefined' && google.maps){
 			cpm_get_latlng();
 		}else{
-			$('<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false'+((language) ? '&language='+language: '')+'&callback=cpm_get_latlng"></script>').appendTo('body');
+			$('<script type="text/javascript" src="'+(( typeof window.location.protocol != 'undefined' ) ? window.location.protocol : 'http:' )+'//maps.google.com/maps/api/js?sensor=false'+((language) ? '&language='+language: '')+'&callback=cpm_get_latlng"></script>').appendTo('body');
 		}
 	};
 	
@@ -191,7 +191,7 @@
 		
 		// Create the script tag and load the maps api
 		if($('.cpm_map_container').length){
-			$('<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&callback=cpm_set_map_flag"></script>').appendTo('body');
+			$('<script type="text/javascript" src="'+(( typeof window.location.protocol != 'undefined' ) ? window.location.protocol : 'http:' )+'//maps.google.com/maps/api/js?sensor=false&callback=cpm_set_map_flag"></script>').appendTo('body');
 		}
         
         $('#cpm_map_single').each(function(){
