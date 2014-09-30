@@ -1,7 +1,7 @@
 === CP Google Maps ===
 Contributors: codepeople
 Donate link: http://wordpress.dwbooster.com/content-tools/codepeople-post-map
-Tags:google maps,shortcode,map,maps,categories,post map,point,marker,list,location,address,images,geocoder,google maps,google,shape,panoramio,grouping,cluster,exif tag,pin,place,streetview
+Tags:google maps,shortcode,map,maps,categories,post map,point,marker,list,location,address,images,geocoder,google maps,google,shape,panoramio,grouping,cluster,exif tag,pin,place,streetview,post,posts,pages,widget,image,plugin,sidebar,shortcode
 Requires at least: 3.0.5
 Tested up to: 4.0
 Stable tag: 1.0.1
@@ -344,6 +344,14 @@ Passing the parameter print=1, displays the map at beginning of page/post conten
 = Q: How can I change the route between address? =
 
 A: The route depends on the order of the points. If you want change the route, you should change the order of point. Takes the point by the handle's icon, and drag it to its correct position in the points list.
+
+= Q: How can I centring the map in a point defined a specific post, and display its infowindow? =
+
+A: Use the "defaultpost" attribute, in the map's shortcode, like follow:
+
+[codepeople-post-map defaultpost="231"]
+
+The number is the post's ID
 
 == Screenshots ==
 
