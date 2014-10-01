@@ -353,6 +353,12 @@ A: Use the "defaultpost" attribute, in the map's shortcode, like follow:
 
 The number is the post's ID
 
+= Q: I've configured the sizes of the map to be displayed with a responsive design, but the map is not showing =
+
+A: To display the maps with a responsive design, you should define the map's width with percentages (for example 100% if you want that the map width be the same that its container), but PAY ATTENTION, in web development the treatment of the width and height is different. The page width is limited by the browser's width, but with the height it is not apply. So, you should enter a fixed height(for example 320px). 
+
+The only way to define the map's height in percentages, is if the element that contain the map has defined a fixed height.
+
 == Screenshots ==
 
 1. Maps in action
