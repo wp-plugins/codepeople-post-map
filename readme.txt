@@ -256,17 +256,20 @@ A: In the free version of plugin only one map with only one point associated in 
 = Q: How to insert Google maps into a template? =
 
 A: Load the template in which you want to place the map in the text editor of your choice and place the following code in the position where you want to display the Google maps:
-<?php echo do_shortcode ('[codepeople-post-map]'); ?>
+
+        <?php echo do_shortcode ('[codepeople-post-map]'); ?>    
 
 = Q: Is possible to load all points that belong to the posts with  a tag assigned? =
 
 A:	To display all points that belong to the posts with a specific tag assigned, for example the tag name "mytag", use the shortcode's attribute "tag", like follows: [codepeople-post-map tag="mytag"]. To insert the code directly in a template, the snippet of code is:
-<?php echo do_shortcode('[codepeople-post-map tag="mytag"]'); ?>
+
+        <?php echo do_shortcode('[codepeople-post-map tag="mytag"]'); ?>    
 
 = Q: Is possible to load all points in a category? =
 
 A: To display all points that belong to a specific category, it is required to insert the following shortcode [codepeople-post-map cat="3"]. The number 3 represent the category ID, replace this number by the corresponding category's ID. To insert the code directly in a template, the snippet of code is: 
-<?php echo do_shortcode ('[codepeople-post-map cat="3"]'); ?>
+
+        <?php echo do_shortcode ('[codepeople-post-map cat="3"]'); ?>    
 
 = Q: How to exclude the points in a category? =
 
@@ -283,11 +286,12 @@ A: To exclude the points that belong to the post with a specific tag, or various
 = Q: Is possible to load all points in more than one category? =
 
 A: To display all points that belong to multiple categories, it is required separate the categories IDs with comma "," [codepeople-post-map cat="3,5"]. The numbers 3 and 5 are the categories IDs, replace these numbers with the corresponding categories IDs. To insert the code directly in a template, the snippet of code is: 
-<?php echo do_shortcode ('[codepeople-post-map cat="3,5"]'); ?>
+
+        <?php echo do_shortcode ('[codepeople-post-map cat="3,5"]'); ?>    
 
 = Q: Is possible to load all points in the website? =
 
-A: To display all points in the website use -1 as the category ID: [codepeople-post-map cat="-1"] or <?php echo do_shortcode ('[codepeople-post-map cat="-1"]'); ?> for template.
+A: To display all points in the website use -1 as the category ID: [codepeople-post-map cat="-1"] or &lt;?php echo do_shortcode ('[codepeople-post-map cat="-1"]'); ?&gt; for template.
 
 = Q: If I link geolocation information to a post but do not insert a Google map in it, will the geolocation information be available? =
 
@@ -358,6 +362,10 @@ The number is the post's ID
 A: To display the maps with a responsive design, you should define the map's width with percentages (for example 100% if you want that the map width be the same that its container), but PAY ATTENTION, in web development the treatment of the width and height is different. The page width is limited by the browser's width, but with the height it is not apply. So, you should enter a fixed height(for example 320px). 
 
 The only way to define the map's height in percentages, is if the element that contain the map has defined a fixed height.
+
+= Q: Can be inserted a link in the infowindow? =
+
+A: It is possible insert links, and any other HTML element in the infowindow. You only should insert HTML tags directly in the point description. For example, to insert a link to our web page: &lt;a href="http://wordpress.dwbooster.com"&gt;Click Here&lt;/a&gt;
 
 == Screenshots ==
 
