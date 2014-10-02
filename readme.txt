@@ -367,6 +367,12 @@ The only way to define the map's height in percentages, is if the element that c
 
 A: It is possible insert links, and any other HTML element in the infowindow. You only should insert HTML tags directly in the point description. For example, to insert a link to our web page: &lt;a href="http://wordpress.dwbooster.com"&gt;Click Here&lt;/a&gt;
 
+= Q: After entering an address, and to press the verify button, the address is modified, and the pin is displayed in a different location =
+
+A: If after pressing the "verify" button, the address is modified dynamically, and the pin is displayed in another location, the cause is simple. If Google does not recognize an address, it uses the nearest known address, and displays the pin on this location. 
+
+To solve the issue, you simply should drag and drop the pin in the correct location, and type the address again, but this time "DON'T PRESS AGAIN THE VERIFY BUTTON".
+
 == Screenshots ==
 
 1. Maps in action
