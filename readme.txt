@@ -373,6 +373,19 @@ A: If after pressing the "verify" button, the address is modified dynamically, a
 
 To solve the issue, you simply should drag and drop the pin in the correct location, and type the address again, but this time "DON'T PRESS AGAIN THE VERIFY BUTTON".
 
+= Q: Can be hidden the local listings from Google Maps API? = 
+
+A: Yes of course, if you want hide the local listings from Google Maps API, open the settings page of plugin, select the "Allow stylize the maps" attribute, and finally, paste the following code in the textarea:
+
+        [       
+            {       
+                featureType: "poi",     
+                stylers: [      
+                  { visibility: "off" }     
+                ]           
+            }       
+        ]       
+        
 == Screenshots ==
 
 1. Maps in action
