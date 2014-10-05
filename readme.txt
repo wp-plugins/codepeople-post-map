@@ -386,6 +386,14 @@ A: Yes of course, if you want hide the local listings from Google Maps API, open
             }       
         ]       
         
+= Q: I've inserted an image in the page, but have not been generated a new point in the map =
+
+A: First, be sure you have checked the option "Generate points dynamically from geolocation information included on images, when images are uploaded to WordPress", from the settings page of the plugin.
+
+Second, be sure the image includes the Exif tags with the geolocation information (latitude and longitude)
+
+Finally, you should upload the image from the "Add Media" button of the page or post, and not from the media library.
+
 == Screenshots ==
 
 1. Maps in action
