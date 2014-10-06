@@ -394,6 +394,10 @@ Second, be sure the image includes the Exif tags with the geolocation informatio
 
 Finally, you should upload the image from the "Add Media" button of the page or post, and not from the media library.
 
+= Q: Can be generated a point from the page publication, with the location of the author? =
+
+A: Yes, that is possible but only from the WordPress App, available for iPhone, iPad and Android, with the option for sharing the location enabled in the application. Furthermore, from the settings page of the plugin, should be checked the option: "Generate points dynamically from geolocation information included on posts"
+
 == Screenshots ==
 
 1. Maps in action
