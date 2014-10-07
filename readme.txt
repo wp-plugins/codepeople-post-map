@@ -398,6 +398,12 @@ Finally, you should upload the image from the "Add Media" button of the page or 
 
 A: Yes, that is possible but only from the WordPress App, available for iPhone, iPad and Android, with the option for sharing the location enabled in the application. Furthermore, from the settings page of the plugin, should be checked the option: "Generate points dynamically from geolocation information included on posts"
 
+= Q: Can be searched in the website by the points information? =
+
+A: If was checked the option "Use points information in search results", from the settings page of the plugin. The searching process will consider the points information too, and the posts and pages resulting could be selected by its points.
+
+Pay attention, the results of search will be the posts and pages that include the points, not the point directly.
+ 
 == Screenshots ==
 
 1. Maps in action
