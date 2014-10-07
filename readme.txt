@@ -403,7 +403,17 @@ A: Yes, that is possible but only from the WordPress App, available for iPhone, 
 A: If was checked the option "Use points information in search results", from the settings page of the plugin. The searching process will consider the points information too, and the posts and pages resulting could be selected by its points.
 
 Pay attention, the results of search will be the posts and pages that include the points, not the point directly.
- 
+
+= Q: What styles are used in the infowindows? = 
+
+A: The design of infowindows is defined through styles in the cpm-styles.css file, located in "/wp-content/plugins/codepeople-post-map/styles/cpm-styles.css", specifically with the styles:
+
+        .cpm-infowindow {margin:0; padding:0px; min-height:80px; font-size:11px; clear:both;}       
+        .cpm-infowindow .cpm-content {float:left;width:100%; color:black;}      
+        .cpm-infowindow .cpm-content .title {font-size:12px; line-height: 18px; font-weight:bold; color:black;}     
+        .cpm-infowindow .cpm-content .address {font-weight:bold; font-size:9px;}        
+        .cpm-infowindow .cpm-content .description {font-size:10px;}     
+
 == Screenshots ==
 
 1. Maps in action
