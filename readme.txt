@@ -1,7 +1,7 @@
 === CP Google Maps ===
 Contributors: codepeople
 Donate link: http://wordpress.dwbooster.com/content-tools/codepeople-post-map
-Tags:google maps,shortcode,map,maps,categories,post map,point,marker,list,location,address,images,geocoder,google maps,google,shape,panoramio,grouping,cluster,exif tag,pin,place,streetview,post,posts,pages,widget,image,plugin,sidebar,stylize
+Tags:google maps,shortcode,map,maps,categories,post map,point,marker,list,location,address,images,geocoder,google,shape,panoramio,grouping,cluster,exif tag,pin,place,streetview,post,posts,pages,widget,image,plugin,sidebar,stylize,admin
 Requires at least: 3.0.5
 Tested up to: 4.0
 Stable tag: 1.0.1
