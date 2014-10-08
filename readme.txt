@@ -434,3 +434,41 @@ If you check the option: "Highlight post when mouse move over related point on m
 7. Point insertion's form 
 8. Inserting map on sidebars
 9. Generates points, from the geolocation information stored on image's metadata
+
+== Changelog ==
+
+= 1.0.1 =
+
+* Allows to get the latitude and longitude of points from the point definition
+* Corrects some conflicts with styles defined in some themes that interfere  with the map styles.
+* Allows display the map, in themes that use AJAX to load the posts and pages.
+* Corrects some issues related with the update in the version of jQuery Framework, and force the inclusion of jQuery if it is not loaded by the website.
+* Improves the plugin interface to allow modify the maps settings easily.
+* Allows controlling the maps settings directly through attributes in the shortcode.
+* Corrects an issue with the insertion of maps with a responsive design.
+* Allows insert links in the points description.
+* Include online demos.
+* Change the icons URL to preserve the references with domain changes.
+* Allows display and hide map when is inserted like an icon in page.
+* Allows the selection of point images as thumbnail to optimize the page load.
+* Changes the HTML generated to meet the W3C validation
+* Include the use of nonce fields to protect the maps settings form.
+* The Google Api is loaded with the same schema of webpage, and use https if it is required.
+
+= 1.0 =
+
+* Insert a Google Map in template files page with multiple entries.
+* Improves of meta-boxes calling.
+* Correct some bugs in Internet Explorer 8.
+* Integrate the Google Map with non-standard WordPress themes.
+* Allows the use of language files in the plugin
+* Allows set an icon by default in the points of map.
+* Uses Google Maps to discover additional entries related to the post
+* The location can be defined by physical address and point coordinates
+* Allows the map markers customization
+* Allows to embed Google Maps in multiple languages
+* Allows several Google Maps controls and configuration options
+
+= 0.9b =
+
+* First stable version released
