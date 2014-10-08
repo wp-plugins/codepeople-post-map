@@ -414,6 +414,15 @@ A: The design of infowindows is defined through styles in the cpm-styles.css fil
         .cpm-infowindow .cpm-content .address {font-weight:bold; font-size:9px;}        
         .cpm-infowindow .cpm-content .description {font-size:10px;}     
 
+= Q: Can be highlighted the post or page related with the point on map? =        
+
+A: From the settings page of the plugin, there are two options:
+
+* Highlight post when mouse move over related point on map
+* Highlight class
+
+If you check the option: "Highlight post when mouse move over related point on map", and enter a class name in the "Highlight class" attribute, in the maps inserted on pages with multiple entries, the class name will be applied to the post, or page, when the mouse is moved over a point associated in the corresponding page or post.
+
 == Screenshots ==
 
 1. Maps in action
