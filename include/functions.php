@@ -745,7 +745,7 @@ class CPM {
 	 */
 	function load_resources() {
         global $cpm_resources_loaded;
-        if( empty( $cpm_resources_loaded ) )
+        if( !is_admin() && empty( $cpm_resources_loaded ) )
         {
             $cpm_resources_loaded = true;
             
