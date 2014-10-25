@@ -1152,7 +1152,7 @@ class CPM {
 		}				
 					
 		$find = array("%title%","%link%","%thumbnail%", "%excerpt%","%description%","%address%","%width%","\r\n","\f","\v","\t","\r","\n","\\","\"");
-		$replace  = array($point_title,$point_link,$point_img,$point_excerpt,$point_description,$point_address,$html_width,"","","","","","","","'");
+		$replace  = array($point_title,$point_link,$point_img,"",$point_description,$point_address,$html_width,"","","","","","","","'");
 		
 		$windowhtml = str_replace( $find, $replace, $windowhtml_frame);
 					
