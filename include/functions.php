@@ -371,14 +371,14 @@ class CPM {
             <tr valign="top">
 				<th scope="row"><label for="cpm_show_window"><?php _e('Show info bubbles:', 'codepeople-post-map');?></th>
 				<td>
-                    <input type="checkbox" id="cpm_show_window" name="cpm_map[show_window]" value="true" <?php echo ((isset($options['show_window']) && $options['show_window']) ? 'checked' : '');?>><span> Display the bubbles associated to the points</span>
+                    <input type="checkbox" id="cpm_show_window" name="cpm_map[show_window]" value="true" <?php echo ((isset($options['show_window']) && $options['show_window']) ? 'checked' : '');?>><span> <?php _e( 'Display the bubbles associated to the points', 'codepeople-post-map');?></span>
                 </td>
 			</tr>
             
             <tr valign="top">
 				<th scope="row"><label for="cpm_show_default"><?php _e('Display a bubble by default:', 'codepeople-post-map');?></th>
 				<td>
-                    <input type="checkbox" id="cpm_show_default" name="cpm_map[show_default]" value="true" <?php echo ((isset($options['show_default']) && $options['show_default']) ? 'checked' : '');?>><span> Display a bubble opened by default</span>
+                    <input type="checkbox" id="cpm_show_default" name="cpm_map[show_default]" value="true" <?php echo ((isset($options['show_default']) && $options['show_default']) ? 'checked' : '');?>><span> <?php _e( 'Display a bubble opened by default', 'codepeople-post-map' ); ?></span>
                 </td>
 			</tr>
 <?php
@@ -387,7 +387,7 @@ class CPM {
 				<tr valign="top">
 					<th scope="row"><label for="cpm_get_direction"  style="color:#CCCCCC;"><?php _e('Display the get directions link:', 'codepeople-post-map');?></th>
 					<td>
-						<input type="checkbox" disabled><span> Display a link at  bottom of infowindow to get directions</span><br />
+						<input type="checkbox" disabled><span> <?php _e( 'Display a link at  bottom of infowindow to get directions', 'codepeople-post-map' ); ?></span><br />
 						<span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
 					</td>
 				</tr>
@@ -395,7 +395,7 @@ class CPM {
 				<tr valign="top">
 					<th scope="row"><label for="cpm_map_link"  style="color:#CCCCCC;"><?php _e('Display a link to Google Maps:', 'codepeople-post-map');?></th>
 					<td>
-						<input type="checkbox" disabled><span> Display a link at  bottom of infowindow to display on Google Maps</span><br />
+						<input type="checkbox" disabled><span> <?php _e( 'Display a link at  bottom of infowindow to display on Google Maps', 'codepeople-post-map' ); ?></span><br />
 						<span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
 					</td>
 				</tr>
@@ -403,7 +403,7 @@ class CPM {
 				<tr valign="top">
 					<th scope="row"><label for="cpm_street_view_link" style="color:#CCCCCC;"><?php _e('Display a link to street view:', 'codepeople-post-map');?></th>
 					<td>
-						<input type="checkbox" disabled /><span> Display a link at bottom of infowindow to load the corresponding street view</span><br />
+						<input type="checkbox" disabled /><span> <?php _e( 'Display a link at bottom of infowindow to load the corresponding street view', 'codepeople-post-map' ); ?></span><br />
 						<span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
 					</td>
 				</tr>
@@ -411,7 +411,7 @@ class CPM {
 				<tr valign="top">
 					<th scope="row"><label for="cpm_show_default" style="color:#CCCCCC;"><?php _e('Display the Panoramio layer:', 'codepeople-post-map');?></th>
 					<td>
-						<input type="checkbox" disabled /><span> Display a layer with photos published in Panoramio</span><br />
+						<input type="checkbox" disabled /><span> <?php _e( 'Display a layer with photos published in Panoramio', 'codepeople-post-map' ); ?></span><br />
 						<span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
 					</td>
 				</tr>
@@ -419,7 +419,7 @@ class CPM {
 				<tr valign="top">
 					<th scope="row"><label for="cpm_MarkerClusterer" style="color:#CCCCCC;"><?php _e('Display a bundle of points in the same area, like a cluster:', 'codepeople-post-map');?></th>
 					<td>
-						<input type="checkbox" disabled /><span> Displays the number of points in the cluster</span><br />
+						<input type="checkbox" disabled /><span> <?php _e( 'Displays the number of points in the cluster', 'codepeople-post-map' ); ?></span><br />
 						<span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
 					</td>
 				</tr>
@@ -427,7 +427,7 @@ class CPM {
 				<tr valign="top">
 					<th scope="row"><label for="cpm_your_location" style="color:#CCCCCC;"><?php _e('Display the user\'s location:', 'codepeople-post-map');?></th>
 					<td>
-						<input type="checkbox" disabled /><span> Display an icon with the user's location on map</span><br />
+						<input type="checkbox" disabled /><span> <?php _e( "Display an icon with the user's location on map", 'codepeople-post-map' ); ?> </span><br />
 						<span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
 					</td>
 				</tr>
@@ -435,7 +435,7 @@ class CPM {
 				<tr valign="top">
 					<th scope="row"><label for="cpm_your_location_title" style="color:#CCCCCC;"><?php _e('Title of user\'s location:', 'codepeople-post-map');?></th>
 					<td>
-						<input type="text" disabled value="You are here" /><span> Title of user's location</span><br />
+						<input type="text" disabled value="You are here" /><span> <?php _e('Title of user\'s location', 'codepeople-post-map');?></span><br />
 						<span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
 					</td>
 				</tr>
@@ -445,7 +445,7 @@ class CPM {
             <tr valign="top">
 				<th scope="row"><label for="cpm_map_route" style="color:#CCCCCC;"><?php _e('Display route:', 'codepeople-post-map');?></th>
 				<td>
-                    <input type="checkbox" DISABLED><span> Draws the route between the points in the same post</span><br />
+                    <input type="checkbox" DISABLED><span> <?php _e( 'Draws the route between the points in the same post', 'codepeople-post-map'); ?></span><br />
                     <span style="color:#FF0000;">The route between points is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
                 </td>
 			</tr>
@@ -461,7 +461,7 @@ class CPM {
 			
             
 			<tr valign="top">
-				<th scope="row"><label for="wpGoogleMaps_description"><?php _e('Options:')?></label></th>
+				<th scope="row"><label for="wpGoogleMaps_description"><?php _e('Options', 'codepeople-post-map'); ?>:</label></th>
 				<td>
 					<input type="checkbox" name="cpm_map[streetviewcontrol]" id="cpm_map_streetviewcontrol" value="true" <?php echo ((isset($options['streetviewcontrol']) && $options['streetviewcontrol']) ? 'checked' : '');?> />
 					<label for="cpm_map_streetviewcontrol"><?php _e('Display the street view control', 'codepeople-post-map'); ?></label><br />
@@ -474,7 +474,7 @@ class CPM {
 				</td>
 			</tr>
 			<tr valign="top">
-				<th scope="row"><label for="cpm_map_points"><?php _e('Enter the number of posts to display on the post/page map:'); ?></th>
+				<th scope="row"><label for="cpm_map_points"><?php _e('Enter the number of posts to display on the post/page map', 'codepeople-post-map'); ?>:</th>
 				<td><input type="text" name="cpm_map[points]" id="cpm_map_points" value="<?php echo ((isset($options['points'])) ? $options['points'] : '');?>" /></td>
 			</tr>
 			<tr>
@@ -559,13 +559,13 @@ class CPM {
 		<p  style="font-weight:bold;"><?php _e('For more information go to the <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map" target="_blank">CodePeople Post Map</a> plugin page'); ?></p>
 		<p  style="border:1px solid #E6DB55;margin-bottom:10px;padding:5px;background-color: #FFFFE0;"><?php _e('For any issues with the map, go to our <a href="http://wordpress.dwbooster.com/contact-us" target="_blank">contact page</a> and leave us a message.'); ?></p>
         <p>
-            To insert a map in the post follow the steps below:
+            <?php _e( 'To insert a map in the post follow the steps below', 'codepeople-post-map');?>:
         </p>
         <ol>
-            <li>Enter the point's information (the latitude and longitude are required, but are obtained pressing the "verify" button after type the address)</li>
-            <li>Insert the shortcode in the post's content pressing the "insert the map tag" button</li>
-            <li>If you want to use specific settings just for this map, press the "Show/Hide Map's Options" button, and modifies the settings for this map</li>
-            <li>Don't forget to press the "Update" button for save the post and map data</li>
+            <li><?php _e( 'Enter the point\'s information (the latitude and longitude are required, but are obtained pressing the "verify" button after type the address', 'codepeople-post-map' );?></li>
+            <li><?php _e('Insert the shortcode in the post\'s content pressing the "insert the map tag" button', 'codepeople-post-map');?></li>
+            <li><?php _e('If you want to use specific settings just for this map, press the "Show/Hide Map\'s Options" button, and modifies the settings for this map', 'codepeople-post-map'); ?></li>
+            <li><?php _e( 'Don\'t forget to press the "Update" button for save the post and map data', 'codepeople-post-map');?></li>
         </ol>
 		<div style="border:1px solid #CCC;margin-bottom:10px;min-height:60px;">
 			<h3><?php _e('Map points'); ?></h3>
@@ -650,14 +650,14 @@ class CPM {
 		<div style="border:1px solid #CCC; padding:10px; margin:10px 0;">
 			<p>
 			<?php
-			_e( 'To insert this map in a post/page, press the <strong>"insert the map tag"</strong> button and save the post/page modifications.' );
+			_e( 'To insert this map in a post/page, press the <strong>"insert the map tag"</strong> button and save the post/page modifications.', 'codepeople-post-map' );
 			?>
 			</p>
 			<div style="border:1px solid #CCC; padding:10px; padding:5px;">
 				<p style="color:#CCC;">
 				<input type="checkbox" DISABLED />
 				<?php
-				_e( 'Do you want display a <strong>shape</strong> on map?' );
+				_e( 'Do you want display a <strong>shape</strong> on map?', 'codepeople-post-map' );
 				?>
 				<br /><span style="color:#FF0000;">The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download" target="_blank">Click Here</a></span>
 				</p>
@@ -682,7 +682,7 @@ class CPM {
 						</div>
 					</td>
 					<td valign="top" style="vertical-align:top;">
-						<label style="color:#CCC;">To display the points that belong to any category:</label><br />
+						<label style="color:#CCC;"><?php _e('To display the points that belong to any category','codepeople-post-map');?>:</label><br />
 						<select size="2" multiple="multiple" style="height:48px;width:100%;" disabled>
 							<option value="-1">All points on website</option>
 						<?php
