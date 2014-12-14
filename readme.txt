@@ -242,6 +242,15 @@ To insert the maps as widget on sidebars, go to the menu option "Appearance / Wi
 
 It is possible define, for each map on sidebar, all attributes available with the format attr="value". The map's width is set to the 100% of sidebar by default.
 
+**Translations**
+
+The CP Google Maps uses the English language by default, but includes the following language packages:
+
+* Spanish
+* French
+
+Note: The languages packages are generated dynamically. If detects any errors in the translation, please, contact us to correct it.
+
 == Frequently Asked Questions ==
 
 = Q: Why the map's tag is not inserted on page content? =
