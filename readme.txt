@@ -248,6 +248,7 @@ The CP Google Maps uses the English language by default, but includes the follow
 
 * Spanish
 * French
+* German
 
 Note: The languages packages are generated dynamically. If detects any errors in the translation, please, contact us to correct it.
 
