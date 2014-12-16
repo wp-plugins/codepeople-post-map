@@ -1,0 +1,727 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: codepeople-post-map\n"
+"POT-Creation-Date: 2014-12-09 17:11+0100\n"
+"PO-Revision-Date: 2014-12-16 15:36+0100\n"
+"Last-Translator: \n"
+"Language-Team: CodePeople\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: __;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Language: nl\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../codepeople-post-map.php:34
+msgid "Associate an address to the post for Google Maps association"
+msgstr "Associate een adres aan de post voor Google Maps vereniging"
+
+#: ../include/functions.php:26
+msgid "ARABIC"
+msgstr "Arabisch"
+
+#: ../include/functions.php:27 ../include/functions.php:39
+msgid "BASQUE"
+msgstr "BASKISCH"
+
+#: ../include/functions.php:28
+msgid "BULGARIAN"
+msgstr "BULGARIAN"
+
+#: ../include/functions.php:29
+msgid "BENGALI"
+msgstr "BENGALI"
+
+#: ../include/functions.php:30
+msgid "CATALAN"
+msgstr "CATALAN"
+
+#: ../include/functions.php:31
+msgid "CZECH"
+msgstr "TSJECHISCHE"
+
+#: ../include/functions.php:32
+msgid "DANISH"
+msgstr "DEENS"
+
+#: ../include/functions.php:33
+msgid "GERMAN"
+msgstr "Duits"
+
+#: ../include/functions.php:34
+msgid "GREEK"
+msgstr "Grieks"
+
+#: ../include/functions.php:35
+msgid "ENGLISH"
+msgstr "ENGELS"
+
+#: ../include/functions.php:36
+msgid "ENGLISH (AUSTRALIAN)"
+msgstr "ENGELS (Australische )"
+
+#: ../include/functions.php:37
+msgid "ENGLISH (GREAT BRITAIN)"
+msgstr "ENGELS ( Groot-Brittannië)"
+
+#: ../include/functions.php:38
+msgid "SPANISH"
+msgstr "Spanish"
+
+#: ../include/functions.php:40
+msgid "FARSI"
+msgstr "FARSI"
+
+#: ../include/functions.php:41
+msgid "FINNISH"
+msgstr "FINLAND"
+
+#: ../include/functions.php:42
+msgid "FILIPINO"
+msgstr "FILIPINO"
+
+#: ../include/functions.php:43
+msgid "FRENCH"
+msgstr "Franse"
+
+#: ../include/functions.php:44
+msgid "GALICIAN"
+msgstr "GALICISCHE"
+
+#: ../include/functions.php:45
+msgid "GUJARATI"
+msgstr "Gujarati"
+
+#: ../include/functions.php:46
+msgid "HINDI"
+msgstr "HINDI"
+
+#: ../include/functions.php:47
+msgid "CROATIAN"
+msgstr "KROATISCHE"
+
+#: ../include/functions.php:48
+msgid "HUNGARIAN"
+msgstr "HONGAARSE"
+
+#: ../include/functions.php:49
+msgid "INDONESIAN"
+msgstr "INDONESISCH"
+
+#: ../include/functions.php:50
+msgid "ITALIAN"
+msgstr "Italian"
+
+#: ../include/functions.php:51
+msgid "HEBREW"
+msgstr "HEBREW"
+
+#: ../include/functions.php:52
+msgid "JAPANESE"
+msgstr "Japanse"
+
+#: ../include/functions.php:53
+msgid "KANNADA"
+msgstr "Kannada"
+
+#: ../include/functions.php:54
+msgid "KOREAN"
+msgstr "Koreaans"
+
+#: ../include/functions.php:55
+msgid "LITHUANIAN"
+msgstr "LITHUANIAN"
+
+#: ../include/functions.php:56
+msgid "LATVIAN"
+msgstr "LETSE"
+
+#: ../include/functions.php:57
+msgid "MALAYALAM"
+msgstr "Malayalam"
+
+#: ../include/functions.php:58
+msgid "MARATHI"
+msgstr "MARATHI"
+
+#: ../include/functions.php:59
+msgid "DUTCH"
+msgstr "NEDERLANDS"
+
+#: ../include/functions.php:60
+msgid "NORWEGIAN"
+msgstr "NOORSE"
+
+#: ../include/functions.php:61
+msgid "ORIYA"
+msgstr "Oriya"
+
+#: ../include/functions.php:62
+msgid "POLISH"
+msgstr "POOLSE"
+
+#: ../include/functions.php:63
+msgid "PORTUGUESE"
+msgstr "PORTUGAL"
+
+#: ../include/functions.php:64
+msgid "PORTUGUESE (BRAZIL)"
+msgstr "Portugees (Brazilië)"
+
+#: ../include/functions.php:65
+msgid "PORTUGUESE (PORTUGAL)"
+msgstr "Portugees (Portugal)"
+
+#: ../include/functions.php:66
+msgid "ROMANIAN"
+msgstr "Roemeen"
+
+#: ../include/functions.php:67
+msgid "RUSSIAN"
+msgstr "Russische"
+
+#: ../include/functions.php:68
+msgid "SLOVAK"
+msgstr "SLOVAK"
+
+#: ../include/functions.php:69
+msgid "SLOVENIAN"
+msgstr "SLOVENIAN"
+
+#: ../include/functions.php:70
+msgid "SERBIAN"
+msgstr "SERBIAN"
+
+#: ../include/functions.php:71
+msgid "SWEDISH"
+msgstr "ZWEEDSE"
+
+#: ../include/functions.php:72
+msgid "TAGALOG"
+msgstr "TAGALOG"
+
+#: ../include/functions.php:73
+msgid "TAMIL"
+msgstr "TAMIL"
+
+#: ../include/functions.php:74
+msgid "TELUGU"
+msgstr "Telugu"
+
+#: ../include/functions.php:75
+msgid "THAI"
+msgstr "THAI"
+
+#: ../include/functions.php:76
+msgid "TURKISH"
+msgstr "Turks"
+
+#: ../include/functions.php:77
+msgid "UKRAINIAN"
+msgstr "Oekraïense"
+
+#: ../include/functions.php:78
+msgid "VIETNAMESE"
+msgstr "VIETNAMESE"
+
+#: ../include/functions.php:79
+msgid "CHINESE (SIMPLIFIED)"
+msgstr "Eerst Chinees (vereenvoudigd )"
+
+#: ../include/functions.php:80
+msgid "CHINESE (TRADITIONAL)"
+msgstr "Chinees (traditioneel)"
+
+#: ../include/functions.php:250
+msgid "Select the marker by clicking on the images"
+msgstr "Selecteer de markering door te klikken op de beelden"
+
+#: ../include/functions.php:261
+msgid "Powered by"
+msgstr "Powered by"
+
+#: ../include/functions.php:282
+msgid "Maps Configuration"
+msgstr "Kaarten Configuration"
+
+#: ../include/functions.php:284 ../include/functions.php:560
+msgid ""
+"For any issues with the map, go to our <a href=\"http://wordpress.dwbooster."
+"com/contact-us\" target=\"_blank\">contact page</a> and leave us a message."
+msgstr ""
+"Met name instellingen voor deze map:Para cualquier problema con el mapa, "
+"vaya a nuestro <a href=\"http://wordpress.dwbooster.com/contact - us\" "
+"contacto target=\"_blank\"> página </a> y nos deja un mensaje"
+
+#: ../include/functions.php:285
+msgid ""
+"If you want test the premium version of CP Google Maps go to the following "
+"links:<br/> <a href=\"http://demos.net-factor.com/cp-google-maps/wp-login.php"
+"\" target=\"_blank\">Administration area: Click to access the administration "
+"area demo</a><br/> <a href=\"http://demos.net-factor.com/cp-google-maps/\" "
+"target=\"_blank\">Public page: Click to access the CP Google Maps</a>"
+msgstr ""
+"Kaart zoom:Si quieres probar la versión premium de CP Google Maps Ir a los "
+"siguientes enlaces : <br /> <a href = \" http://demos.net-factor.com/cp-"
+"google-maps/wp-login.php\">Área de administración</a><br /><a href=\"http://"
+"demos.net-factor.com/cp-google-maps/\">Página pública</a>"
+
+#: ../include/functions.php:292
+msgid "Use particular settings for this map:"
+msgstr "Dynamic zoom:"
+
+#: ../include/functions.php:301
+msgid "Map zoom:"
+msgstr ""
+"Maakt het mogelijk om de zoom dynamisch aan te passen aan alle punten weer "
+"te geven op de kaart"
+
+#: ../include/functions.php:307
+msgid "Dynamic zoom:"
+msgstr "Map width:"
+
+#: ../include/functions.php:309
+msgid "Allows to adjust the zoom dynamically to display all points on map"
+msgstr ""
+"Kaart hoogte:Permite ajustar el zoom de forma dinámica para mostrar todos "
+"los puntos en el mapa"
+
+#: ../include/functions.php:313
+msgid "Map width:"
+msgstr "Kaart marge:"
+
+#: ../include/functions.php:325
+msgid "Map height:"
+msgstr "Map uitlijnen:"
+
+#: ../include/functions.php:331
+msgid "Map margin:"
+msgstr "links"
+
+#: ../include/functions.php:337
+msgid "Map align:"
+msgstr "center"
+
+#: ../include/functions.php:340
+msgid "left"
+msgstr "rechts"
+
+#: ../include/functions.php:341
+msgid "center"
+msgstr "Kaart:"
+
+#: ../include/functions.php:342
+msgid "right"
+msgstr "ROADMAP - Geeft een normale straat kaart"
+
+#: ../include/functions.php:347
+msgid "Map type:"
+msgstr "SATELLIET - Geeft satellietbeelden"
+
+#: ../include/functions.php:350
+msgid "ROADMAP - Displays a normal street map"
+msgstr "Kaart taal:"
+
+#: ../include/functions.php:351
+msgid "SATELLITE - Displays satellite images"
+msgstr "Weergave kaart in de post / pagina:"
+
+#: ../include/functions.php:352
+msgid ""
+"TERRAIN - Displays maps with physical features such as terrain and vegetation"
+msgstr ""
+"als icoonTERRENO - Muestra los mapas con las características físicas, tales "
+"como el terreno y la vegetación"
+
+#: ../include/functions.php:353
+msgid ""
+"HYBRID - Displays a transparent layer of major streets on satellite images"
+msgstr ""
+"als volledige kaartHYBRID - Muestra una capa transparente de las principales "
+"calles en imágenes de satélite"
+
+#: ../include/functions.php:358
+msgid "Map language:"
+msgstr "Toon info bellen:"
+
+#: ../include/functions.php:362
+msgid "Display map in post/page:"
+msgstr "Geef het bellen in verband met de punten"
+
+#: ../include/functions.php:365
+msgid "as icon"
+msgstr "Geef een zeepbel standaard:"
+
+#: ../include/functions.php:366
+msgid "as full map"
+msgstr "Geef een zeepbel standaard geopend"
+
+#: ../include/functions.php:372
+msgid "Show info bubbles:"
+msgstr "Geef de link get richtingen:"
+
+#: ../include/functions.php:374
+msgid "Display the bubbles associated to the points"
+msgstr "Toon een link onderaan infowindow om aanwijzingen te krijgen"
+
+#: ../include/functions.php:379
+msgid "Display a bubble by default:"
+msgstr "Toon een link naar Google Maps:"
+
+#: ../include/functions.php:381
+msgid "Display a bubble opened by default"
+msgstr "Toon een link onderaan infowindow om weer te geven op Google Maps"
+
+#: ../include/functions.php:388
+msgid "Display the get directions link:"
+msgstr "Toon een link naar uitzicht op straat:"
+
+#: ../include/functions.php:390
+msgid "Display a link at  bottom of infowindow to get directions"
+msgstr ""
+"Toon de Panoramio -laag:Mostar un enlace al final de la ventana de "
+"información para obtener la dirección"
+
+#: ../include/functions.php:396
+msgid "Display a link to Google Maps:"
+msgstr "Toon een laag met foto's gepubliceerd in Panoramio"
+
+#: ../include/functions.php:398
+msgid "Display a link at  bottom of infowindow to display on Google Maps"
+msgstr ""
+"Geef een bundel van punten in hetzelfde gebied , als een cluster:Mostar un "
+"enlace al final de la ventana de información para mostrar en Google Maps"
+
+#: ../include/functions.php:404
+msgid "Display a link to street view:"
+msgstr "Geeft het aantal punten in de cluster"
+
+#: ../include/functions.php:406
+msgid ""
+"Display a link at bottom of infowindow to load the corresponding street view"
+msgstr ""
+"Geef de locatie van de gebruiker:Mostar un enlace al final de la ventana de "
+"información para cargar en el Street View"
+
+#: ../include/functions.php:412
+msgid "Display the Panoramio layer:"
+msgstr "Geef een icoon met de locatie van de gebruiker op de kaart"
+
+#: ../include/functions.php:414
+msgid "Display a layer with photos published in Panoramio"
+msgstr "Titel van de locatie van de gebruiker:"
+
+#: ../include/functions.php:420
+msgid "Display a bundle of points in the same area, like a cluster:"
+msgstr ""
+"Titel van de locatie van de gebruikerMostrar un conjunto de puntos en la "
+"misma zona , al igual que un clúster:"
+
+#: ../include/functions.php:422
+msgid "Displays the number of points in the cluster"
+msgstr "Route weergeven:"
+
+#: ../include/functions.php:428
+msgid "Display the user's location:"
+msgstr "Tekent de route tussen de punten in dezelfde post"
+
+#: ../include/functions.php:430
+msgid "Display an icon with the user's location on map"
+msgstr "Travel -modus:"
+
+#: ../include/functions.php:436
+msgid "Title of user's location:"
+msgstr "Opties"
+
+#: ../include/functions.php:438
+msgid "Title of user's location"
+msgstr "Toon de straat view control"
+
+#: ../include/functions.php:446
+msgid "Display route:"
+msgstr "Enable muiswiel zoom"
+
+#: ../include/functions.php:448
+msgid "Draws the route between the points in the same post"
+msgstr "Enable zoom / pan controles"
+
+#: ../include/functions.php:454
+msgid "Travel mode:"
+msgstr "Enable kaart soort controles ( Map , Satellite , of hybride )"
+
+#: ../include/functions.php:464
+msgid "Options"
+msgstr "Voer het aantal posts om te tonen op de post / pagina kaart"
+
+#: ../include/functions.php:467
+msgid "Display the street view control"
+msgstr "Laat stileren de maps:"
+
+#: ../include/functions.php:469
+msgid "Enable mouse wheel zoom"
+msgstr "Toon de kaart van de legende:"
+
+#: ../include/functions.php:471
+msgid "Enable zoom/pan controls"
+msgstr "Selecteer de taxonomie voor weergave op legende:"
+
+#: ../include/functions.php:473
+msgid "Enable map type controls (Map, Satellite, or Hybrid)"
+msgstr "Selecteer een taxonomie"
+
+#: ../include/functions.php:477
+msgid "Enter the number of posts to display on the post/page map"
+msgstr "Geef een titel voor legende:"
+
+#: ../include/functions.php:481
+msgid "Allow stylize the maps:"
+msgstr "Voer een className te worden toegepast op de legende:"
+
+#: ../include/functions.php:491
+msgid ""
+"If you want change the maps' styles, be sure to know how to create a JSON "
+"structure with the map's styles"
+msgstr ""
+"Om een ​​kaart in de post te plaatsen volgt u de onderstaande stappenSi usted "
+"quiere cambiar los estilos de los mapas , asegúrese de saber cómo crear una "
+"estructura JSON con estilos del mapa"
+
+#: ../include/functions.php:499
+msgid "Display the map's legend:"
+msgstr "Map punten"
+
+#: ../include/functions.php:505
+msgid "Select the taxonomy to display on legend:"
+msgstr "Map point description"
+
+#: ../include/functions.php:508
+msgid "Select a taxonomy"
+msgstr "Locatie naam:"
+
+#: ../include/functions.php:513
+msgid "Enter a title for legend:"
+msgstr "Locatie omschrijving:"
+
+#: ../include/functions.php:519
+msgid "Enter a classname to be applied to the legend:"
+msgstr "Selecteer een foto om te hechten aan het punt:"
+
+#: ../include/functions.php:559 ../include/functions.php:873
+msgid ""
+"For more information go to the <a href=\"http://wordpress.dwbooster.com/"
+"content-tools/codepeople-post-map\" target=\"_blank\">CodePeople Post Map</"
+"a> plugin page"
+msgstr ""
+"Adres:Para obtener más información, visite la página del plugin <a href="
+"\"http://wordpress.dwbooster.com/content - tools/codepeople post - map\" "
+"target=\"_blank\"> CodePeople Post Ubicación </a>"
+
+#: ../include/functions.php:562
+msgid "To insert a map in the post follow the steps below"
+msgstr "Latitude:"
+
+#: ../include/functions.php:565
+msgid ""
+"Enter the point's information (the latitude and longitude are required, but "
+"are obtained pressing the \"verify\" button after type the address"
+msgstr ""
+"Longitude:Entre la información del punto (la latitud y la longitud son "
+"requeridos, y son obtenidos pulsando el botón \"Verificar\", después de "
+"escribir la dirección)"
+
+#: ../include/functions.php:566
+msgid ""
+"Insert the shortcode in the post's content pressing the \"insert the map tag"
+"\" button"
+msgstr ""
+"VerifyInserte el shortcode en el contenido del post, presionando el botón "
+"\"inserte la etiqueta del mapa\""
+
+#: ../include/functions.php:567
+msgid ""
+"If you want to use specific settings just for this map, press the \"Show/"
+"Hide Map's Options\" button, and modifies the settings for this map"
+msgstr ""
+"Vereiste: Druk op de knop \" te controleren \" na het volledig adres .Si "
+"desea especificar una confguración para este mapa en particular, marque la "
+"opción \"Usar ajustes particulares para este mapa\""
+
+#: ../include/functions.php:568
+msgid ""
+"Don't forget to press the \"Update\" button for save the post and map data"
+msgstr ""
+"Wil je weer een <strong > vorm < / strong > op de kaart ?No olvide presionar "
+"el botón \"Actualizar\" para salvar los datos del post  y del mapa"
+
+#: ../include/functions.php:571
+msgid "Map points"
+msgstr "Als je wilt om de kaart in de pagina / post weer te geven:"
+
+#: ../include/functions.php:573
+msgid ""
+"Multiple points in the same Post/Page are available only in the <a href="
+"\"http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download"
+"\" target=\"_blank\">advanced version</a>."
+msgstr ""
+"Steek de kaart tagPara obtener más información, visite la página del plugin "
+"<a href=\"http://wordpress.dwbooster.com/content - tools/codepeople post - "
+"map\" target=\"_blank\"> CodePeople Post Ubicación </a>"
+
+#: ../include/functions.php:577
+msgid "Map point description"
+msgstr "Om de punten die behoren tot een categorie weer te geven"
+
+#: ../include/functions.php:580
+msgid "Location name:"
+msgstr "Instellingen bijgewerkt"
+
+#: ../include/functions.php:586
+msgid "Location description:"
+msgstr "Gebruik punten informatie in de zoekresultaten:"
+
+#: ../include/functions.php:595
+msgid "Select an images to attach to the point: "
+msgstr "Highlight bericht wanneer de muis over aanverwante punt op de kaart:"
+
+#: ../include/functions.php:610
+msgid "Address:"
+msgstr "Highlight class:"
+
+#: ../include/functions.php:616
+msgid "Latitude:"
+msgstr "Laat een kaart koppelen aan de post types:"
+
+#: ../include/functions.php:622
+msgid "Longitude:"
+msgstr "Berichten en Pagina's worden standaard geselecteerd"
+
+#: ../include/functions.php:628
+msgid "Verify"
+msgstr "Instellingen bijwerken"
+
+#: ../include/functions.php:630
+msgid ""
+"Verify this latitude and longitude using Geocoding. This could overwrite the "
+"point address."
+msgstr ""
+"Request aangepaste veranderingenVerificar esta latitud y longitud usando "
+"geocodificación . Esto podría sobrescribir la dirección del punto ."
+
+#: ../include/functions.php:630
+msgid "Required: Press the button \"verify\" after complete the address."
+msgstr ""
+"Toevoegen / bijwerken PointDeseados: pulse el botón \" verifique \"después "
+"de completar la dirección."
+
+#: ../include/functions.php:653
+msgid ""
+"To insert this map in a post/page, press the <strong>\"insert the map tag\"</"
+"strong> button and save the post/page modifications."
+msgstr ""
+"stroke Gewicht:Para insertar este mapa en un post / página, pulse el botón "
+"<strong> \" insertar el mapa de etiquetas \" </ strong> y guardar las "
+"modificaciones del post / página."
+
+#: ../include/functions.php:660
+msgid "Do you want display a <strong>shape</strong> on map?"
+msgstr "Fill Color:"
+
+#: ../include/functions.php:668
+msgid "If you want to display the map in page / post:"
+msgstr "Fill Opacity:"
+
+#: ../include/functions.php:669
+msgid "Insert the map tag"
+msgstr "Gebruik een getal tussen 0 en 1 , 0 transparant ."
+
+#: ../include/functions.php:685
+msgid "To display the points that belong to any category"
+msgstr "Bereken route"
+
+#: ../include/functions.php:775
+msgid "Settings Updated"
+msgstr "Display op de kaart"
+
+#: ../include/functions.php:788
+msgid ""
+"Generate points dynamically from geolocation information included on images, "
+"when images are uploaded to WordPress:"
+msgstr ""
+"Weergave uitzicht op straatGenerar puntos de forma dinámica a partir de "
+"información de geolocalización incluida en las imágenes, cuando las imágenes "
+"se cargan en WordPress:"
+
+#: ../include/functions.php:791
+msgid ""
+"The geolocation information is added to the images from your mobiles or "
+"cameras, if they have associated GPS devices"
+msgstr ""
+"Titel:La información de geolocalización se añade a las imágenes desde sus "
+"teléfonos móviles o cámaras, si han asociado dispositivos GPS"
+
+#: ../include/functions.php:798
+msgid ""
+"Generate points dynamically from geolocation information included on posts:"
+msgstr ""
+"Geef attributen van de kaart:Generar puntos de forma dinámica a partir de "
+"información de geolocalización incluida en los mensajes :"
+
+#: ../include/functions.php:801
+msgid ""
+"The geolocation information is added to the post from WordPress app in your "
+"mobile"
+msgstr ""
+"La información de geolocalización se añade al post de WordPress aplicación "
+"en tu móvil"
+
+#: ../include/functions.php:808
+msgid "Use points information in search results:"
+msgstr "Gebruik punten informatie in de zoekresultaten:"
+
+#: ../include/functions.php:814
+msgid "Highlight post when mouse move over related point on map:"
+msgstr ""
+"Post Resaltar cuando mueva el ratón sobre el punto relacionado en el mapa :"
+
+#: ../include/functions.php:820
+msgid "Highlight class:"
+msgstr "Hoogtepunt klasse:"
+
+#: ../include/functions.php:826
+msgid "Allow to associate a map to the post types:"
+msgstr "Associëren een kaart om de berichten typen:"
+
+#: ../include/functions.php:839
+msgid "Posts and Pages are selected by default"
+msgstr "Berichten en Pagina's worden standaard geselecteerd"
+
+#: ../include/functions.php:874
+msgid "Update Settings"
+msgstr "Instellingen Bijwerken"
+
+#: ../include/functions.php:1180
+msgid "Request custom changes"
+msgstr "Vraag aangepaste veranderingen"
+
+#~ msgid ""
+#~ "To correct the latitude and longitud directly on MAP, type the address "
+#~ "and press the Verify button."
+#~ msgstr ""
+#~ "Para corregir la latitud y Longitud directamente en MAP , escriba la "
+#~ "dirección y pulse el botón Verificar ."
+
+#~ msgid ""
+#~ "To display the points that belong to an category, use the attribute: cat="
+#~ "\"2\", where 2 is the category's ID. To display the points that belong to "
+#~ "multiple categories, separate each one by the comma symbol: cat="
+#~ "\"2,5,8\". To display all points on website, use the value -1 for "
+#~ "category's ID, cat=\"-1\". If you want to display only the points "
+#~ "associated with the current post, don't use the \"cat\" attribute."
+#~ msgstr ""
+#~ "Para mostrar los puntos que pertenecen a una categoría , utilice el "
+#~ "atributo : cat = \" . 2 \" , donde 2 es el ID de la categoría para "
+#~ "mostrar los puntos que pertenecen a varias categorías , separe cada uno "
+#~ "con el símbolo coma: cat ="
