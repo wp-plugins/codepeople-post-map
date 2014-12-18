@@ -1,10 +1,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: codepeople-post-map\n"
-"POT-Creation-Date: 2014-12-09 17:11+0100\n"
-"PO-Revision-Date: 2014-12-18 19:00+0100\n"
+"POT-Creation-Date: 2014-12-18 22:55+0100\n"
+"PO-Revision-Date: 2014-12-18 22:56+0100\n"
 "Last-Translator: \n"
 "Language-Team: CodePeople\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,12 +13,11 @@ msgstr ""
 "X-Poedit-KeywordsList: __;gettext;gettext_noop;_e\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"Language: fr\n"
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../codepeople-post-map.php:34
 msgid "Associate an address to the post for Google Maps association"
-msgstr "Associer une adresse à la poste pour Google Maps association"
+msgstr "Associer une adresse à la article pour Google Maps association"
 
 #: ../include/functions.php:26
 msgid "ARABIC"
@@ -382,6 +382,20 @@ msgstr "Afficher le lien de directions get:"
 msgid "Display a link at  bottom of infowindow to get directions"
 msgstr "Afficher un lien au bas de infowindow pour obtenir les directions"
 
+#: ../include/functions.php:391 ../include/functions.php:399
+#: ../include/functions.php:407 ../include/functions.php:415
+#: ../include/functions.php:423 ../include/functions.php:431
+#: ../include/functions.php:439 ../include/functions.php:662
+#: ../include/functions.php:697
+msgid ""
+"The feature is available only for the commercial version of plugin. <a href="
+"\"http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download"
+"\">Click Here</a>"
+msgstr ""
+"cette option est fournie par la version commerciale de ce plugin. <a href = "
+"\"http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download"
+"\" target = \"_blank\">Cliquez ici</a>."
+
 #: ../include/functions.php:396
 msgid "Display a link to Google Maps:"
 msgstr "Afficher un lien vers Google Maps:"
@@ -439,7 +453,7 @@ msgstr "Afficher l'itinéraire:"
 
 #: ../include/functions.php:448
 msgid "Draws the route between the points in the same post"
-msgstr "Dessine le trajet entre les points dans le même poste"
+msgstr "Dessine le trajet entre les points dans le même article"
 
 #: ../include/functions.php:454
 msgid "Travel mode:"
@@ -509,11 +523,11 @@ msgid ""
 msgstr ""
 "Pour plus de renseignements, visitez le plugin <a href=\"http://wordpress."
 "dwbooster.com/content-tools/codepeople post-map\" target=\"_blank\"> "
-"CodePeople Poster Carte"
+"CodePeople Post Map"
 
 #: ../include/functions.php:562
 msgid "To insert a map in the post follow the steps below"
-msgstr "Pour insérer une carte dans le poste suivez les étapes ci-dessous"
+msgstr "Pour insérer une carte dans le article suivez les étapes ci-dessous"
 
 #: ../include/functions.php:565
 msgid ""
@@ -545,8 +559,8 @@ msgstr ""
 msgid ""
 "Don't forget to press the \"Update\" button for save the post and map data"
 msgstr ""
-"Ne oubliez pas d'appuyer sur le \"Update\" bouton pour enregistrer les "
-"données de poste et la carte"
+"N'oubliez pas d'appuyer sur le bouton \"mise à jour\" pour enregistrer les "
+"données de l'article et la carte."
 
 #: ../include/functions.php:571
 msgid "Map points"
@@ -558,8 +572,8 @@ msgid ""
 "\"http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download"
 "\" target=\"_blank\">advanced version</a>."
 msgstr ""
-"De multiples points dans le même poste/page ne ​​sont disponibles que dans la "
-"<a href = \"http://wordpress.dwbooster.com/content-tools/codepeople-post-"
+"De multiples points dans le même article/page ne ​​sont disponibles que dans "
+"la <a href = \"http://wordpress.dwbooster.com/content-tools/codepeople-post-"
 "map#download\" target = \"_blank\">version avancée</a>."
 
 #: ../include/functions.php:577
@@ -611,7 +625,7 @@ msgid ""
 "To insert this map in a post/page, press the <strong>\"insert the map tag\"</"
 "strong> button and save the post/page modifications."
 msgstr ""
-"Pour insérer cette carte dans un poste/page, appuyez sur la <strong >\" "
+"Pour insérer cette carte dans un article/page, appuyez sur la <strong >\" "
 "insérer la carte tag\" </strong> et enregistrer la publication/page "
 "modifications."
 
@@ -621,7 +635,7 @@ msgstr "Voulez-vous afficher un <strong > la forme </strong > sur la carte?"
 
 #: ../include/functions.php:668
 msgid "If you want to display the map in page / post:"
-msgstr "Si vous voulez afficher la carte dans la page/poste:"
+msgstr "Si vous voulez afficher la carte dans la page/article:"
 
 #: ../include/functions.php:669
 msgid "Insert the map tag"
@@ -664,7 +678,7 @@ msgid ""
 "The geolocation information is added to the post from WordPress app in your "
 "mobile"
 msgstr ""
-"Les informations de géolocalisation est ajouté au poste de WordPress dans "
+"Les informations de géolocalisation est ajouté au article de WordPress dans "
 "votre application mobile"
 
 #: ../include/functions.php:808
@@ -674,8 +688,8 @@ msgstr "Utilisez des points d'information dans les résultats de recherche:"
 #: ../include/functions.php:814
 msgid "Highlight post when mouse move over related point on map:"
 msgstr ""
-"Poste de surexposition lorsque mouvement de la souris sur point connexe sur "
-"la carte:"
+"Article de surexposition lorsque mouvement de la souris sur point connexe "
+"sur la carte:"
 
 #: ../include/functions.php:820
 msgid "Highlight class:"
@@ -683,11 +697,11 @@ msgstr "Classe Highlight:"
 
 #: ../include/functions.php:826
 msgid "Allow to associate a map to the post types:"
-msgstr "Permettre à associer une carte pour les types de poste:"
+msgstr "Permettre à associer une carte pour les types de article:"
 
 #: ../include/functions.php:839
 msgid "Posts and Pages are selected by default"
-msgstr "Postes et Pages sont sélectionnés par défaut"
+msgstr "Articles et Pages sont sélectionnés par défaut"
 
 #: ../include/functions.php:874
 msgid "Update Settings"
@@ -697,55 +711,55 @@ msgstr "Mise à Jour"
 msgid "Request custom changes"
 msgstr "Modifications personnalisées Requête"
 
-msgid ""
-"To correct the latitude and longitud directly on MAP, type the address and "
-"press the Verify button."
-msgstr ""
-"Pour corriger la latitude et LONGITUD directement sur MAP, tapez l'adresse "
-"et appuyez sur le bouton Vérifier."
+#~ msgid ""
+#~ "To correct the latitude and longitud directly on MAP, type the address "
+#~ "and press the Verify button."
+#~ msgstr ""
+#~ "Pour corriger la latitude et LONGITUD directement sur MAP, tapez "
+#~ "l'adresse et appuyez sur le bouton Vérifier."
 
-msgid "Add/Update Point"
-msgstr "Ajouter/Mettre à jour Point"
+#~ msgid "Add/Update Point"
+#~ msgstr "Ajouter/Mettre à jour Point"
 
-msgid "stroke Weight: "
-msgstr "course Poids:"
+#~ msgid "stroke Weight: "
+#~ msgstr "course Poids:"
 
-msgid "Fill Color: "
-msgstr "Couleur de remplissage:"
+#~ msgid "Fill Color: "
+#~ msgstr "Couleur de remplissage:"
 
-msgid "Fill Opacity: "
-msgstr "Remplissez Opacité:"
+#~ msgid "Fill Opacity: "
+#~ msgstr "Remplissez Opacité:"
 
-msgid "Use a number between 0 and 1, 0 is transparent. "
-msgstr "Utilisez un nombre entre 0 et 1 , 0 est transparent."
+#~ msgid "Use a number between 0 and 1, 0 is transparent. "
+#~ msgstr "Utilisez un nombre entre 0 et 1 , 0 est transparent."
 
-msgid "Get directions"
-msgstr "Itinéraire"
+#~ msgid "Get directions"
+#~ msgstr "Itinéraire"
 
-msgid "Display on map"
-msgstr "Afficher sur la carte"
+#~ msgid "Display on map"
+#~ msgstr "Afficher sur la carte"
 
-msgid "Display street view"
-msgstr "Affichage vue sur la rue"
+#~ msgid "Display street view"
+#~ msgstr "Affichage vue sur la rue"
 
-msgid "Title:"
-msgstr "Titre:"
+#~ msgid "Title:"
+#~ msgstr "Titre:"
 
-msgid "Enter the map's attributes:"
-msgstr "Entrez les attributs de la carte:"
+#~ msgid "Enter the map's attributes:"
+#~ msgstr "Entrez les attributs de la carte:"
 
-msgid ""
-"To display the points that belong to an category, use the attribute: cat="
-"\"2\", where 2 is the category's ID. To display the points that belong to "
-"multiple categories, separate each one by the comma symbol: cat=\"2,5,8\". "
-"To display all points on website, use the value -1 for category's ID, cat="
-"\"-1\". If you want to display only the points associated with the current "
-"post, don't use the \"cat\" attribute."
-msgstr ""
-"Pour afficher les points qui appartiennent à une catégorie , utiliser "
-"l'attribut: cat = \"2\", où 2 est l'ID de la catégorie. Pour afficher les "
-"points qui appartiennent à plusieurs catégories, separer par les catégories "
-"par des virgules: cat =\"2,5,8\".  Pour afficher tous les points sur le "
-"site, utilisez la valeur -1 pour l'ID de la catégorie, cat = \"- 1\". Si "
-"vous souhaitez afficher uniquement les points associés par le poste actuel, "
-"ne pas utiliser le \"chat\" attribut."
+#~ msgid ""
+#~ "To display the points that belong to an category, use the attribute: cat="
+#~ "\"2\", where 2 is the category's ID. To display the points that belong to "
+#~ "multiple categories, separate each one by the comma symbol: cat="
+#~ "\"2,5,8\". To display all points on website, use the value -1 for "
+#~ "category's ID, cat=\"-1\". If you want to display only the points "
+#~ "associated with the current post, don't use the \"cat\" attribute."
+#~ msgstr ""
+#~ "Pour afficher les points qui appartiennent à une catégorie , utiliser "
+#~ "l'attribut: cat = \"2\", où 2 est l'ID de la catégorie. Pour afficher les "
+#~ "points qui appartiennent à plusieurs catégories, separer par les "
+#~ "catégories par des virgules: cat =\"2,5,8\".  Pour afficher tous les "
+#~ "points sur le site, utilisez la valeur -1 pour l'ID de la catégorie, cat "
+#~ "= \"- 1\". Si vous souhaitez afficher uniquement les points associés par "
+#~ "le article actuel, ne pas utiliser le \"chat\" attribut."
