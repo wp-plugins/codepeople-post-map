@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: codepeople-post-map\n"
 "POT-Creation-Date: 2014-12-09 17:11+0100\n"
-"PO-Revision-Date: 2014-12-11 00:40+0100\n"
+"PO-Revision-Date: 2014-12-18 19:00+0100\n"
 "Last-Translator: \n"
 "Language-Team: CodePeople\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr "Associer une adresse à la poste pour Google Maps association"
 
 #: ../include/functions.php:26
 msgid "ARABIC"
-msgstr "Arabe»"
+msgstr "Arabe"
 
 #: ../include/functions.php:27 ../include/functions.php:39
 msgid "BASQUE"
@@ -45,7 +45,7 @@ msgstr "TCHÈQUE"
 
 #: ../include/functions.php:32
 msgid "DANISH"
-msgstr "Danois»"
+msgstr "Danois"
 
 #: ../include/functions.php:33
 msgid "GERMAN"
@@ -61,11 +61,11 @@ msgstr "Anglais"
 
 #: ../include/functions.php:36
 msgid "ENGLISH (AUSTRALIAN)"
-msgstr "Anglais ( australien)"
+msgstr "Anglais (australien)"
 
 #: ../include/functions.php:37
 msgid "ENGLISH (GREAT BRITAIN)"
-msgstr "ANGLAIS ( GRANDE-BRETAGNE )"
+msgstr "ANGLAIS (GRANDE-BRETAGNE)"
 
 #: ../include/functions.php:38
 msgid "SPANISH"
@@ -77,11 +77,11 @@ msgstr "FARSI"
 
 #: ../include/functions.php:41
 msgid "FINNISH"
-msgstr "Finlandais»"
+msgstr "Finlandais"
 
 #: ../include/functions.php:42
 msgid "FILIPINO"
-msgstr "Philippin »"
+msgstr "Philippin"
 
 #: ../include/functions.php:43
 msgid "FRENCH"
@@ -101,7 +101,7 @@ msgstr "HINDI"
 
 #: ../include/functions.php:47
 msgid "CROATIAN"
-msgstr "Croate»"
+msgstr "Croate"
 
 #: ../include/functions.php:48
 msgid "HUNGARIAN"
@@ -153,7 +153,7 @@ msgstr "Hollandais"
 
 #: ../include/functions.php:60
 msgid "NORWEGIAN"
-msgstr "Norvégien»"
+msgstr "Norvégien"
 
 #: ../include/functions.php:61
 msgid "ORIYA"
@@ -165,7 +165,7 @@ msgstr "Polonaise"
 
 #: ../include/functions.php:63
 msgid "PORTUGUESE"
-msgstr "Portugais»"
+msgstr "Portugais"
 
 #: ../include/functions.php:64
 msgid "PORTUGUESE (BRAZIL)"
@@ -181,7 +181,7 @@ msgstr "ROUMAIN"
 
 #: ../include/functions.php:67
 msgid "RUSSIAN"
-msgstr "Russe»"
+msgstr "Russe"
 
 #: ../include/functions.php:68
 msgid "SLOVAK"
@@ -197,7 +197,7 @@ msgstr "Serbe"
 
 #: ../include/functions.php:71
 msgid "SWEDISH"
-msgstr "Suédois»"
+msgstr "Suédois"
 
 #: ../include/functions.php:72
 msgid "TAGALOG"
@@ -217,7 +217,7 @@ msgstr "THAI"
 
 #: ../include/functions.php:76
 msgid "TURKISH"
-msgstr "Turc»"
+msgstr "Turc"
 
 #: ../include/functions.php:77
 msgid "UKRAINIAN"
@@ -229,11 +229,11 @@ msgstr "Vietnamienne"
 
 #: ../include/functions.php:79
 msgid "CHINESE (SIMPLIFIED)"
-msgstr "Chinois (simplifié )"
+msgstr "Chinois (simplifié)"
 
 #: ../include/functions.php:80
 msgid "CHINESE (TRADITIONAL)"
-msgstr "Chinois (traditionnel )"
+msgstr "Chinois (traditionnel)"
 
 #: ../include/functions.php:250
 msgid "Select the marker by clicking on the images"
@@ -252,10 +252,9 @@ msgid ""
 "For any issues with the map, go to our <a href=\"http://wordpress.dwbooster."
 "com/contact-us\" target=\"_blank\">contact page</a> and leave us a message."
 msgstr ""
-"Utiliser les paramètres particuliers pour cette carte:Para cualquier "
-"problema con el mapa, vaya a nuestro <a href=\"http://wordpress.dwbooster."
-"com/contact - us\" contacto target=\"_blank\"> página </a> y nos deja un "
-"mensaje"
+"Pour tous les problèmes avec la carte , aller à notre <a href=\"http://"
+"wordpress.dwbooster.com/contact-us\" target=\"_blank\">page-contact</a> et "
+"nous laisser une"
 
 #: ../include/functions.php:285
 msgid ""
@@ -265,249 +264,242 @@ msgid ""
 "area demo</a><br/> <a href=\"http://demos.net-factor.com/cp-google-maps/\" "
 "target=\"_blank\">Public page: Click to access the CP Google Maps</a>"
 msgstr ""
-"ZoomSi quieres probar la versión premium de CP Google Maps Ir a los "
-"siguientes enlaces : <br /> <a href = \" http://demos.net-factor.com/cp-"
-"google-maps/wp-login.php\">Área de administración</a><br /><a href=\"http://"
-"demos.net-factor.com/cp-google-maps/\">Página pública</a>"
+"Si vous voulez tester la version premium de CP Google Maps Accéder aux liens "
+"suivants: <br/> <a href=\"http://demos.net-factor.com/cp-google-maps/wp-"
+"login.php\" target=\"_blank\">Zone Administration: Cliquez pour accéder à la "
+"démo de zone d'administration</a><br/> <a href=\"http://demos.net-factor.com/"
+"cp-google-maps/\" target=\"_blank\">Page publique: Cliquez pour accéder au "
+"CP Google Maps</a>"
 
 #: ../include/functions.php:292
 msgid "Use particular settings for this map:"
-msgstr "Zoom dynamique:"
+msgstr "Utiliser les paramètres particuliers pour cette carte:"
 
 #: ../include/functions.php:301
 msgid "Map zoom:"
-msgstr ""
-"Permet de régler le zoom dynamique pour afficher tous les points sur la carte"
+msgstr "Zoom"
 
 #: ../include/functions.php:307
 msgid "Dynamic zoom:"
-msgstr "Largeur Carte:"
+msgstr "Zoom dynamique:"
 
 #: ../include/functions.php:309
 msgid "Allows to adjust the zoom dynamically to display all points on map"
 msgstr ""
-"Plan hauteur:Permite ajustar el zoom de forma dinámica para mostrar todos "
-"los puntos en el mapa"
+"Permet de régler le zoom dynamique pour afficher tous les points sur la carte"
 
 #: ../include/functions.php:313
 msgid "Map width:"
-msgstr "Marge de la carte:"
+msgstr "Largeur Carte:"
 
 #: ../include/functions.php:325
 msgid "Map height:"
-msgstr "Carte aligner:"
+msgstr "Plan hauteur:"
 
 #: ../include/functions.php:331
 msgid "Map margin:"
-msgstr "left"
+msgstr "Marge de la carte:"
 
 #: ../include/functions.php:337
 msgid "Map align:"
-msgstr "center"
+msgstr "Carte aligner:"
 
 #: ../include/functions.php:340
 msgid "left"
-msgstr "droit»"
+msgstr "left"
 
 #: ../include/functions.php:341
 msgid "center"
-msgstr "Type Map:"
+msgstr "center"
 
 #: ../include/functions.php:342
 msgid "right"
-msgstr "FEUILLE DE ROUTE - Affiche un plan normale"
+msgstr "droit"
 
 #: ../include/functions.php:347
 msgid "Map type:"
-msgstr "SATELLITE - affiche des images satellite"
+msgstr "Type de Carte:"
 
 #: ../include/functions.php:350
 msgid "ROADMAP - Displays a normal street map"
-msgstr "Carte Langue:"
+msgstr "FEUILLE DE ROUTE - Affiche un plan normale"
 
 #: ../include/functions.php:351
 msgid "SATELLITE - Displays satellite images"
-msgstr "Voir la carte en post / page:"
+msgstr "SATELLITE - affiche des images satellite"
 
 #: ../include/functions.php:352
 msgid ""
 "TERRAIN - Displays maps with physical features such as terrain and vegetation"
 msgstr ""
-"en icôneTERRENO - Muestra los mapas con las características físicas, tales "
-"como el terreno y la vegetación"
+"TERRAIN - d'afficher les cartes avec des caractéristiques physiques comme le "
+"terrain et la végétation"
 
 #: ../include/functions.php:353
 msgid ""
 "HYBRID - Displays a transparent layer of major streets on satellite images"
 msgstr ""
-"carte aussi complèteHYBRID - Muestra una capa transparente de las "
-"principales calles en imágenes de satélite"
+"HYBRID - Affiche une couche transparente de rues principales sur les images "
+"satellites"
 
 #: ../include/functions.php:358
 msgid "Map language:"
-msgstr "Afficher les infos bulles:"
+msgstr "Carte Langue:"
 
 #: ../include/functions.php:362
 msgid "Display map in post/page:"
-msgstr "Afficher les bulles associées aux points"
+msgstr "Voir la carte en post/page:"
 
 #: ../include/functions.php:365
 msgid "as icon"
-msgstr "Afficher une bulle par défaut:"
+msgstr "en icône"
 
 #: ../include/functions.php:366
 msgid "as full map"
-msgstr "Afficher une bulle ouvert par défaut"
+msgstr "carte aussi complète"
 
 #: ../include/functions.php:372
 msgid "Show info bubbles:"
-msgstr "Afficher le lien de directions get:"
+msgstr "Afficher les infos bulles:"
 
 #: ../include/functions.php:374
 msgid "Display the bubbles associated to the points"
-msgstr "Afficher un lien au bas de infowindow pour obtenir les directions"
+msgstr "Afficher les bulles associées aux points"
 
 #: ../include/functions.php:379
 msgid "Display a bubble by default:"
-msgstr "Afficher un lien vers Google Maps:"
+msgstr "Afficher une bulle par défaut:"
 
 #: ../include/functions.php:381
 msgid "Display a bubble opened by default"
-msgstr "Afficher un lien au bas de infowindow à afficher sur Google Maps"
+msgstr "Afficher une bulle ouvert par défaut"
 
 #: ../include/functions.php:388
 msgid "Display the get directions link:"
-msgstr "Afficher un lien vers vue sur la rue:"
+msgstr "Afficher le lien de directions get:"
 
 #: ../include/functions.php:390
 msgid "Display a link at  bottom of infowindow to get directions"
-msgstr ""
-"Afficher la couche Panoramio:Mostar un enlace al final de la ventana de "
-"información para obtener la dirección"
+msgstr "Afficher un lien au bas de infowindow pour obtenir les directions"
 
 #: ../include/functions.php:396
 msgid "Display a link to Google Maps:"
-msgstr "Afficher une couche avec des photos publiées dans Panoramio"
+msgstr "Afficher un lien vers Google Maps:"
 
 #: ../include/functions.php:398
 msgid "Display a link at  bottom of infowindow to display on Google Maps"
-msgstr ""
-"Afficher un faisceau de points dans la même zone , comme un cluster:Mostar "
-"un enlace al final de la ventana de información para mostrar en Google Maps"
+msgstr "Afficher un lien au bas de infowindow à afficher sur Google Maps"
 
 #: ../include/functions.php:404
 msgid "Display a link to street view:"
-msgstr "Affiche le nombre de points dans le groupe"
+msgstr "Afficher un lien vers vue sur la rue:"
 
 #: ../include/functions.php:406
 msgid ""
 "Display a link at bottom of infowindow to load the corresponding street view"
 msgstr ""
-"Afficher l'emplacement de l'utilisateur:Mostar un enlace al final de la "
-"ventana de información para cargar en el Street View"
+"Afficher un lien au bas de infowindow pour charger la vue sur la rue "
+"correspondante"
 
 #: ../include/functions.php:412
 msgid "Display the Panoramio layer:"
-msgstr "Afficher une icône avec l'emplacement de l'utilisateur sur la carte"
+msgstr "Afficher la couche Panoramio:"
 
 #: ../include/functions.php:414
 msgid "Display a layer with photos published in Panoramio"
-msgstr "Titre de l'emplacement de l'utilisateur:"
+msgstr "Afficher une couche avec des photos publiées dans Panoramio"
 
 #: ../include/functions.php:420
 msgid "Display a bundle of points in the same area, like a cluster:"
-msgstr ""
-"Titre de l'emplacement de l'utilisateurMostrar un conjunto de puntos en la "
-"misma zona , al igual que un clúster:"
+msgstr "Afficher un faisceau de points dans la même zone , comme un cluster:"
 
 #: ../include/functions.php:422
 msgid "Displays the number of points in the cluster"
-msgstr "Afficher l'itinéraire:"
+msgstr "Affiche le nombre de points dans le groupe"
 
 #: ../include/functions.php:428
 msgid "Display the user's location:"
-msgstr "Dessine le trajet entre les points dans le même poste"
+msgstr "Afficher l'emplacement de l'utilisateur:"
 
 #: ../include/functions.php:430
 msgid "Display an icon with the user's location on map"
-msgstr "Mode de Voyage:"
+msgstr "Afficher une icône avec l'emplacement de l'utilisateur sur la carte"
 
 #: ../include/functions.php:436
 msgid "Title of user's location:"
-msgstr "Options"
+msgstr "Titre de l'emplacement de l'utilisateur:"
 
 #: ../include/functions.php:438
 msgid "Title of user's location"
-msgstr "Afficher la vue rue contrôle"
+msgstr "Titre de l'emplacement de l'utilisateur"
 
 #: ../include/functions.php:446
 msgid "Display route:"
-msgstr "Activer zoom molette de la souris"
+msgstr "Afficher l'itinéraire:"
 
 #: ../include/functions.php:448
 msgid "Draws the route between the points in the same post"
-msgstr "Activer zoom / commandes de panoramique"
+msgstr "Dessine le trajet entre les points dans le même poste"
 
 #: ../include/functions.php:454
 msgid "Travel mode:"
-msgstr "Activer le contrôle de type de carte ( carte, satellite ou hybride)"
+msgstr "Mode de Voyage:"
 
 #: ../include/functions.php:464
 msgid "Options"
-msgstr "Entrez le nombre de messages à afficher sur la carte après / page"
+msgstr "Options"
 
 #: ../include/functions.php:467
 msgid "Display the street view control"
-msgstr "Autoriser styliser les cartes:"
+msgstr "Afficher la vue rue contrôle"
 
 #: ../include/functions.php:469
 msgid "Enable mouse wheel zoom"
-msgstr "Afficher la légende de la carte:"
+msgstr "Activer zoom molette de la souris"
 
 #: ../include/functions.php:471
 msgid "Enable zoom/pan controls"
-msgstr "Sélectionnez la taxonomie pour afficher sur la légende:"
+msgstr "Activer zoom/commandes de panoramique"
 
 #: ../include/functions.php:473
 msgid "Enable map type controls (Map, Satellite, or Hybrid)"
-msgstr "Sélectionnez une taxonomie"
+msgstr "Activer le contrôle de type de carte (carte, satellite ou hybride)"
 
 #: ../include/functions.php:477
 msgid "Enter the number of posts to display on the post/page map"
-msgstr "Entrez un titre pour la légende:"
+msgstr "Entrez le nombre de messages à afficher sur la carte après/page"
 
 #: ../include/functions.php:481
 msgid "Allow stylize the maps:"
-msgstr "Entrez un nom de classe à appliquer à la légende:"
+msgstr "Autoriser styliser les cartes:"
 
 #: ../include/functions.php:491
 msgid ""
 "If you want change the maps' styles, be sure to know how to create a JSON "
 "structure with the map's styles"
 msgstr ""
-"Pour insérer une carte dans le poste suivez les étapes ci-dessousSi usted "
-"quiere cambiar los estilos de los mapas , asegúrese de saber cómo crear una "
-"estructura JSON con estilos del mapa"
+"Si vous voulez changer les styles des cartes , assurez-vous de savoir "
+"comment créer une structure JSON avec les styles de la carte"
 
 #: ../include/functions.php:499
 msgid "Display the map's legend:"
-msgstr "Points de la carte"
+msgstr "Afficher la légende de la carte:"
 
 #: ../include/functions.php:505
 msgid "Select the taxonomy to display on legend:"
-msgstr "Carte description de point"
+msgstr "Sélectionnez la taxonomie pour afficher sur la légende:"
 
 #: ../include/functions.php:508
 msgid "Select a taxonomy"
-msgstr "Nom du site:"
+msgstr "Sélectionnez une taxonomie"
 
 #: ../include/functions.php:513
 msgid "Enter a title for legend:"
-msgstr "Description du lieu:"
+msgstr "Entrez un titre pour la légende:"
 
 #: ../include/functions.php:519
 msgid "Enter a classname to be applied to the legend:"
-msgstr "Sélectionnez une des images pour fixer au point:"
+msgstr "Entrez un nom de classe à appliquer à la légende:"
 
 #: ../include/functions.php:559 ../include/functions.php:873
 msgid ""
@@ -515,51 +507,50 @@ msgid ""
 "content-tools/codepeople-post-map\" target=\"_blank\">CodePeople Post Map</"
 "a> plugin page"
 msgstr ""
-"AdressePara obtener más información, visite la página del plugin <a href="
-"\"http://wordpress.dwbooster.com/content - tools/codepeople post - map\" "
-"target=\"_blank\"> CodePeople Post Ubicación </a>"
+"Pour plus de renseignements, visitez le plugin <a href=\"http://wordpress."
+"dwbooster.com/content-tools/codepeople post-map\" target=\"_blank\"> "
+"CodePeople Poster Carte"
 
 #: ../include/functions.php:562
 msgid "To insert a map in the post follow the steps below"
-msgstr "Latitude:"
+msgstr "Pour insérer une carte dans le poste suivez les étapes ci-dessous"
 
 #: ../include/functions.php:565
 msgid ""
 "Enter the point's information (the latitude and longitude are required, but "
 "are obtained pressing the \"verify\" button after type the address"
 msgstr ""
-"Longitude:Entre la información del punto (la latitud y la longitud son "
-"requeridos, y son obtenidos pulsando el botón \"Verificar\", después de "
-"escribir la dirección)"
+"Entrez les informations de point (la latitude et la longitude sont "
+"obligatoires , mais on obtient en appuyant sur le bouton \"vérifier\" après "
+"entrer de l'adresse)"
 
 #: ../include/functions.php:566
 msgid ""
 "Insert the shortcode in the post's content pressing the \"insert the map tag"
 "\" button"
 msgstr ""
-"VérifierInserte el shortcode en el contenido del post, presionando el botón "
-"\"inserte la etiqueta del mapa\""
+"Insérer le shortcode dans le contenu du message en appuyant sur le \"insérer "
+"la carte tag\""
 
 #: ../include/functions.php:567
 msgid ""
 "If you want to use specific settings just for this map, press the \"Show/"
 "Hide Map's Options\" button, and modifies the settings for this map"
 msgstr ""
-"Requis: Appuyez sur le bouton \" vérifier \"après l'adresse complète .Si "
-"desea especificar una confguración para este mapa en particular, marque la "
-"opción \"Usar ajustes particulares para este mapa\""
+"Si vous voulez utiliser les paramètres spécifiques juste pour cette carte , "
+"appuyez sur la \"Show/Hide de carte pptions\" bouton , et modifie les "
+"paramètres de cette carte"
 
 #: ../include/functions.php:568
 msgid ""
 "Don't forget to press the \"Update\" button for save the post and map data"
 msgstr ""
-"Voulez-vous afficher un <strong > la forme < / strong > sur la carte ?No "
-"olvide presionar el botón \"Actualizar\" para salvar los datos del post  y "
-"del mapa"
+"Ne oubliez pas d'appuyer sur le \"Update\" bouton pour enregistrer les "
+"données de poste et la carte"
 
 #: ../include/functions.php:571
 msgid "Map points"
-msgstr "Si vous voulez afficher la carte dans la page / après:"
+msgstr "Points de la carte"
 
 #: ../include/functions.php:573
 msgid ""
@@ -567,118 +558,114 @@ msgid ""
 "\"http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download"
 "\" target=\"_blank\">advanced version</a>."
 msgstr ""
-"Insérer l'étiquette de la cartePara obtener más información, visite la "
-"página del plugin <a href=\"http://wordpress.dwbooster.com/content - tools/"
-"codepeople post - map\" target=\"_blank\"> CodePeople Post Ubicación </a>"
+"De multiples points dans le même poste/page ne ​​sont disponibles que dans la "
+"<a href = \"http://wordpress.dwbooster.com/content-tools/codepeople-post-"
+"map#download\" target = \"_blank\">version avancée</a>."
 
 #: ../include/functions.php:577
 msgid "Map point description"
-msgstr "Pour afficher les points qui appartiennent à une catégorie"
+msgstr "Carte description de point"
 
 #: ../include/functions.php:580
 msgid "Location name:"
-msgstr "Paramètres Mise à jour"
+msgstr "Nom du site:"
 
 #: ../include/functions.php:586
 msgid "Location description:"
-msgstr "Utilisez des points d'information dans les résultats de recherche:"
+msgstr "Description du lieu:"
 
 #: ../include/functions.php:595
 msgid "Select an images to attach to the point: "
-msgstr ""
-"Poste de surexposition Lorsque mouvement de la souris sur point connexe sur "
-"la carte:"
+msgstr "Sélectionnez une des images pour fixer au point:"
 
 #: ../include/functions.php:610
 msgid "Address:"
-msgstr "Classe Highlight:"
+msgstr "Adresse"
 
 #: ../include/functions.php:616
 msgid "Latitude:"
-msgstr "Permettre à associer une carte pour les types de poste:"
+msgstr "Latitude:"
 
 #: ../include/functions.php:622
 msgid "Longitude:"
-msgstr "Postes et Pages sont sélectionnés par défaut"
+msgstr "Longitude:"
 
 #: ../include/functions.php:628
 msgid "Verify"
-msgstr "Mise à Jour"
+msgstr "Vérifier"
 
 #: ../include/functions.php:630
 msgid ""
 "Verify this latitude and longitude using Geocoding. This could overwrite the "
 "point address."
 msgstr ""
-"Modifications personnalisées RequêteVerificar esta latitud y longitud usando "
-"geocodificación . Esto podría sobrescribir la dirección del punto ."
+"Vérifiez cette latitude et la longitude en utilisant géocodage . Cela "
+"pourrait écraser l'adresse de point."
 
 #: ../include/functions.php:630
 msgid "Required: Press the button \"verify\" after complete the address."
-msgstr ""
-"Ajouter Point / Mise à jourDeseados: pulse el botón \" verifique \"después "
-"de completar la dirección."
+msgstr "Requis: Appuyez sur le bouton \"vérifier\" après l'adresse complète."
 
 #: ../include/functions.php:653
 msgid ""
 "To insert this map in a post/page, press the <strong>\"insert the map tag\"</"
 "strong> button and save the post/page modifications."
 msgstr ""
-"course Poids:Para insertar este mapa en un post / página, pulse el botón "
-"<strong> \" insertar el mapa de etiquetas \" </ strong> y guardar las "
-"modificaciones del post / página."
+"Pour insérer cette carte dans un poste/page, appuyez sur la <strong >\" "
+"insérer la carte tag\" </strong> et enregistrer la publication/page "
+"modifications."
 
 #: ../include/functions.php:660
 msgid "Do you want display a <strong>shape</strong> on map?"
-msgstr "Couleur de remplissage:"
+msgstr "Voulez-vous afficher un <strong > la forme </strong > sur la carte?"
 
 #: ../include/functions.php:668
 msgid "If you want to display the map in page / post:"
-msgstr "Remplissez Opacité:"
+msgstr "Si vous voulez afficher la carte dans la page/poste:"
 
 #: ../include/functions.php:669
 msgid "Insert the map tag"
-msgstr "Utilisez un nombre entre 0 et 1 , 0 est transparent ."
+msgstr "Insérer l'étiquette de la carte"
 
 #: ../include/functions.php:685
 msgid "To display the points that belong to any category"
-msgstr "Itinéraire"
+msgstr "Pour afficher les points qui appartiennent à une catégorie"
 
 #: ../include/functions.php:775
 msgid "Settings Updated"
-msgstr "Afficher sur la carte"
+msgstr "Paramètres Mise à jour"
 
 #: ../include/functions.php:788
 msgid ""
 "Generate points dynamically from geolocation information included on images, "
 "when images are uploaded to WordPress:"
 msgstr ""
-"Affichage vue sur la rueGenerar puntos de forma dinámica a partir de "
-"información de geolocalización incluida en las imágenes, cuando las imágenes "
-"se cargan en WordPress:"
+"Générer des points dynamiquement à partir des informations de "
+"géolocalisation inclus sur les images , lorsque les images sont téléchargées "
+"sur WordPress:"
 
 #: ../include/functions.php:791
 msgid ""
 "The geolocation information is added to the images from your mobiles or "
 "cameras, if they have associated GPS devices"
 msgstr ""
-"Titre:La información de geolocalización se añade a las imágenes desde sus "
-"teléfonos móviles o cámaras, si han asociado dispositivos GPS"
+"Les informations de géolocalisation est ajouté aux images de vos mobiles ou "
+"de caméras , se ils ont associé les appareils GPS"
 
 #: ../include/functions.php:798
 msgid ""
 "Generate points dynamically from geolocation information included on posts:"
 msgstr ""
-"Entrez les attributs de la carte:Generar puntos de forma dinámica a partir "
-"de información de geolocalización incluida en los mensajes :"
+"Générer des points dynamiquement à partir des informations de "
+"géolocalisation inclus dans les messages:"
 
 #: ../include/functions.php:801
 msgid ""
 "The geolocation information is added to the post from WordPress app in your "
 "mobile"
 msgstr ""
-"La información de geolocalización se añade al post de WordPress aplicación "
-"en tu móvil"
+"Les informations de géolocalisation est ajouté au poste de WordPress dans "
+"votre application mobile"
 
 #: ../include/functions.php:808
 msgid "Use points information in search results:"
@@ -687,44 +674,78 @@ msgstr "Utilisez des points d'information dans les résultats de recherche:"
 #: ../include/functions.php:814
 msgid "Highlight post when mouse move over related point on map:"
 msgstr ""
-"Post Resaltar cuando mueva el ratón sobre el punto relacionado en el mapa :"
+"Poste de surexposition lorsque mouvement de la souris sur point connexe sur "
+"la carte:"
 
 #: ../include/functions.php:820
 msgid "Highlight class:"
-msgstr "Classe surligner"
+msgstr "Classe Highlight:"
 
 #: ../include/functions.php:826
 msgid "Allow to associate a map to the post types:"
-msgstr "Laisser associer une carte pour les types de poste:"
+msgstr "Permettre à associer une carte pour les types de poste:"
 
 #: ../include/functions.php:839
 msgid "Posts and Pages are selected by default"
-msgstr "Messages et Pages sont sélectionnés par défaut"
+msgstr "Postes et Pages sont sélectionnés par défaut"
 
 #: ../include/functions.php:874
 msgid "Update Settings"
-msgstr "Mise à jour Paramètres"
+msgstr "Mise à Jour"
 
 #: ../include/functions.php:1180
 msgid "Request custom changes"
-msgstr "Demander des modifications personnalisées"
+msgstr "Modifications personnalisées Requête"
 
-#~ msgid ""
-#~ "To correct the latitude and longitud directly on MAP, type the address "
-#~ "and press the Verify button."
-#~ msgstr ""
-#~ "Para corregir la latitud y Longitud directamente en MAP , escriba la "
-#~ "dirección y pulse el botón Verificar ."
+msgid ""
+"To correct the latitude and longitud directly on MAP, type the address and "
+"press the Verify button."
+msgstr ""
+"Pour corriger la latitude et LONGITUD directement sur MAP, tapez l'adresse "
+"et appuyez sur le bouton Vérifier."
 
-#~ msgid ""
-#~ "To display the points that belong to an category, use the attribute: cat="
-#~ "\"2\", where 2 is the category's ID. To display the points that belong to "
-#~ "multiple categories, separate each one by the comma symbol: cat="
-#~ "\"2,5,8\". To display all points on website, use the value -1 for "
-#~ "category's ID, cat=\"-1\". If you want to display only the points "
-#~ "associated with the current post, don't use the \"cat\" attribute."
-#~ msgstr ""
-#~ "Para mostrar los puntos que pertenecen a una categoría , utilice el "
-#~ "atributo : cat = \" . 2 \" , donde 2 es el ID de la categoría para "
-#~ "mostrar los puntos que pertenecen a varias categorías , separe cada uno "
-#~ "con el símbolo coma: cat ="
+msgid "Add/Update Point"
+msgstr "Ajouter/Mettre à jour Point"
+
+msgid "stroke Weight: "
+msgstr "course Poids:"
+
+msgid "Fill Color: "
+msgstr "Couleur de remplissage:"
+
+msgid "Fill Opacity: "
+msgstr "Remplissez Opacité:"
+
+msgid "Use a number between 0 and 1, 0 is transparent. "
+msgstr "Utilisez un nombre entre 0 et 1 , 0 est transparent."
+
+msgid "Get directions"
+msgstr "Itinéraire"
+
+msgid "Display on map"
+msgstr "Afficher sur la carte"
+
+msgid "Display street view"
+msgstr "Affichage vue sur la rue"
+
+msgid "Title:"
+msgstr "Titre:"
+
+msgid "Enter the map's attributes:"
+msgstr "Entrez les attributs de la carte:"
+
+msgid ""
+"To display the points that belong to an category, use the attribute: cat="
+"\"2\", where 2 is the category's ID. To display the points that belong to "
+"multiple categories, separate each one by the comma symbol: cat=\"2,5,8\". "
+"To display all points on website, use the value -1 for category's ID, cat="
+"\"-1\". If you want to display only the points associated with the current "
+"post, don't use the \"cat\" attribute."
+msgstr ""
+"Pour afficher les points qui appartiennent à une catégorie , utiliser "
+"l'attribut: cat = \"2\", où 2 est l'ID de la catégorie. Pour afficher les "
+"points qui appartiennent à plusieurs catégories, separer par les catégories "
+"par des virgules: cat =\"2,5,8\".  Pour afficher tous les points sur le "
+"site, utilisez la valeur -1 pour l'ID de la catégorie, cat = \"- 1\". Si "
+"vous souhaitez afficher uniquement les points associés par le poste actuel, "
+"ne pas utiliser le \"chat\" attribut."
