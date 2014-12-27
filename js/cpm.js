@@ -18,6 +18,7 @@ jQuery(function( $ ){
             markers 		: [],
             zoom			: 10,
             dynamic_zoom    : false,
+            drag_map        : true,
             type			: 'ROADMAP',
             mousewheel 		: true,
             scalecontrol 	: true,
@@ -75,6 +76,7 @@ jQuery(function( $ ){
                         zoom: me.data.zoom,
                         center: m[c].latlng,
                         mapTypeId: google.maps.MapTypeId[me.data.type],
+                        draggable: me.data.drag_map,
                         
                         // Show / Hide controls
                         panControl: me.data.zoompancontrol,

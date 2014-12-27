@@ -127,6 +127,7 @@ class CPM {
             $new_cpm_map['dynamic_zoom'] 	= (isset($new_cpm_map['dynamic_zoom']) && $new_cpm_map['dynamic_zoom']) ? true : false;
             $new_cpm_map['show_default'] 	= (isset($new_cpm_map['show_default']) && $new_cpm_map['show_default']) ? true : false;
             $new_cpm_map['show_window'] 	= (isset($new_cpm_map['show_window']) && $new_cpm_map['show_window']) ? true : false;
+            $new_cpm_map['drag_map'] 	    = (isset($new_cpm_map['drag_map']) && $new_cpm_map['drag_map']) ? true : false;
             
             add_post_meta($post_id,'cpm_map',$new_cpm_map,TRUE);
         } 
@@ -151,6 +152,7 @@ class CPM {
 							'margin' => '10',
 							'align' => 'center',									
 							'language' => 'en',
+                            'drag_map' => true,
 							'icons' => array(),
 							'default_icon' => CPM_PLUGIN_URL.'/images/icons/marker.png',
 							'type' => 'ROADMAP',
@@ -358,6 +360,12 @@ class CPM {
 				<th scope="row"><label for="cpm_map_language"><?php _e('Map language:', 'codepeople-post-map');?></th>
 				<td><?php $this->_deploy_languages($options); ?></td>
 			</tr>
+            <tr valign="top">
+                <th scope="row"><label for="cpm_map_single"><?php _e('Allow drag the map:', 'codepeople-post-map')?></label></th>
+                <td>
+                    <input type="checkbox" name="cpm_map[drag_map]" id="cpm_drag_map" <?php echo ((!isset( $options['drag_map'] ) || $options['drag_map']) ? 'CHECKED' : '');?> />
+                </td>
+            </tr>
 			<tr valign="top">
 				<th scope="row"><label for="cpm_map_display"><?php _e('Display map in post/page:', 'codepeople-post-map'); ?></label></th>
 				<td>
@@ -770,6 +778,7 @@ class CPM {
 		// Check if post exists and save the configuraton options
 		if (isset($_POST['cpm_map_noncename']) && wp_verify_nonce($_POST['cpm_map_noncename'],__FILE__)){
 			$options = $_POST['cpm_map'];
+            $options['drag_map'] = ( isset( $_POST['cpm_map'][ 'drag_map' ] ) ) ? true : false;
             $options['windowhtml'] = $this->get_configuration_option('windowhtml');
 			update_option('cpm_config', $options);
 			echo '<div class="updated"><p><strong>'.__("Settings Updated").'</strong></div>';
@@ -1072,6 +1081,7 @@ class CPM {
 		$output .= "cpm_global['$this->map_id']['dynamic_zoom'] = ".((isset($dynamic_zoom) && $dynamic_zoom) ? 'true' : 'false').";\n";
 		$output .= "cpm_global['$this->map_id']['markers'] = new Array();\n";
 		$output .= "cpm_global['$this->map_id']['display'] = '$display';\n"; 
+        $output .= "cpm_global['$this->map_id']['drag_map'] = ".( ( !isset( $drag_map ) || $drag_map ) ? 'true' : 'false' ).";\n";
 		$output .= "cpm_global['$this->map_id']['highlight_class'] = '".$this->get_configuration_option('highlight_class')."';\n"; 
 		  
 		$highlight = $this->get_configuration_option('highlight');
