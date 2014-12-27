@@ -190,6 +190,7 @@ The settings are divided into two main groups, those belonging to the Google map
 *   Map align: Aligns the map at left, center or right of area.
 *   Map type: Select one of the possible types of maps to load (roadmap, satellite, terrain, hybrid).
 *   Map language: a large number of languages is available to be used on maps, select the one that matches your blog's language.
+*   Allow drag the map: allows drag the map to see other places.
 *   Map route: Draws the route through the points that belong to the same post (available only in the premium version of plugin)
 *   Travel Mode: Travel mode used in route drawing (available only in the premium version of plugin) 
 *   Show info bubbles: display or hide the bubbles with the information associated to the points.
