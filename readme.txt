@@ -68,6 +68,17 @@ The Google Maps inserted into a template displaying multiple posts will contain 
 *   Allows to associate the Google maps with any public post_type in WordPress.
 *   In non singular webpages, Google Maps display a map for each post.
 
+The third, and most extended version of the plugin is the "Developer Version". The Developer version of the plugin includes all features of the Premium version, and the features listed below:
+  
+**Developer Features**
+
+*   Allows design a Contact Form, and associate it with the points
+*   Allows send notification emails with the information included in the form by the users
+*   Allows associate an email address to the points, to contact a different person by each point, or a global email address to be notified from all points
+*   Allows to use the image associated with the point as the point's icon on map
+*   Allows to export all points defined in the website to a CSV file
+*   Allows to import the points from a CSV file
+
 **Demo of Premium Version of Plugin**
 
 [http://demos.net-factor.com/cp-google-maps/wp-login.php](http://demos.net-factor.com/cp-google-maps/wp-login.php "Click to access the administration area demo")
@@ -435,15 +446,18 @@ If you check the option: "Highlight post when mouse move over related point on m
 
 == Screenshots ==
 
-1. Maps in action
-2. Styling the maps
-3. Map with Panoramio layer
-4. Map with user's location
-5. Map with shape
-6. Global maps settings
-7. Point insertion's form 
-8. Inserting map on sidebars
-9. Generates points, from the geolocation information stored on image's metadata
+01. Maps in action
+02. Styling the maps
+03. Map with Panoramio layer
+04. Map with user's location
+05. Map with shape
+06. Global maps settings
+07. Point insertion's form 
+08. Inserting map on sidebars
+09. Generates points, from the geolocation information stored on image's metadata
+10. Contact Form Builder (only available in the Developer version of the plugin)
+11. Associate the contact form with the point, and define an email address between the point's data (only available in the Developer version of the plugin)
+12. Export/Import section (only available in the Developer version of the plugin)
 
 == Changelog ==
 
