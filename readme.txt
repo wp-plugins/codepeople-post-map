@@ -79,7 +79,7 @@ The third, and most extended version of the plugin is the "Developer Version". T
 *   Allows to export all points defined in the website to a CSV file
 *   Allows to import the points from a CSV file
 
-**Demo of Premium Version of Plugin**
+**Demo of the Developer Version of Plugin**
 
 [http://demos.net-factor.com/cp-google-maps/wp-login.php](http://demos.net-factor.com/cp-google-maps/wp-login.php "Click to access the administration area demo")
 
