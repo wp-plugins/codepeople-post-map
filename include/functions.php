@@ -454,6 +454,7 @@ class CPM {
 				<th scope="row"><label for="cpm_map_route" style="color:#CCCCCC;"><?php _e('Display route:', 'codepeople-post-map');?></th>
 				<td>
                     <input type="checkbox" DISABLED><span> <?php _e( 'Draws the route between the points in the same post', 'codepeople-post-map'); ?></span><br />
+					<input type="checkbox" DISABLED><span> <?php _e( 'Connect the points with polylines, even if there is not a route between points', 'codepeople-post-map' ); ?> </span><br />
                     <span style="color:#FF0000;">The route between points is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
                 </td>
 			</tr>
