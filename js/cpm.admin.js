@@ -38,6 +38,18 @@
 	};
 	
 	window['cpm_get_latlng'] = function (){
+		function transform( v )
+		{
+			if( $.isNumeric( v ) ) return v;
+			v = v.replace(/[\W_]/g, " " ).replace(/\s+/g, ' ' ).replace( /^\s+/, '' ).replace( /\s+$/, '' ).toLowerCase();
+			var ref = ( /[ne]/.test( v ) ) ? 1 : -1,
+				parts = v.split( ' ' ),
+				l = parts.length;
+			
+			if( l >= 3 ) return ref * ( parts[ l - 3 ]*1 + parts[ l - 2 ]*1 / 60 + parts[ l - 1 ]*1  / 3600 );	
+			return v;	
+		};
+		
 		var f 			= _latlng_btn.parents('.point_form'),
 			a 			= $('#cpm_point_address').val(),
 			longitude 	= $('#cpm_point_longitude').val(),
@@ -51,33 +63,40 @@
 		a = a.replace(/^\s+/, '').replace(/\s+$/, '');
 		
 		if(longitude.length && latitude.length){
-			request['location'] = new google.maps.LatLng(latitude, longitude);
+			request['location'] = new google.maps.LatLng( transform( latitude ), transform( longitude ) );
 		}else if(a.length){
 			request['address'] = a.replace(/[\n\r]/g, '');
 		}else{
 			return false;
 		}	
 		
-		_get_latlng(request, function(result, status){
-			if(status && status == "OK"){
-				// Update fields
-				var address   = result[0]['formatted_address'],
-					latitude  = result[0]['geometry']['location'].lat(),
-					longitude = result[0]['geometry']['location'].lng();
-				
-				if(address && latitude && longitude){
-					$('#cpm_point_address').val(address);
-					$('#cpm_point_longitude').val(longitude);
-					$('#cpm_point_latitude').val(latitude);
-					
-					// Load Map
-					cpm_load_map(f.find('.cpm_map_container'),latitude, longitude);
-				}
-			}else{
-				alert('The point is not located');
-			}
+		_get_latlng(
+			request, 
+			(function( a, r )
+				{
+					return  function(result, status)
+							{
+								if(status && status == "OK"){
+									// Update fields
+									var address   = ( $.trim( a ).length && typeof  r[ 'location' ] != 'undefined' ) ? a : result[0]['formatted_address'],
+										latitude  = result[0]['geometry']['location'].lat(),
+										longitude = result[0]['geometry']['location'].lng();
+									
+									if(address && latitude && longitude){
+										$('#cpm_point_address').val(address);
+										$('#cpm_point_longitude').val(longitude);
+										$('#cpm_point_latitude').val(latitude);
+										
+										// Load Map
+										cpm_load_map(f.find('.cpm_map_container'),latitude, longitude);
+									}
+								}else{
+									alert('The point is not located');
+								}
+							};	
 			
-		});
+				} )( a, request ) 
+		);
 	};		
 	
 	// Check the point or address existence
