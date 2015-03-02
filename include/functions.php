@@ -601,7 +601,7 @@ class CPM {
 				</tr>
 				<tr valign="top">
 					<th scope="row">
-                        <?php _e("Select an images to attach to the point: ","codepeople-post-map"); ?>
+                        <?php _e("Select an image to attach to the point: ","codepeople-post-map"); ?>
 					</th>
                     <td>
                         <input type="text" name="cpm_point[thumbnail]" value="<?php if(isset($options["thumbnail"])){ echo $options["thumbnail"];} ?>" id="cpm_point_thumbnail" />
