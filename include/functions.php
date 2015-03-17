@@ -108,8 +108,8 @@ class CPM {
 		delete_post_meta($post_id,'cpm_point');
 		delete_post_meta($post_id,'cpm_map');
 		
-        $new_cpm_point = $_POST['cpm_point'];
-		$new_cpm_map = $_POST['cpm_map'];
+		$new_cpm_point = ( isset( $_POST['cpm_point'] ) ) ? $_POST['cpm_point'] : array();
+		$new_cpm_map = ( isset( $_POST['cpm_map'] ) ) ? $_POST['cpm_map'] : array();
 		$new_cpm_point['icon'] = str_replace( CPM_PLUGIN_URL, '', $default_icon );
 
         // Set the map's config
