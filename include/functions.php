@@ -389,9 +389,17 @@ class CPM {
                     <input type="checkbox" id="cpm_show_default" name="cpm_map[show_default]" value="true" <?php echo ((isset($options['show_default']) && $options['show_default']) ? 'checked' : '');?>><span> <?php _e( 'Display a bubble opened by default', 'codepeople-post-map' ); ?></span>
                 </td>
 			</tr>
+			
 <?php
 			if( !$single ){
-?>            
+?>          
+				<tr valign="top">
+					<th scope="row"><label for="cpm_featured_image"><?php _e('Display Featured Image by default:', 'codepeople-post-map');?></th>
+					<td>
+						<input type="checkbox" id="cpm_featured_image" name="cpm_map[featured_image]" value="true" <?php echo ((isset($options['featured_image']) && $options['featured_image']) ? 'checked' : '');?>><span> <?php _e( 'Displays the Featured Image in posts and pages in the infowindows, if the points don\'t have associated an image.', 'codepeople-post-map' ); ?></span>
+					</td>
+				</tr>
+			
 				<tr valign="top">
 					<th scope="row"><label for="cpm_get_direction"  style="color:#CCCCCC;"><?php _e('Display the get directions link:', 'codepeople-post-map');?></th>
 					<td>
@@ -1137,24 +1145,29 @@ class CPM {
 		$point_title = (!empty($point['name'])) ? $point['name'] : get_the_title($point['post_id']);
 		$point_link = (!empty($point['post_id'])) ? get_permalink($point['post_id']) : '';
 		
-		$point_thumbnail = "";
-        
-        if (isset($point['thumbnail']) && $point['thumbnail'] != "") {
-            $point_img_url = $point['thumbnail'];
+		if (isset($point['thumbnail']) && $point['thumbnail'] != "") {
+			$point_img_url = $point['thumbnail'];
             if(preg_match("/attachment_id=(\d+)/i", $point['thumbnail'], $matches)){
             	$thumb = wp_get_attachment_image_src($matches[1], 'thumbnail');
 				if(is_array($thumb))$point_thumbnail = $thumb[0];
 			}else{
                 $point_thumbnail = $point['thumbnail'];
 			}
-            if($point_thumbnail != "")
-                $point_img_url = $point_thumbnail;
+            if( !empty( $point_thumbnail ) ) $point_img_url = $point_thumbnail;
+		}else
+		{
+			$featured_image = $this->get_configuration_option( 'featured_image' );
+			if( !empty( $featured_image ) )
+			{	
+				$featured_image_url = wp_get_attachment_url( get_post_thumbnail_id( $point['post_id'] ) );
+				if( $featured_image_url ) $point_img_url = $featured_image_url;
+			}	
 		}
 		
 		$point_description = ($point['description'] != "") ? $point['description'] : $this->_get_excerpt($point['post_id']);
 		$point_address = $point['address'];
 
-		if(isset($point_img_url)) {
+		if( !empty( $point_img_url ) ) {
 			$point_img = "<img src='".$point_img_url."' style='margin:8px 0 0 8px !important; width:90px; height:90px' align='right' />";
 			$html_width = "310px";
 		} else {
