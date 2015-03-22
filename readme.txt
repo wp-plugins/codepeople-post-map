@@ -180,9 +180,6 @@ If you want more information about this plugin or another one don't doubt to vis
 
 1.	Download and unzip the plugin
 2.	Upload the entire codepeople-post-map/ directory to the /wp-content/plugins/ directory
-
-
-
 3.	Activate the plugin through the Plugins menu in WordPress
 
 == Interface ==
@@ -210,6 +207,7 @@ The settings are divided into two main groups, those belonging to the Google map
 *   Options: This setting allows you to select which map controls should be available.
 *	Display the Panoramio layer: Displays a new layer on map with images published in Panoramio (available only in the premium version of plugin)
 *	Display a bundle of points in the same area, like a cluster: Allows grouping multiple points in a cluster (available only in the premium version of plugin)
+*	Display Featured Image by default: Displays the Featured Image in posts and pages in the infowindows, if the points don't have associated an image.
 *	Display the user's location: Displays a marker with the location of user that is visiting the webpage (available only in the premium version of plugin)
 *	Title of user's location: Enter the title of infowindow belonging to the user's marker (available only in the premium version of plugin)
 *	Display the get directions link: Displays a link in the infowindow to get the directions to the point (available only in the premium version of plugin)
