@@ -68,7 +68,12 @@ function CodePeoplePostMapPublic()
 				});
 			},
 			_str_transform : function( t ){
-				return t.replace( /&lt;/g, '<').replace( /&gt;/g, '>').replace( /&amp;/g, '&').replace( /&quot;/g, '"').replace(/\\'/g, "'");
+				return t.replace( /&lt;/g, '<')
+						.replace( /&gt;/g, '>')
+						.replace( /&amp;/g, '&')
+						.replace( /&quot;/g, '"')
+						.replace(/\\'/g, "'")
+						.replace(/\\"/g, '"' );
 			},
 			_load_map : function(){
 			
@@ -200,7 +205,7 @@ function CodePeoplePostMapPublic()
 					me.infowindow.setContent( c );
 					me.infowindow.open( me.map, m );
 				}
-			},	
+				},	
 			
 			// Set the highlight class to the post with ID m['post']
 			set_highlight : function(m){
