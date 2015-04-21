@@ -115,9 +115,9 @@ class CPM {
         // Set the map's config
         $new_cpm_map['single'] = (isset($new_cpm_map['single'])) ? true : false;
         if($new_cpm_map['single']){
-            $new_cpm_point['address'] = esc_attr($new_cpm_point['address']);
-            $new_cpm_point['name'] = esc_attr($new_cpm_point['name']);
-            $new_cpm_point['description'] = esc_attr($new_cpm_point['description']);
+            $new_cpm_point['address'] = esc_attr( ( !empty( $new_cpm_point['address'] ) ) ? $new_cpm_point['address'] : '' );
+            $new_cpm_point['name'] = esc_attr( ( !empty( $new_cpm_point['name'] ) ) ? $new_cpm_point['name'] : '' );
+            $new_cpm_point['description'] = esc_attr( ( !empty( $new_cpm_point['description'] ) ) ? $new_cpm_point['description'] : '' );
             
             
             $new_cpm_map['zoompancontrol'] 	= ($new_cpm_map['zoompancontrol'] == true);

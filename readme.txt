@@ -3,7 +3,7 @@ Contributors: codepeople
 Donate link: http://wordpress.dwbooster.com/content-tools/codepeople-post-map
 Tags:google maps,shortcode,map,maps,categories,post map,point,marker,list,location,address,images,geocoder,google,shape,panoramio,grouping,cluster,exif tag,pin,place,streetview,post,posts,pages,widget,image,plugin,sidebar,stylize,admin
 Requires at least: 3.0.5
-Tested up to: 4.1
+Tested up to: 4.2
 Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
