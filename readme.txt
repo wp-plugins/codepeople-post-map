@@ -284,6 +284,12 @@ A:	To display all points that belong to the posts with a specific tag assigned, 
 
         <?php echo do_shortcode('[codepeople-post-map tag="mytag"]'); ?>    
 
+= Q: How to know the ID of a category? = 
+
+A: The explanation to determine the ID of a category is applied to other taxonomies.
+
+Access to the categories through the menu option: "Posts/Categories". After accessing to the categories page, click the "Edit" link corresponding to the category, and pays special attention to the parameter "tag_ID", in the URL on browser. The value in this parameter correspond to the ID of the category.
+
 = Q: Is possible to load all points in a category? =
 
 A: To display all points that belong to a specific category, it is required to insert the following shortcode [codepeople-post-map cat="3"]. The number 3 represent the category ID, replace this number by the corresponding category's ID. To insert the code directly in a template, the snippet of code is: 
