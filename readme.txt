@@ -370,6 +370,10 @@ A: Go to the settings page of plugin and select the corresponding option to allo
 A: Some plugins interfere with the shortcodes replacements, and provokes that maps don't be loaded correctly, in this case should be passed a new parameter through the shortcode print=1
 Passing the parameter print=1, displays the map at beginning of page/post content.
 
+= Q: It is possible to draw routes for flights between countries? =
+
+A: By default Google draws routes between points connected by cars, bus, trains, etc, but not for flights. So, in this case should be used polylines. To connect points with polylines, tick the attribute: "Connect the points with polylines, even if there is not a route between points", in the settings page of maps.
+
 = Q: How can I change the route between address? =
 
 A: The route depends on the order of the points. If you want change the route, you should change the order of point. Takes the point by the handle's icon, and drag it to its correct position in the points list.
