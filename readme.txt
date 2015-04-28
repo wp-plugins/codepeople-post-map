@@ -378,6 +378,12 @@ A: By default Google draws routes between points connected by cars, bus, trains,
 
 A: The route depends on the order of the points. If you want change the route, you should change the order of point. Takes the point by the handle's icon, and drag it to its correct position in the points list.
 
+= Q: Is possible create routes between points in different posts? =
+
+A: Yes, it's possible to draw a route including points belonging to different posts/pages, but in the current version of the plugin would be needed duplicate some points. Visit the following link to our technical blog with detailed instructions:
+
+[http://blog.net-factor.com/how-connecting-multiple-posts-on-a-route/](http://blog.net-factor.com/how-connecting-multiple-posts-on-a-route/ "How connecting multiple posts on a route?")
+
 = Q: How can I centring the map in a point defined a specific post, and display its infowindow? =
 
 A: Use the "defaultpost" attribute, in the map's shortcode, like follow:
@@ -402,19 +408,6 @@ A: If after pressing the "verify" button, the address is modified dynamically, a
 
 To solve the issue, you simply should drag and drop the pin in the correct location, and type the address again, but this time "DON'T PRESS AGAIN THE VERIFY BUTTON".
 
-= Q: Can be hidden the local listings from Google Maps API? = 
-
-A: Yes of course, if you want hide the local listings from Google Maps API, open the settings page of plugin, select the "Allow stylize the maps" attribute, and finally, paste the following code in the textarea:
-
-        [       
-            {       
-                featureType: "poi",     
-                stylers: [      
-                  { visibility: "off" }     
-                ]           
-            }       
-        ]       
-        
 = Q: I've inserted an image in the page, but have not been generated a new point in the map =
 
 A: First, be sure you have checked the option "Generate points dynamically from geolocation information included on images, when images are uploaded to WordPress", from the settings page of the plugin.
@@ -443,6 +436,19 @@ A: The design of infowindows is defined through styles in the cpm-styles.css fil
         .cpm-infowindow .cpm-content .address {font-weight:bold; font-size:9px;}        
         .cpm-infowindow .cpm-content .description {font-size:10px;}     
 
+= Q: Can be hidden the local listings from Google Maps API? = 
+
+A: Yes of course, if you want hide the local listings from Google Maps API, open the settings page of plugin, select the "Allow stylize the maps" attribute, and finally, paste the following code in the textarea:
+
+        [       
+            {       
+                featureType: "poi",     
+                stylers: [      
+                  { visibility: "off" }     
+                ]           
+            }       
+        ]       
+        		
 = Q: Can be highlighted the post or page related with the point on map? =        
 
 A: From the settings page of the plugin, there are two options:
