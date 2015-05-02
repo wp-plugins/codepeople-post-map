@@ -458,6 +458,14 @@ A: From the settings page of the plugin, there are two options:
 
 If you check the option: "Highlight post when mouse move over related point on map", and enter a class name in the "Highlight class" attribute, in the maps inserted on pages with multiple entries, the class name will be applied to the post, or page, when the mouse is moved over a point associated in the corresponding page or post.
 
+= Q: How can be created shapes on map? = 
+
+A: In the map's definition, directly in the page or post where the map is being inserted, there is the checkbox: "Do you want display a shape on map?", please, tick the checkbox to expand the shape's section. 
+
+The shape's section includes some options like: the stroke weight (if you don't want to display an stroke around the shape, set its value to zero), the fill colour (the colour code with the format: #FFFFFF, to select the shape colour), and the opacity to be applied to the shape, take into consideration than zero is transparent and 1 is opaque. Remember, the shape is displayed over the map, if you set the opacity to 1, won't be possible to see the map's area.
+
+Now the most important part create the shape's area. To create the shape's area is sufficient with click in the map at right (Don't worry, the pins are not included in the final map, are inserted in the preview map to allow modify the shape's area). Through the pins at right map it is possible modify the shape's area, click on the pin to delete it, or drag the pin to another location to vary the shape.
+
 == Screenshots ==
 
 01. Maps in action
