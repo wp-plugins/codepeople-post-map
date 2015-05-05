@@ -151,6 +151,10 @@ function CodePeoplePostMapPublic()
 						map.setZoom(me.data.zoom);
 					}
 				}
+				else
+				{
+					$('#'+me.id).hide();
+				}
 			},
 			
 			// public methods
