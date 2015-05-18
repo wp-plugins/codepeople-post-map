@@ -378,6 +378,10 @@ A: By default Google draws routes between points connected by cars, bus, trains,
 
 A: The route depends on the order of the points. If you want change the route, you should change the order of point. Takes the point by the handle's icon, and drag it to its correct position in the points list.
 
+= Q: What are the differences between routes and polylines? =
+
+A: The routes are drawn on maps, only if there are known routes between the locations, based in the travelling mode (driving, walking), but if Google unknown a way between both address, is not able to draw the route. The polylines are straight lines connecting two addresses, even if there is not  a route. It is main difference between both concepts, and  why the polylines are preferred for representing flights.
+ 
 = Q: Is possible create routes between points in different posts? =
 
 A: Yes, it's possible to draw a route including points belonging to different posts/pages, but in the current version of the plugin would be needed duplicate some points. Visit the following link to our technical blog with detailed instructions:
