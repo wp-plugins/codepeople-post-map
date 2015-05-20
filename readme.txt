@@ -424,6 +424,12 @@ Finally, you should upload the image from the "Add Media" button of the page or 
 
 A: Yes, that is possible but only from the WordPress App, available for iPhone, iPad and Android, with the option for sharing the location enabled in the application. Furthermore, from the settings page of the plugin, should be checked the option: "Generate points dynamically from geolocation information included on posts"
 
+= Q: How to display a map in the search results page, with the points defined in the resulting posts and pages? =
+
+A: To insert a map in the results page with the points defined in the resulting posts and pages, you simply should identify the template file, in the active theme on your WordPress, that is used in the search page (usually it is called search.php), and inserts the map's shortcode directly in the file's content:
+
+		<?php echo do_shortcode( '[codepeople-post-map]' ); ?>	
+
 = Q: Can be searched in the website by the points information? =
 
 A: If was checked the option "Use points information in search results", from the settings page of the plugin. The searching process will consider the points information too, and the posts and pages resulting could be selected by its points.
