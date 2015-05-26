@@ -334,6 +334,11 @@ A: Go to the settings of map (the settings page of plugin for settings of all ma
 
 A: In the premium version of plugin is possible define a JSON object to stylize the maps: the maps' colors, labels, etc.
 
+To generate the styles used on maps, I personally recommend to visit the following link that publishes a visual generator of styles, and get the JSON object, to be use in our plugin:
+
+[http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html](http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html "How to use the Styled Maps Wizard")
+
+
 = Q: How can I use different icons, in the points markers?  =
 
 A: To use your own icons, you only should to upload the icons images to the following location: "/wp-content/plugins/codepeople-post-map/images/icons/", and then select the image from the list in the point's definition.
