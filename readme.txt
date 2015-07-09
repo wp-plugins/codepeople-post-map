@@ -1,7 +1,7 @@
 === CP Google Maps ===
 Contributors: codepeople
 Donate link: http://wordpress.dwbooster.com/content-tools/codepeople-post-map
-Tags:google maps,shortcode,map,maps,categories,post map,point,marker,list,location,address,images,geocoder,google,shape,panoramio,grouping,cluster,exif tag,pin,place,streetview,post,posts,pages,widget,image,plugin,sidebar,stylize,admin
+Tags:google maps,shortcode,map,maps,categories,post map,point,marker,list,location,address,images,geocoder,google,shape,grouping,cluster,exif tag,pin,place,streetview,post,posts,pages,widget,image,plugin,sidebar,stylize,admin
 Requires at least: 3.0.5
 Tested up to: 4.2
 Stable tag: 1.0.1
@@ -60,7 +60,6 @@ The Google Maps inserted into a template displaying multiple posts will contain 
 *   Allows to display multiple maps in the same post/page (but displays the same points in all maps on page). 
 *   Allows to insert the map as widget on sidebars.
 *   Allows to styling the map.
-*   Allows to display the Panoramio layer on map.
 *   Allows grouping multiple markers in a cluster.
 *   Allows to display the user location on map.
 *	Generates dynamic points from the geolocation information, stored in the image's metadata when it is uploaded to WordPress.
@@ -129,8 +128,6 @@ mode:  Values allowed, DRIVING, BICYCLING and WALKING. Define the type of route.
 show_window:  Values allowed, 0 or 1. To enable or disable the infowindows. [codepeople-post-map show_window="1" ]
 
 show_default:  Values allowed, 0 or 1. Display or not an infowindow expanded by default. [codepeople-post-map show_window="1" show_default="1"]
-
-panoramiolayer:  Values allowed, 0 or 1. Displays a layer with pictures of places. [codepeople-post-map panoramiolayer="1"]
 
 markerclusterer:  Values allowed, 0 or 1. Displays a cluster with the number of points in an area. [codepeople-post-map markerclusterer="1"]
 
@@ -205,7 +202,6 @@ The settings are divided into two main groups, those belonging to the Google map
 *   Display a bubble by default: display  a bubble opened by default.
 *   Display map in post / page: When the Google maps are inserted in a post you can select whether to display the Google maps or display an icon, which displays the map, when pressed (if the Google maps are inserted into a template that allows multiple posts, this option does not apply)
 *   Options: This setting allows you to select which map controls should be available.
-*	Display the Panoramio layer: Displays a new layer on map with images published in Panoramio (available only in the premium version of plugin)
 *	Display a bundle of points in the same area, like a cluster: Allows grouping multiple points in a cluster (available only in the premium version of plugin)
 *	Display Featured Image by default: Displays the Featured Image in posts and pages in the infowindows, if the points don't have associated an image.
 *	Display the user's location: Displays a marker with the location of user that is visiting the webpage (available only in the premium version of plugin)
@@ -485,16 +481,15 @@ Now the most important part create the shape's area. To create the shape's area 
 
 01. Maps in action
 02. Styling the maps
-03. Map with Panoramio layer
-04. Map with user's location
-05. Map with shape
-06. Global maps settings
-07. Point insertion's form 
-08. Inserting map on sidebars
-09. Generates points, from the geolocation information stored on image's metadata
-10. Contact Form Builder (only available in the Developer version of the plugin)
-11. Associate the contact form with the point, and define an email address between the point's data (only available in the Developer version of the plugin)
-12. Export/Import section (only available in the Developer version of the plugin)
+03. Map with user's location
+04. Map with shape
+05. Global maps settings
+06. Point insertion's form 
+07. Inserting map on sidebars
+08. Generates points, from the geolocation information stored on image's metadata
+09. Contact Form Builder (only available in the Developer version of the plugin)
+10. Associate the contact form with the point, and define an email address between the point's data (only available in the Developer version of the plugin)
+11. Export/Import section (only available in the Developer version of the plugin)
 
 == Changelog ==
 
