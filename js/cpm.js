@@ -19,9 +19,17 @@ function CodePeoplePostMapPublic()
 		$.CPM = function(id, config){
 			this.data = $.extend(true, {}, this.defaults, config);
 			this.id = id;
-			this.markers = [];
+			this.markers = [];	
+			if( typeof this.data[ 'center' ] == 'object' && typeof this.data.center.length != 'undefined' && this.data.center.length == 2 )
+			{
+				this.data.center = new google.maps.LatLng( this.data.center[ 0 ], this.data.center[ 1 ] );
+			}
+			else
+			{
+				this.data.center = null;
+			}		
 		}; 
-		
+
 		$.CPM.prototype = {
 			defaults : {
 				markers 		: [],
@@ -88,7 +96,7 @@ function CodePeoplePostMapPublic()
 				if(c < h){
 					me.map = new google.maps.Map($('#'+me.id)[0], {
 							zoom: me.data.zoom,
-							center: m[c].latlng,
+							center: ( typeof me.data.center != 'undefined' && me.data.center != null ) ? me.data.center : m[c].latlng,
 							mapTypeId: google.maps.MapTypeId[me.data.type],
 							draggable: me.data.drag_map,
 							
@@ -139,15 +147,22 @@ function CodePeoplePostMapPublic()
 					if (h > 1 && me.data.dynamic_zoom) {
 						setTimeout( ( function( m, b ){ return function(){ m.fitBounds( b ); }; } )( map, bounds ), 500 );
 					}
-					else if (h == 1 || !me.data.dynamic_zoom) {
-						if( default_point != -1 )
+					else if (h == 1 || !me.data.dynamic_zoom) {						
+						if( typeof me.data.center != 'undefined' && me.data.center != null )
 						{
-							map.setCenter( me.markers[ default_point ].getPosition() );
-						}
+							map.setCenter( me.data.center );
+						}	
 						else
 						{
-							map.setCenter(bounds.getCenter());
-						}
+							if( default_point != -1 )
+							{
+								map.setCenter( me.markers[ default_point ].getPosition() );
+							}
+							else
+							{
+								map.setCenter(bounds.getCenter());
+							}
+						}	
 						map.setZoom(me.data.zoom);
 					}
 				}
