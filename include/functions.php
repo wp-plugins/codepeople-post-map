@@ -1091,7 +1091,12 @@ class CPM {
         $output .= "cpm_global['$this->map_id']['show_window'] = ".((isset($show_window) && $show_window) ? 'true' : 'false').";\n";
 		$output .= "cpm_global['$this->map_id']['show_default'] = ".((isset($show_default) && $show_default) ? 'true' : 'false').";\n";
         
-		  
+		// Set maps centre
+		if( !empty( $center ) )
+		{
+			$output .= "cpm_global['$this->map_id']['center'] = [".trim( $center )."];\n";
+		}	
+		
 		// Define controls
 		$output .= "cpm_global['$this->map_id']['mousewheel'] = ".((isset($mousewheel) && $mousewheel) ? 'true' : 'false').";\n";	  
 		$output .= "cpm_global['$this->map_id']['zoompancontrol'] = ".((isset($zoompancontrol) && $zoompancontrol) ? 'true' : 'false').";\n";	  
