@@ -1112,8 +1112,7 @@ class CPM {
 	 */
 	function _set_map_point($point, $index){
 		$icon = (!empty($point['icon'])) ? $point['icon'] : $this->get_configuration_option('default_icon');
-		if( strpos( $icon, 'http' ) !== 0 ) $icon = CPM_PLUGIN_URL.$icon;
-		
+		if( preg_match( '/http(s)?:\/\//i', $icon ) == 0 ) $icon = CPM_PLUGIN_URL.$icon;
         $obj = new stdClass;
         $obj->address = str_replace(array('&quot;', '&lt;', '&gt;', '&#039;', '&amp;'), array('\"', '<', '>', "'", '&'), $point['address']);
         $obj->lat = $point['latitude'];
