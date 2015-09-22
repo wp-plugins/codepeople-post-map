@@ -1012,7 +1012,7 @@ class CPM {
 			$posts = array_merge( $posts, get_posts( $query_arg ) );
 			
 			foreach( $posts as $_post){
-				$cpm_obj->populate_points($_post, true);
+				$cpm_obj->populate_points($_post);
 			}	
 		    	
 		}else{

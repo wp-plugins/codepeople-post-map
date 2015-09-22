@@ -20,6 +20,7 @@ function CodePeoplePostMapPublic()
 			this.data = $.extend(true, {}, this.defaults, config);
 			this.id = id;
 			this.markers = [];	
+			this.uniqueMarkers = [];
 			if( typeof this.data[ 'center' ] == 'object' && typeof this.data.center.length != 'undefined' && this.data.center.length == 2 )
 			{
 				this.data.center = new google.maps.LatLng( this.data.center[ 0 ], this.data.center[ 1 ] );
@@ -83,6 +84,24 @@ function CodePeoplePostMapPublic()
 						.replace(/\\'/g, "'")
 						.replace(/\\"/g, '"' );
 			},
+			_unique : function( l ){
+				var rtn = [];
+				for( var i = 0, h = l.length; i < h; i++ )
+				{
+					if( typeof this.uniqueMarkers[ l[ i ].position.toString() ] == 'undefined' )
+					{	
+						this.uniqueMarkers[ l[ i ].position.toString() ] = [];
+						rtn.push( l[ i ] );
+					}
+					else
+					{
+						l[ i ].visible = false;
+					}	
+					this.uniqueMarkers[ l[ i ].position.toString() ].push( l[ i ] );
+				}
+				
+				return rtn;
+			},
 			_load_map : function(){
 			
 				var me = this,
@@ -143,7 +162,7 @@ function CodePeoplePostMapPublic()
 							google.maps.event.addListener(marker, 'mouseout', function(){ me.unset_highlight(this); });
 						}
 					}	
-					
+					me._unique( me.markers );
 					if (h > 1 && me.data.dynamic_zoom) {
 						setTimeout( ( function( m, b ){ return function(){ m.fitBounds( b ); }; } )( map, bounds ), 500 );
 					}
@@ -204,23 +223,40 @@ function CodePeoplePostMapPublic()
 			
 			// Open the marker bubble
 			open_infowindow : function(m){
-				var me = this;
+				var me = this,
+					info   = '',
+					unique = me.uniqueMarkers[ m.position.toString() ];
+				
 				if ( !me.data.show_window ) return;
 				
-				var c  = me._str_transform( me.data.markers[ m.id ].info ),
+				// Get the information of all concident points
+				for( var i = 0, h = unique.length; i < h; i++ )
+				{
+					info += ( i < h-1 ) ? $( '<div></div>').html( me.data.markers[ unique[ i ].id ].info ).find( '.cpm-infowindow-additional' ).remove().end().html() : me.data.markers[ unique[ i ].id ].info;
+				}	
+				
+				var c  = me._str_transform( info ),
 					img = $( c ).find( 'img' );
 					
 				if( img.length )
 				{
-					$( '<img src="'+img.attr( 'src' ) +'">' ).load( (function( c, m ){
-						return function(){
-							me.infowindow.setContent( c );
-							me.infowindow.open( me.map, m );
-						};
-					} )( c, m ) );
+					var count = img.length;
+					img.each( function(){
+							$( '<img src="'+$(this).attr( 'src' ) +'">' ).load( (function( c, m ){
+							return function(){
+								count--;
+								if( count == 0 )
+								{	
+									me.infowindow.setContent( c );
+									me.infowindow.open( me.map, m );
+								}	
+							};
+						} )( c, m ) );
+					} );
 				}
 				else
 				{
+					c += '<style>.cpm-infowindow{ min-height:auto !important; } </style>';
 					me.infowindow.setContent( c );
 					me.infowindow.open( me.map, m );
 				}
