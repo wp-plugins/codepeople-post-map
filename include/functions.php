@@ -283,8 +283,8 @@ class CPM {
 		?>
 		<h1><?php _e('Maps Configuration', 'codepeople-post-map'); ?></h1>
 		<p  style="border:1px solid #E6DB55;margin-bottom:10px;padding:5px;background-color: #FFFFE0;">
-		<?php _e('For any issues with the map, go to our <a href="http://wordpress.dwbooster.com/contact-us" target="_blank">contact page</a> and leave us a message.'); ?><br/><br />
-		<?php _e('If you want test the premium version of CP Google Maps go to the following links:<br/> <a href="http://demos.net-factor.com/cp-google-maps/wp-login.php" target="_blank">Administration area: Click to access the administration area demo</a><br/> <a href="http://demos.net-factor.com/cp-google-maps/" target="_blank">Public page: Click to access the CP Google Maps</a>'); ?>
+		<?php _e('For any issues with the map, go to our <a href="http://wordpress.dwbooster.com/contact-us" target="_blank">contact page</a> and leave us a message.', 'codepeople-post-map'); ?><br/><br />
+		<?php _e('If you want test the premium version of CP Google Maps go to the following links:<br/> <a href="http://demos.net-factor.com/cp-google-maps/wp-login.php" target="_blank">Administration area: Click to access the administration area demo</a><br/> <a href="http://demos.net-factor.com/cp-google-maps/" target="_blank">Public page: Click to access the CP Google Maps</a>', 'codepeople-post-map' ); ?>
 		</p>
 		<table class="form-table">
 			<?php
@@ -312,7 +312,7 @@ class CPM {
 				</td>
 			</tr>
 			<tr valign="top">
-				<th scope="row"><label for="cpm_map_width"><?php _e('Map width:', 'codepeople-post-map')?></label></th>
+				<th scope="row"><label for="cpm_map_width"><?php _e('Map width:', 'codepeople-post-map'); ?></label></th>
 				<td>
 					<input type="text" size="4" name="cpm_map[width]" id="cpm_map_width" value="<?php echo ((isset($options['width'])) ? $options['width'] : '');?>" />
                     <span class="cpm_more_info_hndl cpm_blink_me" style="margin-left: 10px;"><a href="javascript:void(0);" onclick="cpm_display_more_info( this );">[ + more information]</a></span>
@@ -324,24 +324,24 @@ class CPM {
 				</td>
 			</tr>
 			<tr valign="top">
-				<th scope="row"><label for="cpm_map_height"><?php _e('Map height:', 'codepeople-post-map')?></label></th>
+				<th scope="row"><label for="cpm_map_height"><?php _e('Map height:', 'codepeople-post-map'); ?></label></th>
 				<td>
 					<input type="text" size="4" name="cpm_map[height]" id="cpm_map_height" value="<?php echo ((isset($options['height'])) ? $options['height'] : '');?>" />
 				</td>
 			</tr>
 			<tr valign="top">
-				<th scope="row"><label for="cpm_map_margin"><?php _e('Map margin:', 'codepeople-post-map')?></label></th>
+				<th scope="row"><label for="cpm_map_margin"><?php _e('Map margin:', 'codepeople-post-map'); ?></label></th>
 				<td>
 					<input type="text" size="4" name="cpm_map[margin]" id="cpm_map_margin" value="<?php echo ((isset($options['height'])) ? $options['margin'] : '');?>" />
 				</td>
 			</tr>
 			<tr valign="top">
-				<th scope="row"><label for="cpm_map_align"><?php _e('Map align:', 'codepeople-post-map')?></label></th>
+				<th scope="row"><label for="cpm_map_align"><?php _e('Map align:', 'codepeople-post-map'); ?></label></th>
 				<td>
 					<select id="cpm_map_align" name="cpm_map[align]">
-						<option value="left" <?php echo((isset($options['align']) && $options['align'] == 'left') ? 'selected': ''); ?>><?php _e('left'); ?></option>
-						<option value="center" <?php echo((isset($options['align']) && $options['align'] == 'center') ? 'selected': ''); ?>><?php _e('center'); ?></option>
-						<option value="right" <?php echo((isset($options['align']) && $options['align'] == 'right') ? 'selected': ''); ?>><?php _e('right'); ?></option>
+						<option value="left" <?php echo((isset($options['align']) && $options['align'] == 'left') ? 'selected': ''); ?>><?php _e('left', 'codepeople-post-map'); ?></option>
+						<option value="center" <?php echo((isset($options['align']) && $options['align'] == 'center') ? 'selected': ''); ?>><?php _e('center', 'codepeople-post-map'); ?></option>
+						<option value="right" <?php echo((isset($options['align']) && $options['align'] == 'right') ? 'selected': ''); ?>><?php _e('right', 'codepeople-post-map'); ?></option>
 					</select>	
 				</td>
 			</tr>
@@ -361,7 +361,7 @@ class CPM {
 				<td><?php $this->_deploy_languages($options); ?></td>
 			</tr>
             <tr valign="top">
-                <th scope="row"><label for="cpm_map_single"><?php _e('Allow drag the map:', 'codepeople-post-map')?></label></th>
+                <th scope="row"><label for="cpm_map_single"><?php _e('Allow drag the map:', 'codepeople-post-map'); ?></label></th>
                 <td>
                     <input type="checkbox" name="cpm_map[drag_map]" id="cpm_drag_map" <?php echo ((!isset( $options['drag_map'] ) || $options['drag_map']) ? 'CHECKED' : '');?> />
                 </td>
@@ -441,9 +441,9 @@ class CPM {
 				</tr>
 				
 				<tr valign="top">
-					<th scope="row"><label for="cpm_your_location_title" style="color:#CCCCCC;"><?php _e('Title of user\'s location:', 'codepeople-post-map');?></th>
+					<th scope="row"><label for="cpm_your_location_title" style="color:#CCCCCC;"><?php _e("Title of user's location:", 'codepeople-post-map');?></th>
 					<td>
-						<input type="text" disabled value="You are here" /><span> <?php _e('Title of user\'s location', 'codepeople-post-map');?></span><br />
+						<input type="text" disabled value="You are here" /><span> <?php _e("Title of user's location", 'codepeople-post-map');?></span><br />
 						<span style="color:#FF0000;"><?php _e( 'The feature is available only for the commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a>', 'codepeople-post-map' ); ?></span>
 					</td>
 				</tr>
@@ -487,7 +487,7 @@ class CPM {
 				<td><input type="text" name="cpm_map[points]" id="cpm_map_points" value="<?php echo ((isset($options['points'])) ? $options['points'] : '');?>" /></td>
 			</tr>
 			<tr>
-				<th scope="row"><label for="cpm_map_stylized" style="color:#CCCCCC;"><?php _e('Allow stylize the maps:', 'codepeople-post-map')?></label></th>
+				<th scope="row"><label for="cpm_map_stylized" style="color:#CCCCCC;"><?php _e('Allow stylize the maps:', 'codepeople-post-map'); ?></label></th>
 				<td valign="top">
 					<input type="checkbox" DISABLED />
 				</td>
@@ -497,7 +497,7 @@ class CPM {
 				<td>
 					<span>
 					<?php
-						_e( 'If you want change the maps\' styles, be sure to know how to create a JSON structure with the map\'s styles', 'codepeople-post-map')
+						_e( "If you want change the maps' styles, be sure to know how to create a JSON structure with the map's styles", 'codepeople-post-map');
 					?>
 					</span><br />
 					<textarea rows="10" cols="80" DISABLED READONLY ></textarea><br />
@@ -505,13 +505,13 @@ class CPM {
 				</td>
 			</tr>
             <tr>
-				<th scope="row"><label for="cpm_map_legend" style="color:#CCCCCC;"><?php _e('Display the map\'s legend:', 'codepeople-post-map')?></label></th>
+				<th scope="row"><label for="cpm_map_legend" style="color:#CCCCCC;"><?php _e("Display the map's legend:", 'codepeople-post-map');?></label></th>
 				<td valign="top">
 					<input type="checkbox" disabled readonly /> <span style="color:#FF0000;">This feature is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
 				</td>
 			</tr>
             <tr>
-				<th scope="row"><label for="cpm_map_legend_taxonomy" style="color:#CCCCCC;"><?php _e('Select the taxonomy to display on legend:', 'codepeople-post-map')?></label></th>
+				<th scope="row"><label for="cpm_map_legend_taxonomy" style="color:#CCCCCC;"><?php _e('Select the taxonomy to display on legend:', 'codepeople-post-map'); ?></label></th>
 				<td valign="top">
                     <select disabled readonly>
                         <option value=""><?php _e( 'Select a taxonomy', 'codepeople-post-map' ); ?></option>
@@ -519,13 +519,13 @@ class CPM {
                 </td>
 			</tr>
 			<tr>
-				<th scope="row"><label for="cpm_map_legend_title" style="color:#CCCCCC;"><?php _e('Enter a title for legend:', 'codepeople-post-map')?></label></th>
+				<th scope="row"><label for="cpm_map_legend_title" style="color:#CCCCCC;"><?php _e('Enter a title for legend:', 'codepeople-post-map'); ?></label></th>
 				<td valign="top">
 					<input type="text" disabled readonly />
 				</td>
 			</tr>
 			<tr>
-				<th scope="row"><label for="cpm_map_legend_class" style="color:#CCCCCC;"><?php _e('Enter a classname to be applied to the legend:', 'codepeople-post-map')?></label></th>
+				<th scope="row"><label for="cpm_map_legend_class" style="color:#CCCCCC;"><?php _e('Enter a classname to be applied to the legend:', 'codepeople-post-map'); ?></label></th>
 				<td valign="top">
 					<input type="text" disabled readonly />
 				</td>
@@ -565,8 +565,8 @@ class CPM {
 			?>
 			
 		</script>
-		<p  style="font-weight:bold;"><?php _e('For more information go to the <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map" target="_blank">CodePeople Post Map</a> plugin page'); ?></p>
-		<p  style="border:1px solid #E6DB55;margin-bottom:10px;padding:5px;background-color: #FFFFE0;"><?php _e('For any issues with the map, go to our <a href="http://wordpress.dwbooster.com/contact-us" target="_blank">contact page</a> and leave us a message.'); ?></p>
+		<p  style="font-weight:bold;"><?php _e('For more information go to the <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map" target="_blank">CodePeople Post Map</a> plugin page', 'codepeople-post-map'); ?></p>
+		<p  style="border:1px solid #E6DB55;margin-bottom:10px;padding:5px;background-color: #FFFFE0;"><?php _e('For any issues with the map, go to our <a href="http://wordpress.dwbooster.com/contact-us" target="_blank">contact page</a> and leave us a message.', 'codepeople-post-map'); ?></p>
         <p>
             <?php _e( 'To insert a map in the post follow the steps below', 'codepeople-post-map');?>:
         </p>
@@ -577,22 +577,22 @@ class CPM {
             <li><?php _e( 'Don\'t forget to press the "Update" button for save the post and map data', 'codepeople-post-map');?></li>
         </ol>
 		<div style="border:1px solid #CCC;margin-bottom:10px;min-height:60px;">
-			<h3><?php _e('Map points'); ?></h3>
+			<h3><?php _e('Map points', 'codepeople-post-map'); ?></h3>
 			<div id="points_container" style="padding:10px;">
-			<?php _e('Multiple points in the same Post/Page are available only in the <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download" target="_blank">advanced version</a>.'); ?>
+			<?php _e('Multiple points in the same Post/Page are available only in the <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download" target="_blank">advanced version</a>.', 'codepeople-post-map'); ?>
 			</div>
 		</div>
 		<div class="point_form" style="border:1px solid #CCC;">
-			<h3><?php _e('Map point description'); ?></h3>
+			<h3><?php _e('Map point description', 'codepeople-post-map'); ?></h3>
 			<table class="form-table">
 				<tr valign="top">
-					<th scope="row"><label for="cpm_name"><?php _e('Location name:', 'codepeople-post-map')?></label></th>
+					<th scope="row"><label for="cpm_name"><?php _e('Location name:', 'codepeople-post-map');?></label></th>
 					<td>
 						<input type="text" size="40" style="width:95%;" name="cpm_point[name]" id="cpm_point_name" value="<?php echo ((isset($options['name'])) ? $options['name'] : '');?>" />
 					</td>
 				</tr>
 				<tr valign="top">
-					<th scope="row"><label for="cpm_point_description"><?php _e('Location description:', 'codepeople-post-map')?></label></th>
+					<th scope="row"><label for="cpm_point_description"><?php _e('Location description:', 'codepeople-post-map');?></label></th>
 					<td>
 						<input type="text" size="40" style="width:95%;" name="cpm_point[description]" id="cpm_point_description" value="<?php echo ((isset($options['description'])) ? $options['description'] : '');?>" />
                         <br />
@@ -616,19 +616,19 @@ class CPM {
                                     <span style="font-weight:bold;">Address, latitude and longitude are required fields.</span>
 									<table>
 										<tr valign="top">
-											<th scope="row"><label for="cpm_point_address"><?php _e('Address:', 'codepeople-post-map')?></label></th>
+											<th scope="row"><label for="cpm_point_address"><?php _e('Address:', 'codepeople-post-map');?></label></th>
 											<td  width="100%">
 												<input type="text" style="width:100%;" name="cpm_point[address]" id="cpm_point_address" value="<?php echo ((isset($options['address'])) ? $options['address'] : '');?>" />
 											</td>
 										</tr>	
 										<tr valign="top">
-											<th scope="row"><label for="cpm_point_latitude"><?php _e('Latitude:', 'codepeople-post-map')?></label></th>
+											<th scope="row"><label for="cpm_point_latitude"><?php _e('Latitude:', 'codepeople-post-map');?></label></th>
 											<td>
 												<input type="text" style="width:100%;" name="cpm_point[latitude]" id="cpm_point_latitude" value="<?php echo ((isset($options['latitude'])) ? $options['latitude'] : '');?>" />
 											</td>
 										</tr>
 										<tr valign="top">
-											<th scope="row"><label for="cpm_point_longitude"><?php _e('Longitude:', 'codepeople-post-map')?></label></th>
+											<th scope="row"><label for="cpm_point_longitude"><?php _e('Longitude:', 'codepeople-post-map');?></label></th>
 											<td>
 												<input type="text" style="width:100%;" name="cpm_point[longitude]" id="cpm_point_longitude" value="<?php echo ((isset($options['longitude'])) ? $options['longitude'] : '');?>" />
 											</td>
@@ -636,7 +636,7 @@ class CPM {
 										<tr valign="top">
 											<th scope="row" style="text-align:right;"><p class="submit"><input type="button" name="cpm_point_verify" id="cpm_point_verify" value="<?php _e('Verify', 'codepeople-post-map'); ?>" onclick="cpm_checking_point(this);" /></p></th>
 											<td>
-												<label for="cpm_point_verify"><?php _e('Verify this latitude and longitude using Geocoding. This could overwrite the point address.', 'codepeople-post-map')?><span style="color:#FF0000">(<?php _e('Required: Press the button "verify" after complete the address.', 'codepeople-post-map'); ?>)</span></label>
+												<label for="cpm_point_verify"><?php _e('Verify this latitude and longitude using Geocoding. This could overwrite the point address.', 'codepeople-post-map');?><span style="color:#FF0000">(<?php _e('Required: Press the button "verify" after complete the address.', 'codepeople-post-map'); ?>)</span></label>
 											</td>
 										</tr>
 									</table>
@@ -674,26 +674,26 @@ class CPM {
 			<table class="form-table">
 				<tr valign="top">
 					<td scope="row" valign="top" style="vertical-align:top;width:350px;">
-						<label><?php _e('If you want to display the map in page / post:', 'codepeople-post-map')?></label><br />
+						<label><?php _e('If you want to display the map in page / post:', 'codepeople-post-map');?></label><br />
 						<input type="button" class="button-primary" name="cpm_map_shortcode" id="cpm_map_shortcode" value="<?php _e('Insert the map tag', 'codepeople-post-map'); ?>" style="height:40px; padding-left:30px; padding-right:30px; font-size:1.5em;" /><br />
 						<span class="cpm_more_info_hndl cpm_blink_me" style="margin-left: 10px;"><a href="javascript:void(0);" onclick="cpm_display_more_info( this );">[ + more information]</a></span>
 						<div class="cpm_more_info">
-							<p>It is possible to use attributes in the shortcode, like: width, height, zoom and the other maps attributes:</p>
+							<?php _e('<p>It is possible to use attributes in the shortcode, like: width, height, zoom and the other maps attributes:</p>
 							<p><strong>[codepeople-post-map width="450" height="500"]</strong></p>
 							<p>The premium version of plugin allows to use a special attribute "cat" (referent to category), to display all points created in a category:</p>
 							<p><strong>[codepeople-post-map cat="35"]</strong><br/>Note: the number 35 correspond to the ID of category.</p>
 							<p>or all points on website, using as category ID the value "-1"</p>
 							<p><strong>[codepeople-post-map cat="-1"]</strong></p>
 							<p>The special attribute "tag", allow to display all points that belong to the posts with a specific tag assigned, for example "mytag":</p>
-							<p><strong>[codepeople-post-map tag="mytag"]</strong></p>
+							<p><strong>[codepeople-post-map tag="mytag"]</strong></p>', 'codepeople-post-map' ); ?>
 							<br />
-							<a href="javascript:void(0)" onclick="cpm_hide_more_info( this );">[ + less information]</a>
+							<a href="javascript:void(0)" onclick="cpm_hide_more_info( this );"><?php _e('[ + less information]', 'codepeople-post-map'); ?></a>
 						</div>
 					</td>
 					<td valign="top" style="vertical-align:top;">
 						<label style="color:#CCC;"><?php _e('To display the points that belong to any category','codepeople-post-map');?>:</label><br />
 						<select size="2" multiple="multiple" style="height:48px;width:100%;" disabled>
-							<option value="-1">All points on website</option>
+							<option value="-1"><?php _e( 'All points on website', 'codepeople-post-map'); ?></option>
 						<?php
 							$categories = get_categories();
 							foreach( $categories as $category )
@@ -782,7 +782,7 @@ class CPM {
             $options['drag_map'] = ( isset( $_POST['cpm_map'][ 'drag_map' ] ) ) ? true : false;
             $options['windowhtml'] = $this->get_configuration_option('windowhtml');
 			update_option('cpm_config', $options);
-			echo '<div class="updated"><p><strong>'.__("Settings Updated").'</strong></div>';
+			echo '<div class="updated"><p><strong>'.__("Settings Updated", 'codepeople-post-map').'</strong></div>';
 		}else{
 			$options = $this->get_configuration_option();
 		}
@@ -795,45 +795,45 @@ class CPM {
 	?>
 		<table class="form-table">
 			<tr valign="top">
-				<th scope="row" style="color:#CCCCCC;"><label for="cpm_map_exif_information"><?php _e('Generate points dynamically from geolocation information included on images, when images are uploaded to WordPress:', 'codepeople-post-map')?></label></th>
+				<th scope="row" style="color:#CCCCCC;"><label for="cpm_map_exif_information"><?php _e('Generate points dynamically from geolocation information included on images, when images are uploaded to WordPress:', 'codepeople-post-map'); ?></label></th>
 				<td>
 					<input type="checkbox" DISABLED />
                     <?php _e('The geolocation information is added to the images from your mobiles or cameras, if they have associated GPS devices', 'codepeople-post-map');?>
 					<br />
-                    <span style="color:#FF0000;">The free version of CodePeople Post Map allows only one map by webpage. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
+                    <span style="color:#FF0000;"><?php _e('The free version of CodePeople Post Map allows only one map by webpage.','codepeople-post-map'); ?> <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download"><?php _e('Click Here', 'codepeople-post-map');?></a></span>
 				</td>
 			</tr>
 			
             <tr valign="top">
-				<th scope="row" style="color:#CCCCCC;"><label for="cpm_map_geolocation_information"><?php _e('Generate points dynamically from geolocation information included on posts:', 'codepeople-post-map')?></label></th>
+				<th scope="row" style="color:#CCCCCC;"><label for="cpm_map_geolocation_information"><?php _e('Generate points dynamically from geolocation information included on posts:', 'codepeople-post-map'); ?></label></th>
 				<td>
 					<input type="checkbox" DISABLED />
                     <?php _e('The geolocation information is added to the post from WordPress app in your mobile', 'codepeople-post-map');?>
 					<br />
-                    <span style="color:#FF0000;">The free version of CodePeople Post Map allows only one map by webpage. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
+                    <span style="color:#FF0000;"><?php _e('The free version of CodePeople Post Map allows only one map by webpage.', 'codepeople-post-map'); ?> <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download"><?php _e('Click Here', 'codepeople-post-map'); ?></a></span>
 				</td>
 			</tr>
 			
             <tr valign="top">
-				<th scope="row"><label for="cpm_map_search"  style="color:#CCCCCC;"><?php _e('Use points information in search results:', 'codepeople-post-map')?></label></th>
+				<th scope="row"><label for="cpm_map_search"  style="color:#CCCCCC;"><?php _e('Use points information in search results:', 'codepeople-post-map'); ?></label></th>
 				<td>
-					<input type="checkbox" name="cpm_map[search]" id="cpm_map_search" value="true" disabled /> <span style="color:#FF0000;">The search in the maps data is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
+					<input type="checkbox" name="cpm_map[search]" id="cpm_map_search" value="true" disabled /> <span style="color:#FF0000;"><?php _e('The search in the maps data is available only in commercial version of plugin.','codepeople-post-map'); ?> <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download"><?php _e('Click Here', 'codepeople-post-map'); ?></a></span>
 				</td>
 			</tr>
 			<tr valign="top">
-				<th scope="row"><label for="cpm_map_highlight" style="color:#CCCCCC;"><?php _e('Highlight post when mouse move over related point on map:', 'codepeople-post-map')?></label></th>
+				<th scope="row"><label for="cpm_map_highlight" style="color:#CCCCCC;"><?php _e('Highlight post when mouse move over related point on map:', 'codepeople-post-map'); ?></label></th>
 				<td>
-					<input type="checkbox" name="cpm_map[highlight]" id="cpm_map_highlight" value="true" disabled /> <span style="color:#FF0000;">The post highlight is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
+					<input type="checkbox" name="cpm_map[highlight]" id="cpm_map_highlight" value="true" disabled /> <span style="color:#FF0000;"><?php _e('The post highlight is available only in commercial version of plugin.', 'codepeople-post-map'); ?> <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download"><?php _e('Click Here', 'codepeople-post-map'); ?></a></span>
 				</td>
 			</tr>
 			<tr valign="top">
-				<th scope="row"><label for="cpm_map_highlight_class" style="color:#CCCCCC;"><?php _e('Highlight class:', 'codepeople-post-map')?></label></th>
+				<th scope="row"><label for="cpm_map_highlight_class" style="color:#CCCCCC;"><?php _e('Highlight class:', 'codepeople-post-map'); ?></label></th>
 				<td>
-					<input type="input" name="cpm_map[highlight_class]" id="cpm_map_highlight_class" disabled /><span style="color:#FF0000;">The highlight class is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
+					<input type="input" name="cpm_map[highlight_class]" id="cpm_map_highlight_class" disabled /><span style="color:#FF0000;"><?php _e('The highlight class is available only in commercial version of plugin.', 'codepeople-post-map');?> <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download"><?php _e('Click Here', 'codepeople-post-map'); ?></a></span>
 				</td>
 			</tr>
             <tr valign="top">
-				<th scope="row"><label for="cpm_map_post_type" style="color:#CCCCCC;"><?php _e('Allow to associate a map to the post types:', 'codepeople-post-map')?></label></th>
+				<th scope="row"><label for="cpm_map_post_type" style="color:#CCCCCC;"><?php _e('Allow to associate a map to the post types:', 'codepeople-post-map'); ?></label></th>
 				<td valign="top">
                 <?php
                     $post_types = get_post_types(array('public' => true), 'names');
@@ -849,7 +849,7 @@ class CPM {
                     _e('Posts and Pages are selected by default', 'codepeople-post-map');
                 ?>
                 <br />    
-                <span style="color:#FF0000;">Associate the maps to custom post types is available only in commercial version of plugin. <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download">Click Here</a></span>
+                <span style="color:#FF0000;"><?php _e('Associate the maps to custom post types is available only in commercial version of plugin.', 'codepeople-post-map'); ?> <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map#download"><?php _e('Click Here', 'codepeople-post-map'); ?></a></span>
 				</td>
 			</tr>
 		</table>
@@ -859,19 +859,19 @@ class CPM {
                     <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map" target="_blank">
                     <img src="<?php echo(CPM_PLUGIN_URL.'/images/routes.jpg'); ?>" width="100px" height="100px" class="cpm_thumbnail_admin" style="border:1px solid #AAA;" />
                     </a>
-                    <br />Draws Routes
+                    <br /><?php _e('Draws Routes', 'codepeople-post-map'); ?>
                 </td>
                 <td align="center">
                     <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map" target="_blank">
                     <img src="<?php echo(CPM_PLUGIN_URL.'/images/custom_post_type.jpg'); ?>" width="100px" height="100px" class="cpm_thumbnail_admin" style="border:1px solid #AAA;" />
                     </a>
-                    <br />Associate maps to custom post types
+                    <br /><?php _e('Associate maps to custom post types', 'codepeople-post-map'); ?>
                 </td>
                 <td align="center" width="30%">
                     <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map" target="_blank">
                     <img src="<?php echo(CPM_PLUGIN_URL.'/images/multiple.jpg'); ?>" width="100px" height="100px" class="cpm_thumbnail_admin" style="border:1px solid #AAA;" />
                     </a>
-                    <br/>Display a map for each post in pages with multiple posts
+                    <br/><?php _e('Display a map for each post in pages with multiple posts', 'codepeople-post-map'); ?>
                 </td>
             </tr>
         </table>
@@ -880,7 +880,7 @@ class CPM {
                 jQuery('.cpm_thumbnail_admin').mouseover(function(){jQuery(this).width(300).height(300);}).mouseout(function(){jQuery(this).width(100).height(100);});
             });
         </script>
-		<p  style="font-weight:bold;"><?php _e('For more information go to the <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map" target="_blank">CodePeople Post Map</a> plugin page'); ?></p>
+		<p  style="font-weight:bold;"><?php _e('For more information go to the <a href="http://wordpress.dwbooster.com/content-tools/codepeople-post-map" target="_blank">CodePeople Post Map</a> plugin page', 'codepeople-post-map'); ?></p>
 		<div class="submit"><input type="submit" class="button-primary" value="<?php _e('Update Settings', 'codepeople-post-map');?>" /></div>
 		<?php 
 			// create a custom nonce for submit verification later
@@ -1197,7 +1197,7 @@ class CPM {
 		Set a link to contact page
 	*/
 	function customizationLink($links) { 
-		$settings_link = '<a href="http://wordpress.dwbooster.com/contact-us" target="_blank">'.__('Request custom changes').'</a>'; 
+		$settings_link = '<a href="http://wordpress.dwbooster.com/contact-us" target="_blank">'.__('Request custom changes', 'codepeople-post-map').'</a>'; 
 		array_unshift($links, $settings_link); 
 		return $links; 
 	} // End customizationLink

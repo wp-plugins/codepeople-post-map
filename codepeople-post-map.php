@@ -1,6 +1,7 @@
 <?php
 /*
 Plugin Name: CP Google Maps 
+Text Domain: codepeople-post-map
 Version: 1.0.1
 Author: <a href="http://www.codepeople.net">CodePeople</a>
 Plugin URI: http://wordpress.dwbooster.com/content-tools/codepeople-post-map
