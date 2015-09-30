@@ -86,6 +86,7 @@ function CodePeoplePostMapPublic()
 			},
 			_unique : function( l ){
 				var rtn = [];
+				this.uniqueMarkers = [];
 				for( var i = 0, h = l.length; i < h; i++ )
 				{
 					if( typeof this.uniqueMarkers[ l[ i ].position.toString() ] == 'undefined' )
