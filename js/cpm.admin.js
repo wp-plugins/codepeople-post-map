@@ -107,7 +107,7 @@
 		if(typeof google != 'undefined' && google.maps){
 			cpm_get_latlng();
 		}else{
-			$('<script type="text/javascript" src="'+(( typeof window.location.protocol != 'undefined' ) ? window.location.protocol : 'http:' )+'//maps.google.com/maps/api/js?sensor=false'+((language) ? '&language='+language: '')+'&callback=cpm_get_latlng"></script>').appendTo('body');
+			$('<script type="text/javascript" src="'+(( typeof window.location.protocol != 'undefined' ) ? window.location.protocol : 'http:' )+'//maps.google.com/maps/api/js?callback=cpm_get_latlng'+((language) ? '&language='+language: '')+'"></script>').appendTo('body');
 		}
 	};
 	
