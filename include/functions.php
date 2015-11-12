@@ -901,6 +901,10 @@ class CPM {
 		
         $point = get_post_meta($post_id, 'cpm_point', TRUE);
 		if(!empty($point)){
+			if( !is_array( $point ) )
+			{
+				$point = array( 'address' => $point );
+			}	
 			$point['post_id'] = $post_id;
 			if(!in_array($point, $this->points)){
                 $this->points[] = $point;
